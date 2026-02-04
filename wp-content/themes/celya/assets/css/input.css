@@ -1,0 +1,330 @@
+/* Import des fonts locales depuis fonts.css */
+@import './fonts.css';
+@import './navigation.css';
+
+/* Directives Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS layers */
+@layer base {
+  /* Reset & Base Styles */
+  body {
+    @apply font-sans text-celya-dark antialiased;
+  }
+  
+  /* Titres avec Arima (serif) */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-celya-primary;
+  }
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl font-bold; }
+  h2 { @apply text-3xl md:text-4xl lg:text-5xl font-bold; }
+  h3 { @apply text-2xl md:text-3xl font-semibold; }
+  h4 { @apply text-xl md:text-2xl font-semibold; }
+  h5 { @apply text-lg md:text-xl font-medium; }
+  h6 { @apply text-base md:text-lg font-medium; }
+  /* Paragraphes */
+  p { @apply text-base leading-relaxed; }
+  /* Liens */
+  a { @apply transition-colors duration-300; }
+  /* Strong & Bold */
+  strong, b { @apply font-semibold; }
+  /* Emphasis */
+  em, i { @apply italic; }
+  
+}
+
+@layer components {
+  #wpadminbar {
+    display: none;
+  }
+
+  .radius-default {
+    border-radius: 4rem;
+  }
+  
+    /* ===================
+     BOUTONS
+     =================== */
+  
+  .btn-celya {
+    @apply bg-celya-primary text-white rounded-full px-6 py-3 
+           font-sans font-semibold uppercase tracking-wider text-sm
+           transition-all duration-300 ease-in-out
+           hover:-translate-y-0.5 
+           hover:shadow-celya-hover
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-celya-secondary {
+    @apply bg-celya-secondary text-celya-dark rounded-full px-6 py-3 
+           font-sans font-semibold uppercase tracking-wider text-sm
+           transition-all duration-300 ease-in-out
+           hover:text-white
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-celya-outline {
+    @apply border-2 border-celya-primary text-celya-primary bg-transparent 
+           rounded-full px-6 py-3 
+           font-sans font-semibold uppercase tracking-wider text-sm
+           transition-all duration-300 ease-in-out
+           hover:bg-celya-primary hover:text-white
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-celya-orange-dark {
+    @apply bg-celya-orange_dark text-white rounded-full px-6 py-3 
+           font-sans font-semibold uppercase tracking-wider text-sm
+           transition-all duration-300 ease-in-out
+           hover:-translate-y-0.5 hover:shadow-celya-hover
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  /* ===================
+     CARDS PRODUITS
+     =================== */
+  
+  .product-card {
+    @apply border border-gray-200 rounded-celya overflow-hidden
+           transition-all duration-300
+           hover:shadow-celya hover:-translate-y-1;
+  }
+  
+  /* ===================
+     TAGS PRODUITS
+     =================== */
+  
+  .tag-product-sale {
+    @apply absolute top-3 right-3 z-10
+           bg-celya-blue_dark text-celya-dark text-xs
+           px-3 py-1 rounded-full font-sans font-semibold;
+  }
+  
+  .tag-product-sucre {
+    @apply absolute top-3 right-3 z-10
+           bg-celya-orange_dark text-celya-dark text-xs
+           px-3 py-1 rounded-full font-sans font-semibold;
+  }
+  
+  .tag-product-sale {
+    @apply absolute top-3 right-3 z-10
+           bg-celya-blue_dark text-celya-dark text-xs
+           px-3 py-1 rounded-full font-sans font-semibold;
+  }
+  
+  .tag-product-specialite {
+    @apply absolute top-3 right-3 z-10
+           bg-celya-green_dark text-celya-dark text-xs
+           px-3 py-1 rounded-full font-sans font-semibold;
+  }
+  
+  /* ===================
+     SECTIONS
+     =================== */
+
+  /* Container pour centrer le contenu */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16;
+  }
+
+  /* Wrapper pour background pleine largeur */
+  .section-wrapper {
+    @apply w-full;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl md:text-4xl font-bold text-celya-primary mb-8;
+  }
+  .section-subtitle {
+    @apply text-celya-primary uppercase tracking-wider text-sm font-sans font-medium mb-2;
+  }
+  .section-container-full {
+    @apply relative w-full py-12 md:py-16;
+  }
+  
+  /* ===================
+     FORMULAIRES
+     =================== */
+  
+  .form-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg
+           font-sans text-celya-dark
+           focus:outline-none focus:ring-2 focus:border-transparent
+           transition-all duration-200;
+  }
+  
+  .form-label {
+    @apply block text-sm font-sans font-semibold text-celya-dark mb-2;
+  }
+  
+  .form-error {
+    @apply text-sm text-red-600 mt-1 font-sans;
+  }
+}
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+@layer utilities {
+  /* Text balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Background texture */
+  .bg-texture {
+    background-image: url('../images/bg-texture-biscuit.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Font weight utilities personnalisées */
+  .font-light {
+    font-weight: 300;
+  }
+  
+  .font-normal {
+    font-weight: 400;
+  }
+  
+  .font-medium {
+    font-weight: 500;
+  }
+  
+  .font-semibold {
+    font-weight: 600;
+  }
+  
+  .font-bold {
+    font-weight: 700;
+  }
+  
+  .font-extrabold {
+    font-weight: 800;
+  }
+}
+
+/* ==========================================================================
+   WOOCOMMERCE STYLES
+   ========================================================================== */
+.woocommerce {
+  /* Messages WooCommerce */
+  .woocommerce-message,
+  .woocommerce-info,
+  .woocommerce-error {
+    @apply border-l-4 p-4 mb-4 rounded font-sans;
+  }
+  
+  .woocommerce-message {
+    @apply bg-green-50 border-green-500 text-green-800;
+  }
+  
+  .woocommerce-info {
+    @apply bg-blue-50 border-blue-500 text-blue-800;
+  }
+  
+  .woocommerce-error {
+    @apply bg-red-50 border-red-500 text-red-800;
+  }
+  
+  /* Prix produits */
+  .price {
+    @apply font-sans font-bold text-celya-primary;
+  }
+  
+  /* Boutons WooCommerce */
+  .button,
+  .single_add_to_cart_button {
+    @apply btn-celya;
+  }
+  
+  /* Quantité */
+  .quantity input {
+    @apply form-input text-center;
+  }
+}
+
+/* ==========================================================================
+   ANIMATIONS PERSONNALISÉES
+   ========================================================================== */
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* ==========================================================================
+   RESPONSIVE UTILITIES
+   ========================================================================== */
+
+/* Masquer sur mobile */
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+/* Masquer sur desktop */
+@media (min-width: 768px) {
+  .hidden-desktop {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+@media print {
+  body {
+    @apply font-sans text-black;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}

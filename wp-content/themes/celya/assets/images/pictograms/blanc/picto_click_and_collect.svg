@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Click_and_collect" data-name="Click and collect" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 207.07 185.49">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <polygon class="cls-1" points="139.3 113.39 130.55 110.43 118.78 106.46 122.98 128.08 129.17 122.51 138.37 132.73 142.31 129.18 133.12 118.96 139.3 113.39"/>
+  <g>
+    <polyline class="cls-1" points="130.55 110.43 130.55 47.71 113.25 47.71"/>
+    <path class="cls-1" d="M82.05,47.71h-17.29v68.3c0,2.76,2.24,5,5,5h51.85"/>
+    <path class="cls-1" d="M82.05,53.71v-15.16c0-2.76,2.24-5,5-5h21.2c2.76,0,5,2.24,5,5v15.16"/>
+    <line class="cls-1" x1="113.25" y1="47.71" x2="82.05" y2="47.71"/>
+  </g>
+  <line class="cls-1" x1="102.14" y1="104.82" x2="109.96" y2="108.09"/>
+  <line class="cls-1" x1="108.67" y1="95.27" x2="114.49" y2="101.42"/>
+  <line class="cls-1" x1="118.78" y1="90.89" x2="122.8" y2="98.35"/>
+</svg>

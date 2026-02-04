@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Instagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 207.07 185.49">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #fff;
+      }
+
+      .cls-2 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" x="54.58" y="35.66" width="97.9" height="97.9" rx="22.92" ry="22.92"/>
+  <circle class="cls-2" cx="103.54" cy="84.61" r="17.72"/>
+  <circle class="cls-1" cx="132.58" cy="54.52" r="4.82"/>
+</svg>

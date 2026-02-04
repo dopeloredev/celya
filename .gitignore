@@ -1,0 +1,81 @@
+# WordPress core files
+/wp-admin/
+/wp-includes/
+/wp-content/index.php
+/wp-content/languages
+/wp-content/upgrade/
+/wp-content/uploads/
+
+# WordPress config
+wp-config.php
+wp-config-sample.php
+.htaccess
+
+# WordPress misc
+/.htaccess
+/license.txt
+/readme.html
+/sitemap.xml
+/sitemap.xml.gz
+
+# WP-CLI
+wp-cli.local.yml
+
+# Plugins (à décommenter si vous voulez versionner certains plugins)
+/wp-content/plugins/*
+# Pour versionner un plugin spécifique, ajoutez :
+# !/wp-content/plugins/nom-du-plugin/
+
+# Thèmes WordPress par défaut
+/wp-content/themes/twenty*/
+
+# Votre thème custom Celya sera versionné
+# Si vous avez des fichiers spécifiques à ignorer dans le thème :
+/wp-content/themes/celya/node_modules/
+/wp-content/themes/celya/package-lock.json
+
+# Cache et fichiers temporaires
+/wp-content/cache/
+/wp-content/backups/
+*.log
+*.sql
+*.sqlite
+
+# Node modules (si vous utilisez npm/webpack dans votre thème)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Fichiers de build (si vous compilez CSS/JS)
+*.map
+/wp-content/themes/celya/assets/dist/
+/wp-content/themes/celya/build/
+
+# Environnement et IDE
+.DS_Store
+.env
+.env.local
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Composer
+/vendor/
+composer.lock
+
+# Backups et exports de base de données
+*.sql.gz
+*.sql.zip
+db-backup/
+backup/
+
+# Fichiers système
+Thumbs.db
+.AppleDouble
+.LSOverride

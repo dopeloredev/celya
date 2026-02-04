@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="fait_maison" data-name="fait maison" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 207.07 185.49">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-linecap: round;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" x="59.55" y="92.75" width="97.5" height="41.26" rx="3.26" ry="3.26"/>
+  <line class="cls-1" x1="62.64" y1="92.75" x2="13.36" y2="92.75"/>
+  <g>
+    <path class="cls-2" d="M132.89,51.89l-23.86-25.56c-.4-.42-1.07-.42-1.46,0l-46.45,49.76c-.6.64-.14,1.68.73,1.68h92.89c.87,0,1.33-1.04.73-1.68l-16.56-17.74"/>
+    <path class="cls-2" d="M138.83,58.35c.14-.15.25-.31.25-.5v-30.83c0-.56-.75-1.01-1.67-1.01h-6.84c-.92,0-1.67.45-1.67,1.01v20.6"/>
+    <line class="cls-2" x1="138.92" y1="58.35" x2="132.89" y2="51.89"/>
+  </g>
+</svg>

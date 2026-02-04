@@ -1,0 +1,52 @@
+/* ==========================================================================
+   NAVIGATION - Styles pour le menu principal avec sous-menus
+   ========================================================================== */
+
+/* Menu principal */
+.menu-item {
+  position: relative;
+}
+
+/* Effet de soulignement au survol sur les items principaux */
+.menu-item > a:hover .underline-effect,
+.menu-item:hover > a .underline-effect {
+  width: 100%;
+}
+
+/* Sous-menu - Caché par défaut */
+.menu-item .sub-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Sous-menu - Visible au survol */
+.menu-item:hover > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Effet scale sur les icônes panier et compte */
+.icon-scale {
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon-scale:hover {
+  transform: scale(1.1);
+}
+
+/* Animation smooth pour le menu mobile */
+#mobile-menu {
+  transition: max-height 0.3s ease-in-out;
+}
+
+#mobile-menu.hidden {
+  max-height: 0;
+  overflow: hidden;
+}
+
+#mobile-menu:not(.hidden) {
+  max-height: 500px;
+}

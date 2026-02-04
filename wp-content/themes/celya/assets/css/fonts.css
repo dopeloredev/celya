@@ -1,0 +1,164 @@
+/**
+ * ==========================================================================
+ * FONTS LOCALES - Montserrat & Arima
+ * ==========================================================================
+ * 
+ * Ce fichier charge les fonts Montserrat et Arima depuis le dossier local :
+ * assets/fonts/
+ */
+
+/* 
+==========================================================================
+    MONTSERRAT (Sans-serif) - Pour le corps de texte
+========================================================================== 
+*/
+
+/* Light (300) */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/Montserrat-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light Italic (300) */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/Montserrat-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Regular (400) */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular Italic (400) */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/Montserrat-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Medium (500) */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/Montserrat-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium Italic (500) */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/Montserrat-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* SemiBold (600) */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SemiBold Italic (600) */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/Montserrat-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Bold (700) */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold Italic (700) */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/Montserrat-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ExtraBold (800) */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/Montserrat-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 
+==========================================================================
+   ARIMA (Serif) - Pour les titres
+========================================================================== 
+*/
+
+/* Light (300) */
+@font-face {
+  font-family: 'Arima';
+  src: url('../fonts/arima/Arima-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular (400) */
+@font-face {
+  font-family: 'Arima';
+  src: url('../fonts/arima/Arima-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium (500) */
+@font-face {
+  font-family: 'Arima';
+  src: url('../fonts/arima/Arima-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SemiBold (600) */
+@font-face {
+  font-family: 'Arima';
+  src: url('../fonts/arima/Arima-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold (700) */
+@font-face {
+  font-family: 'Arima';
+  src: url('../fonts/arima/Arima-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
