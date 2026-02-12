@@ -1,7 +1,7 @@
 {
   "name": "celya",
   "version": "1.0.0",
-  "description": "",
+  "description": "Installer npm sur macos # Download and install nvm: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash",
   "main": "postcss.config.js",
   "scripts": {
     "dev": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --watch",

@@ -1,0 +1,247 @@
+/**
+ * ==========================================================================
+ * WOOCOMMERCE CUSTOM STYLES - Celya
+ * ==========================================================================
+ */
+
+/* ========== ARCHIVE PRODUITS ========== */
+
+/* Masquer le compteur de résultats par défaut */
+.woocommerce-result-count {
+    display: none;
+}
+
+/* Personnaliser le sélecteur de tri */
+.woocommerce-ordering select {
+    @apply w-auto px-4 py-2 border border-gray-300 rounded-lg;
+    @apply font-sans text-sm text-celya-dark;
+    @apply focus:outline-none focus:ring-2 focus:ring-celya-orange_dark focus:border-transparent;
+    @apply transition-all duration-200;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+/* Grille de produits - 3 colonnes */
+.woocommerce ul.products {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+    @apply list-none m-0 p-0;
+}
+
+.woocommerce ul.products li.product {
+    @apply list-none m-0 p-0;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+/* Images produits */
+.woocommerce ul.products li.product img {
+    @apply w-full h-full object-cover;
+}
+
+/* Bouton Ajouter au panier dans la boucle */
+.woocommerce ul.products li.product .button,
+.celya-add-to-cart-wrapper .button {
+    @apply bg-celya-orange_dark text-white rounded-full;
+    @apply p-3 text-sm font-sans font-semibold;
+    @apply hover:bg-celya-primary transition-colors duration-300;
+    @apply inline-flex items-center justify-center;
+    min-width: auto !important;
+    width: 44px !important;
+    height: 44px !important;
+    /* Masquer le texte */
+    font-size: 0;
+    line-height: 0;
+}
+
+/* Icône panier en SVG */
+.woocommerce ul.products li.product .button::before,
+.celya-add-to-cart-wrapper .button::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../images/pictograms/blanc/add_to_cart.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Masquer le lien "Voir le panier" après ajout */
+.celya-add-to-cart-wrapper .added_to_cart {
+    @apply hidden;
+}
+
+/* Animation au survol du bouton */
+.woocommerce ul.products li.product .button:hover::before,
+.celya-add-to-cart-wrapper .button:hover::before {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Prix produit */
+.woocommerce ul.products li.product .price {
+    @apply text-celya-primary font-sans font-bold;
+}
+
+.woocommerce ul.products li.product .price del {
+    @apply text-gray-400 text-sm opacity-70;
+}
+
+.woocommerce ul.products li.product .price ins {
+    @apply text-celya-orange_dark no-underline;
+}
+
+/* ========== PAGINATION ========== */
+
+.woocommerce nav.woocommerce-pagination {
+    @apply mt-12 mb-0;
+}
+
+.woocommerce nav.woocommerce-pagination ul {
+    @apply flex justify-center items-center gap-2;
+    @apply border-0;
+}
+
+.woocommerce nav.woocommerce-pagination ul li {
+    @apply border-0 m-0;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+    @apply w-10 h-10 flex items-center justify-center;
+    @apply rounded-full border-0;
+    @apply font-sans text-sm font-medium;
+    @apply transition-all duration-200;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a {
+    @apply bg-white text-celya-dark;
+    @apply hover:bg-celya-orange_dark hover:text-white;
+}
+
+.woocommerce nav.woocommerce-pagination ul li span.current {
+    @apply bg-celya-orange_dark text-white;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a.prev,
+.woocommerce nav.woocommerce-pagination ul li a.next {
+    @apply bg-celya-primary text-white;
+    @apply hover:bg-celya-orange_dark;
+}
+
+/* ========== MESSAGE "AUCUN PRODUIT" ========== */
+
+.woocommerce .woocommerce-info {
+    @apply bg-celya-orange_light border-l-4 border-celya-orange_dark;
+    @apply p-6 rounded-lg;
+    @apply text-celya-dark font-sans;
+}
+
+.woocommerce .woocommerce-info::before {
+    @apply text-celya-orange_dark text-2xl mr-3;
+}
+
+/* ========== BREADCRUMB ========== */
+
+.woocommerce-breadcrumb {
+    @apply text-sm text-celya-dark mb-4;
+    @apply font-sans;
+}
+
+.woocommerce-breadcrumb a {
+    @apply text-celya-dark hover:text-celya-orange_dark transition-colors;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 1023px) {
+    /* Sur tablette, masquer la sidebar et afficher en pleine largeur */
+    .woocommerce ul.products {
+        @apply md:grid-cols-2;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Sur mobile, 1 colonne */
+    .woocommerce ul.products {
+        @apply grid-cols-1;
+    }
+    
+    .woocommerce-ordering select {
+        @apply w-full;
+    }
+}
+
+/* ========== AJUSTEMENTS SIDEBAR ========== */
+
+/* Style pour les liens de catégories */
+.product-categories a {
+    @apply flex items-center justify-between;
+    @apply text-celya-dark hover:text-celya-orange_dark;
+    @apply transition-colors duration-200;
+}
+
+.product-categories .count {
+    @apply w-6 h-6 flex items-center justify-center;
+    @apply rounded-full bg-celya-orange_dark text-white text-xs;
+}
+
+/* ========== FIX WOOCOMMERCE DEFAULTS ========== */
+
+/* Supprimer les marges par défaut */
+.woocommerce div.product,
+.woocommerce #content div.product {
+    margin-bottom: 0;
+}
+
+/* Supprimer les bordures par défaut */
+.woocommerce ul.products li.product .onsale {
+    display: none;
+}
+
+/* Fix pour les images qui débordent */
+.woocommerce ul.products li.product a img {
+    @apply w-full h-auto m-0;
+}
+
+/* Correction du formulaire de tri sur la page catégorie */
+.woocommerce .woocommerce-ordering  {
+    @apply m-0;
+}
+
+/* ========== FIX PSEUDO-ÉLÉMENTS WOOCOMMERCE ========== */
+
+/* Supprimer tous les ::before et ::after par défaut de WooCommerce */
+.woocommerce ul.products::before,
+.woocommerce ul.products::after {
+    display: none !important;
+    content: none !important;
+}
+
+.woocommerce ul.products li.product::before,
+.woocommerce ul.products li.product::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Supprimer le ::before du breadcrumb qui peut causer des problèmes */
+.woocommerce-breadcrumb::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* S'assurer que seul le bouton garde son ::before (pour l'icône) */
+.woocommerce ul.products li.product .button::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Fix pour les messages info */
+.woocommerce-info::before,
+.woocommerce-message::before {
+    display: inline-block !important;
+    /* Ces ::before sont voulus pour les icônes de message */
+}

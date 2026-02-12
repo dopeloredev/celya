@@ -1,0 +1,395 @@
+/**
+ * ==========================================================================
+ * WOOCOMMERCE SINGLE PRODUCT STYLES V2 - Celya (Style Moderne)
+ * ==========================================================================
+ */
+
+/* ========== GALERIE D'IMAGES ========== */
+
+.woocommerce-product-gallery {
+    @apply rounded-2xl overflow-hidden bg-white shadow-md;
+}
+
+.woocommerce-product-gallery__wrapper {
+    @apply m-0;
+}
+
+.woocommerce-product-gallery__image {
+    @apply w-full;
+}
+
+.woocommerce-product-gallery__image img {
+    @apply w-full h-auto object-cover;
+}
+
+/* Miniatures de la galerie */
+.flex-control-thumbs {
+    @apply flex gap-4 mt-4;
+}
+
+.flex-control-thumbs li {
+    @apply aspect-square cursor-pointer rounded-lg overflow-hidden transition-all;
+    @apply border-2 border-transparent opacity-70;
+}
+
+.flex-control-thumbs li:hover,
+.flex-control-thumbs li.flex-active {
+    @apply border-celya-orange_dark opacity-100;
+}
+
+.flex-control-thumbs li img {
+    @apply w-full h-full object-cover;
+}
+
+/* ========== DESCRIPTION ========== */
+.woocommerce-product-details__short-description {
+    @apply mb-8 mt-8;
+}
+
+/* ========== NOTES ET ÉTOILES ========== */
+
+.woocommerce-product-rating .star-rating {
+    @apply text-yellow-400;
+}
+
+.star-rating {
+    overflow: hidden;
+    position: relative;
+    height: 1.2em;
+    line-height: 1.2;
+    font-size: 1em;
+    width: 5.4em;
+    font-family: star;
+}
+
+.star-rating::before {
+    content: "\53\53\53\53\53";
+    color: #d4d4d8;
+    float: left;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.star-rating span {
+    overflow: hidden;
+    float: left;
+    top: 0;
+    left: 0;
+    position: absolute;
+    padding-top: 1.5em;
+}
+
+.star-rating span::before {
+    @apply text-celya-orange_dark;
+    content: "\53\53\53\53\53";
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+/* ========== SÉLECTEUR DE QUANTITÉ MODERNE ========== */
+
+.quantity {
+    @apply inline-flex items-center;
+}
+
+.quantity input.qty {
+    @apply w-16 h-14 text-center border-0 font-bold text-celya-dark text-lg;
+    -moz-appearance: textfield;
+}
+
+.quantity input.qty::-webkit-outer-spin-button,
+.quantity input.qty::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity-minus,
+.quantity-plus {
+    @apply w-12 h-14 flex items-center justify-center;
+    @apply text-celya-dark hover:bg-celya-light transition-colors cursor-pointer;
+}
+
+/* ========== VARIATIONS MODERNES ========== */
+/* On cache le menu de sélection par défaut des variations */
+.woocommerce div.product form.cart .variations select {
+    display: none !important;
+}
+
+.variation-selector {
+    @apply mb-6;
+}
+
+.variation-selector label {
+    @apply font-serif text-celya-primary block text-lg mb-3 tracking-wider;
+}
+
+.variation-buttons {
+    @apply grid grid-cols-2 sm:grid-cols-3 gap-3;
+}
+
+/* État par défaut : bordure gris clair */
+.variation-option {
+    @apply relative px-4 py-3 bg-white;
+    @apply border-2 border-gray-600 rounded-xl;
+    @apply text-sm font-semibold text-celya-dark;
+    @apply transition-all duration-200 shadow-sm cursor-pointer;
+}
+
+/* Hover : bordure orange + fond orange clair */
+.variation-option:hover {
+    @apply border-celya-orange_dark bg-celya-orange_light shadow-md;
+}
+
+/* Alternative avec classe personnalisée */
+.variation-option.selected {
+    @apply bg-celya-orange_light border-celya-orange_dark;
+}
+
+/* Zone d'info variation */
+.single_variation {
+    @apply bg-celya-orange_light rounded-xl p-4;
+}
+
+.single_variation .woocommerce-variation-description {
+    @apply text-sm text-celya-dark mb-2;
+}
+
+.single_variation .woocommerce-variation-price {
+    @apply mb-2;
+}
+
+.single_variation .woocommerce-variation-availability .stock {
+    @apply text-sm font-semibold;
+}
+
+.single_variation .woocommerce-variation-availability .stock.in-stock {
+    @apply text-green-600;
+}
+
+.single_variation .woocommerce-variation-availability .stock.out-of-stock {
+    @apply text-red-600;
+}
+
+/* ========== TRUST BADGES MODERNES ========== */
+
+.trust-badge {
+    @apply flex items-start gap-4;
+}
+
+.trust-badge-icon {
+    @apply w-10 h-10 rounded-full bg-celya-orange_light flex items-center justify-center flex-shrink-0;
+}
+
+.trust-badge-icon svg {
+    @apply w-5 h-5 text-celya-orange_dark;
+}
+
+.trust-badge-content h4 {
+    @apply font-bold text-sm text-celya-dark mb-1;
+}
+
+.trust-badge-content p {
+    @apply text-xs text-gray-600;
+}
+
+/* ========== ONGLETS MODERNES ========== */
+
+.woocommerce-tabs {
+    @apply bg-white rounded-2xl shadow-sm overflow-hidden;
+}
+
+.woocommerce-tabs .tabs {
+    @apply flex border-b border-gray-200 m-0 p-0;
+    list-style: none;
+}
+
+.woocommerce-tabs .tabs li {
+    @apply m-0 p-0;
+}
+
+.woocommerce-tabs .tabs li a {
+    @apply block px-6 py-4 text-sm font-bold text-celya-dark transition-colors;
+    @apply hover:text-celya-orange_dark uppercase tracking-wider;
+}
+
+.woocommerce-tabs .tabs li.active a {
+    @apply text-celya-orange_dark border-b-2 border-celya-orange_dark;
+}
+
+.woocommerce-Tabs-panel {
+    @apply text-celya-dark leading-relaxed p-8;
+}
+
+/* ========== AVIS CLIENTS ========== */
+
+#reviews .commentlist {
+    @apply list-none m-0 p-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+#reviews .comment {
+    @apply bg-white rounded-2xl shadow-sm border border-celya-light p-6 transition-all;
+    @apply hover:shadow-md hover:border-celya-orange_light;
+}
+
+#reviews .comment_container {
+    @apply flex flex-col gap-4;
+}
+
+#reviews .comment-text {
+    @apply text-sm text-celya-dark;
+}
+
+#reviews .meta {
+    @apply flex items-center justify-between mb-3;
+}
+
+#reviews .woocommerce-review__author {
+    @apply font-bold text-celya-primary;
+}
+
+#reviews .woocommerce-review__published-date {
+    @apply text-xs text-gray-500;
+}
+
+#reviews .description {
+    @apply text-sm text-celya-dark leading-relaxed;
+}
+
+/* ========== PRODUITS ASSOCIÉS MODERNES ========== */
+
+.related.products,
+.upsells.products {
+    @apply mt-16;
+}
+
+.related.products h2,
+.upsells.products h2 {
+    @apply font-serif text-3xl font-bold text-celya-primary mb-8;
+}
+
+.related.products ul.products,
+.upsells.products ul.products {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+/* Produits associés - styles sans @apply group */
+.related.products ul.products li.product,
+.upsells.products ul.products li.product {
+    cursor: pointer;
+}
+
+.related.products ul.products li.product .aspect-square,
+.upsells.products ul.products li.product .aspect-square {
+    @apply rounded-2xl overflow-hidden bg-white border border-celya-light mb-4;
+}
+
+.related.products ul.products li.product img,
+.upsells.products ul.products li.product img {
+    @apply w-full h-full object-cover transition-transform duration-500;
+}
+
+.related.products ul.products li.product:hover img,
+.upsells.products ul.products li.product:hover img {
+    transform: scale(1.05);
+}
+
+/* ========== STOCK ========== */
+
+.stock {
+    @apply text-sm mb-4 font-semibold;
+}
+
+.stock.in-stock {
+    @apply text-green-600;
+}
+
+.stock.out-of-stock {
+    @apply text-red-600 font-bold;
+}
+
+/* ========== MESSAGES ========== */
+
+.woocommerce-message {
+    @apply bg-green-50 border-l-4 border-green-500 p-4 rounded-lg mb-6;
+    @apply flex items-center gap-3;
+}
+
+.woocommerce-message::before {
+    content: "✓";
+    @apply text-green-500 text-2xl font-bold;
+}
+
+.woocommerce-message a.button {
+    @apply bg-green-500 text-white px-4 py-2 rounded-lg;
+    @apply hover:bg-green-600 transition-colors;
+}
+
+.woocommerce-info {
+    @apply bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg;
+    @apply text-blue-900;
+}
+
+.woocommerce-error {
+    @apply bg-red-50 border-l-4 border-red-500 p-4 rounded-lg;
+    @apply text-red-900;
+}
+
+/* ========== PRIX ========== */
+
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+    @apply text-celya-primary font-sans font-extrabold;
+}
+
+.woocommerce div.product p.price del,
+.woocommerce div.product span.price del {
+    @apply text-gray-400 opacity-70 text-2xl;
+}
+
+.woocommerce div.product p.price ins,
+.woocommerce div.product span.price ins {
+    @apply text-celya-orange_dark no-underline;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 1023px) {
+    .woocommerce div.product .product-images,
+    .woocommerce div.product .product-summary {
+        @apply mb-8;
+    }
+    
+    .related.products ul.products,
+    .upsells.products ul.products {
+        @apply lg:grid-cols-3;
+    }
+}
+
+@media (max-width: 767px) {
+    .woocommerce-tabs .tabs {
+        @apply flex-col;
+    }
+    
+    .woocommerce-tabs .tabs li {
+        @apply w-full border-b border-gray-200;
+    }
+    
+    .woocommerce-tabs .tabs li:last-child {
+        @apply border-b-0;
+    }
+    
+    #reviews .commentlist {
+        @apply grid-cols-1;
+    }
+    
+    .related.products ul.products,
+    .upsells.products ul.products {
+        @apply grid-cols-1;
+    }
+    
+    .variation-buttons {
+        @apply grid-cols-1;
+    }
+}

@@ -11,6 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Charger les classes personnalisées
 require_once get_template_directory() . '/inc/functions-loader.php';
+require_once get_template_directory() . '/inc/woocommerce-breadcrumb-setup.php';
 
 /**
  * 1. SETUP DU THÈME
