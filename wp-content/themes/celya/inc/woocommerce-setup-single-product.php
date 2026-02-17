@@ -18,130 +18,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 /**
- * Personnaliser les onglets de la fiche produit
- */
-function celya_customize_product_tabs( $tabs ) {
-    
-    // Renommer l'onglet Description
-    if ( isset( $tabs['description'] ) ) {
-        $tabs['description']['title'] = 'Description';
-        $tabs['description']['priority'] = 10;
-    }
-    
-    // Renommer l'onglet Informations complémentaires
-    if ( isset( $tabs['additional_information'] ) ) {
-        $tabs['additional_information']['title'] = 'Caractéristiques';
-        $tabs['additional_information']['priority'] = 20;
-    }
-    
-    // Ajouter un onglet "Ingrédients & Allergènes"
-    $tabs['ingredients'] = array(
-        'title'    => 'Ingrédients & Allergènes',
-        'priority' => 30,
-        'callback' => 'celya_ingredients_tab_content',
-    );
-    
-    // Ajouter un onglet "Valeurs nutritionnelles"
-    $tabs['nutrition'] = array(
-        'title'    => 'Valeurs nutritionnelles',
-        'priority' => 40,
-        'callback' => 'celya_nutrition_tab_content',
-    );
-    
-    // Ajouter un onglet "Conservation"
-    $tabs['conservation'] = array(
-        'title'    => 'Conservation',
-        'priority' => 50,
-        'callback' => 'celya_conservation_tab_content',
-    );
-    
-    // Renommer et repositionner l'onglet Avis
-    if ( isset( $tabs['reviews'] ) ) {
-        $tabs['reviews']['title'] = 'Avis';
-        $tabs['reviews']['priority'] = 60;
-    }
-    
-    return $tabs;
-}
-add_filter( 'woocommerce_product_tabs', 'celya_customize_product_tabs', 98 );
-
-/**
- * Contenu onglet Ingrédients & Allergènes
- */
-function celya_ingredients_tab_content() {
-    global $product;
-    
-    $ingredients = $product->get_meta( '_ingredients' );
-    $allergenes = $product->get_meta( '_allergenes' );
-    
-    if ( $ingredients ) {
-        echo '<div class="ingredients-content prose max-w-none">';
-        echo '<h3 class="font-serif text-lg font-bold text-celya-primary mb-3">Ingrédients</h3>';
-        echo '<div class="text-celya-dark leading-relaxed">' . wp_kses_post( wpautop( $ingredients ) ) . '</div>';
-        echo '</div>';
-    }
-    
-    if ( $allergenes ) {
-        echo '<div class="allergenes-content prose max-w-none mt-6">';
-        echo '<h3 class="font-serif text-lg font-bold text-celya-primary mb-3">Allergènes</h3>';
-        echo '<div class="text-celya-dark leading-relaxed bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">' . wp_kses_post( wpautop( $allergenes ) ) . '</div>';
-        echo '</div>';
-    }
-    
-    if ( ! $ingredients && ! $allergenes ) {
-        echo '<p class="text-celya-dark">Information non disponible.</p>';
-    }
-}
-
-/**
- * Contenu onglet Valeurs nutritionnelles
- */
-function celya_nutrition_tab_content() {
-    global $product;
-    
-    $nutrition = $product->get_meta( '_nutrition_table' );
-    
-    if ( $nutrition ) {
-        echo '<div class="nutrition-content">';
-        echo '<div class="text-celya-dark leading-relaxed">' . wp_kses_post( wpautop( $nutrition ) ) . '</div>';
-        echo '</div>';
-    } else {
-        echo '<p class="text-celya-dark">Information non disponible.</p>';
-    }
-}
-
-/**
- * Contenu onglet Conservation
- */
-function celya_conservation_tab_content() {
-    global $product;
-    
-    $conservation = $product->get_meta( '_conservation' );
-    $conseil_degustation = $product->get_meta( '_conseil_degustation' );
-    
-    if ( $conservation ) {
-        echo '<div class="conservation-content prose max-w-none">';
-        echo '<div class="text-celya-dark leading-relaxed">' . wp_kses_post( wpautop( $conservation ) ) . '</div>';
-        echo '</div>';
-    }
-    
-    if ( $conseil_degustation ) {
-        echo '<div class="conseil-content prose max-w-none mt-6">';
-        echo '<h3 class="font-serif text-lg font-bold text-celya-primary mb-3">Conseil dégustation :</h3>';
-        echo '<div class="text-celya-dark leading-relaxed bg-celya-orange_light p-4 rounded">' . wp_kses_post( wpautop( $conseil_degustation ) ) . '</div>';
-        echo '</div>';
-    }
-    
-    if ( ! $conservation && ! $conseil_degustation ) {
-        echo '<p class="text-celya-dark">Information non disponible.</p>';
-    }
-}
-
-/**
  * Ajouter des champs personnalisés dans l'admin produit
  */
+/**
+ * Ajouter les champs personnalisés dans l'admin produit
+ */
 function celya_add_product_custom_fields() {
-    global $post;
     
     echo '<div class="options_group">';
     
@@ -176,7 +58,7 @@ function celya_add_product_custom_fields() {
     woocommerce_wp_textarea_input( array(
         'id'          => '_nutrition_table',
         'label'       => __( 'Valeurs nutritionnelles', 'celya' ),
-        'placeholder' => 'Tableau nutritionnel...',
+        'placeholder' => 'Pour 100g : ...',
         'desc_tip'    => true,
         'description' => __( 'Tableau des valeurs nutritionnelles pour 100g', 'celya' ),
     ));
@@ -185,7 +67,7 @@ function celya_add_product_custom_fields() {
     woocommerce_wp_textarea_input( array(
         'id'          => '_conservation',
         'label'       => __( 'Conservation', 'celya' ),
-        'placeholder' => 'Conditions de conservation...',
+        'placeholder' => 'À conserver dans un endroit sec...',
         'desc_tip'    => true,
         'description' => __( 'Instructions de conservation', 'celya' ),
     ));
@@ -194,7 +76,7 @@ function celya_add_product_custom_fields() {
     woocommerce_wp_textarea_input( array(
         'id'          => '_conseil_degustation',
         'label'       => __( 'Conseil dégustation', 'celya' ),
-        'placeholder' => 'Conseils de dégustation...',
+        'placeholder' => 'À déguster avec...',
         'desc_tip'    => true,
         'description' => __( 'Conseils pour déguster le produit', 'celya' ),
     ));

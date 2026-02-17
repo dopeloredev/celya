@@ -10,8 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Charger les classes personnalisées
-require_once get_template_directory() . '/inc/functions-loader.php';
-require_once get_template_directory() . '/inc/woocommerce-breadcrumb-setup.php';
+require_once get_template_directory() . '/inc/class-loader.php';
+
+require_once get_template_directory() . '/inc/woocommerce-setup.php';
+require_once get_template_directory() . '/inc/woocommerce-setup-breadcrumb.php';
+require_once get_template_directory() . '/inc/woocommerce-setup-single-product.php';
+require_once get_template_directory() . '/inc/woocommerce-setup-single-product-tabs.php';
 
 /**
  * 1. SETUP DU THÈME

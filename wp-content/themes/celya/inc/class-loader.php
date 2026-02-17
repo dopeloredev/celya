@@ -24,12 +24,10 @@ function celya_load_custom_classes() {
     
     // Liste des classes à charger
     $classes = array(
-        'class-celya-walker-desktop-nav-menu.php',
-        //'class-celya-walker-mobile-nav-menu.php',
-        
+        'class-celya-walker-desktop-nav-menu.php',     
+
         // Ajoutez d'autres classes ici si nécessaire
-        // 'class-celya-custom-widget.php',
-        // 'class-celya-ajax-handler.php',
+        //'class-celya-walker-mobile-nav-menu.php',
     );
     
     // Charger chaque classe

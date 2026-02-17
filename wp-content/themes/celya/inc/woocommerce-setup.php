@@ -3,7 +3,7 @@
  * Configuration WooCommerce pour page catégorie - Celya
  * 
  * À ajouter dans functions.php :
- * require_once get_template_directory() . '/inc/woocommerce-category-setup.php';
+ * require_once get_template_directory() . '/inc/woocommerce-setup.php';
  * 
  * @package Celya
  */
