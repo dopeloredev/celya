@@ -218,6 +218,13 @@ foreach ( $includes as $file ) {
     }
 }
 
+// Permet d'autoriser l'import de fichiers SVG
+function celya_allow_svg( $mimes ) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'celya_allow_svg' );
+
 /**
  * 7. OPTIMISATIONS
  */

@@ -17,8 +17,8 @@
         <p class="text-lg md:text-xl mb-8 max-w-2xl text-white">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-        <a href="<?php echo home_url('/personnalisation'); ?>" class="btn-celya-orange-dark">
-            Personnaliser mon biscuit
+        <a href="<?php echo home_url('/shop'); ?>" class="btn-celya-orange-dark">
+            Voir tous nos produits
         </a>
     </div>
 </section>

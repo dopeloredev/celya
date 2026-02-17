@@ -17,13 +17,20 @@
             <!-- Logo -->
             <div class="flex-shrink-0">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center">
-                    <?php if (has_custom_logo()) : ?>
-                        <?php the_custom_logo(); ?>
-                    <?php else : ?>
+
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo_celya_header_desktop.svg" 
+                             alt="<?php bloginfo('name'); ?>" 
+                             class="h-16 w-auto" style="height: 4rem;">
+
+                    <?php //if (has_custom_logo()) : ?>
+                        <?php //the_custom_logo(); ?>
+                    <?php //else : ?>
+                        <!--
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo_marron_fond_blanc.svg" 
                              alt="<?php bloginfo('name'); ?>" 
                              class="h-12 w-auto">
-                    <?php endif; ?>
+                    -->
+                    <?php //endif; ?>
                 </a>
             </div>
 

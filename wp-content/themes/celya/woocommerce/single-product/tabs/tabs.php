@@ -12,22 +12,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Filter tabs and allow third parties to add their own.
+ * On retire l'onglet "reviews" pour l'afficher séparément en dessous.
  */
 $product_tabs = apply_filters( 'woocommerce_product_tabs', array() );
+
+// Retirer l'onglet avis des onglets — il sera affiché séparément
+unset( $product_tabs['reviews'] );
 
 if ( ! empty( $product_tabs ) ) : ?>
 
     <div class="woocommerce-tabs wc-tabs-wrapper bg-white rounded-celya-m shadow-sm">
         
         <!-- Navigation des onglets -->
-        <ul class="tabs wc-tabs flex border-b border-gray-200" role="tablist">
+        <ul class="tabs wc-tabs flex border-b border-gray-200 overflow-x-auto" role="tablist">
             <?php 
             $tab_index = 0;
             foreach ( $product_tabs as $key => $product_tab ) : 
                 $is_active = $tab_index === 0 ? 'active' : '';
                 ?>
-                <li class="<?php echo esc_attr( $key ); ?>_tab <?php echo esc_attr( $is_active ); ?>" id="tab-title-<?php echo esc_attr( $key ); ?>" role="tab" aria-controls="tab-<?php echo esc_attr( $key ); ?>">
-                    <a href="#tab-<?php echo esc_attr( $key ); ?>" class="block px-6 py-4 text-sm font-semibold transition-colors <?php echo $is_active ? 'text-celya-orange_dark border-b-2 border-celya-orange_dark' : 'text-celya-dark hover:text-celya-orange_dark'; ?>">
+                <li class="<?php echo esc_attr( $key ); ?>_tab <?php echo esc_attr( $is_active ); ?> flex-shrink-0" id="tab-title-<?php echo esc_attr( $key ); ?>" role="tab" aria-controls="tab-<?php echo esc_attr( $key ); ?>">
+                    <a href="#tab-<?php echo esc_attr( $key ); ?>" class="block px-6 py-4 text-sm font-semibold transition-colors whitespace-nowrap <?php echo $is_active ? 'text-celya-orange_dark border-b-2 border-celya-orange_dark' : 'text-celya-dark hover:text-celya-orange_dark'; ?>">
                         <?php echo wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', $product_tab['title'], $key ) ); ?>
                     </a>
                 </li>
