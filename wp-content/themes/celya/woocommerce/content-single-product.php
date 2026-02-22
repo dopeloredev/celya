@@ -168,7 +168,7 @@ if ( post_password_required() ) {
     <?php get_template_part( 'template-parts/single-product-reviews' ); ?>
 
     <?php
-        // affichage des related products
+        // AFFICHAGE DES PRODUITS ASSOCIES
         woocommerce_upsell_display();
         woocommerce_output_related_products();
     ?>

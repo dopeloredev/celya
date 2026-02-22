@@ -13,11 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once get_template_directory() . '/inc/class-loader.php';
 
 
-require_once get_template_directory() . '/inc/woocommerce-custom-fields.php';
 require_once get_template_directory() . '/inc/woocommerce-setup.php';
+require_once get_template_directory() . '/inc/woocommerce-custom-fields.php';
+require_once get_template_directory() . '/inc/woocommerce-setup-single-product-tabs.php';
 require_once get_template_directory() . '/inc/woocommerce-setup-breadcrumb.php';
 require_once get_template_directory() . '/inc/woocommerce-setup-single-product.php';
-require_once get_template_directory() . '/inc/woocommerce-setup-single-product-tabs.php';
 
 /**
  * 1. SETUP DU THÈME

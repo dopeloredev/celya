@@ -8,12 +8,17 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$nutrition = array_filter( $specs['nutrition'] ?? array(), fn($r) => ! empty( $r['nutriment'] ) );
+$nutrition = array_filter( $specs['nutrition'] ?? array(), fn( $r ) => ! empty( $r['nutriment'] ) );
 ?>
 
 <div class="celya-tab celya-tab--nutrition">
 
-    <?php if ( ! empty( $nutrition ) ) : ?>
+    <?php if ( empty( $nutrition ) ) : ?>
+    <p class="text-sm text-gray-400 italic py-4">
+        <?php esc_html_e( 'Informations non disponibles pour le moment.', 'celya' ); ?>
+    </p>
+
+    <?php else : ?>
     <div class="celya-spec-block p-5 bg-celya-light rounded-celya-s">
         <h3 class="text-celya-primary font-serif font-bold text-lg mb-3">
             📊 <?php esc_html_e( 'Valeurs nutritionnelles', 'celya' ); ?>
