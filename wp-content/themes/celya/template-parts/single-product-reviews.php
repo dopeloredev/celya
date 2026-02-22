@@ -27,7 +27,7 @@ $all_comments = get_comments( array(
 ));
 ?>
 
-<div id="reviews" class="woocommerce-Reviews mt-16">
+<div id="reviews" class="woocommerce-Reviews mt-4">
 
     <?php if ( $rating_count > 0 ) :
 
@@ -46,10 +46,10 @@ $all_comments = get_comments( array(
 
     <!-- Bloc résumé des avis -->
     <div class="bg-celya-orange_light rounded-celya-m p-10 mb-12">
-        <div class="grid grid-cols-1 md:grid-cols-6 gap-8 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
             
-            <div class="text-center md:col-span-2 border-r-celya-orange_dark border-r-2 pr-12">
+            <div class="text-center border-r-celya-orange_dark border-r-2 pr-12">
                 <!-- Moyenne avis -->
                 <div class="text-3xl font-bold font-serif text-celya-primary mb-2">
                     <?php echo esc_html( $average_formatted ); ?>/5
@@ -80,7 +80,7 @@ $all_comments = get_comments( array(
             </div>
 
             <!-- Barres de distribution -->
-            <div class="space-y-3 md:col-span-4">
+            <div class="space-y-3">
                 <?php if ( ! empty( $all_comments ) ) :
                     $excerpt = wp_trim_words( $all_comments[0]->comment_content, 30, '...' );
                     ?>

@@ -194,33 +194,38 @@
     @apply text-xs text-gray-600;
 }
 
-/* ========== ONGLETS MODERNES ========== */
+/* ========== PRODUCT TABS ========== */
 
 .woocommerce-tabs {
-    @apply bg-white rounded-2xl shadow-sm overflow-hidden;
+    @apply overflow-hidden;
 }
 
-.woocommerce-tabs .tabs {
-    @apply flex border-b border-gray-200 m-0 p-0;
-    list-style: none;
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+    @apply flex m-0 p-0;
 }
 
-.woocommerce-tabs .tabs li {
-    @apply m-0 p-0;
+.woocommerce div.product .woocommerce-tabs ul.tabs::before {
+    @apply border-b border-gray-200;
 }
 
-.woocommerce-tabs .tabs li a {
-    @apply block px-6 py-4 text-sm font-bold text-celya-dark transition-colors;
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+    @apply bg-transparent block m-0 border-0 px-6 py-1 transition-colors;
     @apply hover:text-celya-orange_dark uppercase tracking-wider;
+    position: unset;
 }
 
-.woocommerce-tabs .tabs li.active a {
-    @apply text-celya-orange_dark border-b-2 border-celya-orange_dark;
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+    @apply text-sm text-celya-dark font-normal;
 }
 
-.woocommerce-Tabs-panel {
-    @apply text-celya-dark leading-relaxed p-8;
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+    @apply bg-transparent border-b-2 border-celya-orange_dark;
 }
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+    @apply text-celya-orange_dark font-semibold;
+}
+
 
 /* ========== AVIS CLIENTS ========== */
 

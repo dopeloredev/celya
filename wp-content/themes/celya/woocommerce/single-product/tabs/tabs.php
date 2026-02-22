@@ -21,17 +21,21 @@ unset( $product_tabs['reviews'] );
 
 if ( ! empty( $product_tabs ) ) : ?>
 
-    <div class="woocommerce-tabs wc-tabs-wrapper bg-white rounded-celya-m shadow-sm">
+    <div class="woocommerce-tabs">
         
         <!-- Navigation des onglets -->
-        <ul class="tabs wc-tabs flex border-b border-gray-200 overflow-x-auto" role="tablist">
+        <ul class="tabs wc-tabs overflow-x-auto" role="tablist">
             <?php 
             $tab_index = 0;
             foreach ( $product_tabs as $key => $product_tab ) : 
                 $is_active = $tab_index === 0 ? 'active' : '';
                 ?>
-                <li class="<?php echo esc_attr( $key ); ?>_tab <?php echo esc_attr( $is_active ); ?> flex-shrink-0" id="tab-title-<?php echo esc_attr( $key ); ?>" role="tab" aria-controls="tab-<?php echo esc_attr( $key ); ?>">
-                    <a href="#tab-<?php echo esc_attr( $key ); ?>" class="block px-6 py-4 text-sm font-semibold transition-colors whitespace-nowrap <?php echo $is_active ? 'text-celya-orange_dark border-b-2 border-celya-orange_dark' : 'text-celya-dark hover:text-celya-orange_dark'; ?>">
+                <li class="<?php echo esc_attr( $key ); ?>_tab <?php echo esc_attr( $is_active ); ?> flex-shrink-0" 
+                    id="tab-title-<?php echo esc_attr( $key ); ?>" 
+                    role="tab" 
+                    aria-controls="tab-<?php echo esc_attr( $key ); ?>">
+                    
+                    <a href="#tab-<?php echo esc_attr( $key ); ?>" class="text-sm whitespace-nowrap">
                         <?php echo wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', $product_tab['title'], $key ) ); ?>
                     </a>
                 </li>
@@ -42,7 +46,7 @@ if ( ! empty( $product_tabs ) ) : ?>
         </ul>
         
         <!-- Contenu des onglets -->
-        <div class="wc-tab-content p-8">
+        <div class="wc-tab-content pt-8 pb-12 px-1">
             <?php 
             $tab_index = 0;
             foreach ( $product_tabs as $key => $product_tab ) : 
@@ -75,12 +79,12 @@ if ( ! empty( $product_tabs ) ) : ?>
             
             // Désactiver tous les onglets
             $('.wc-tabs li').removeClass('active');
-            $('.wc-tabs li a').removeClass('text-celya-orange_dark border-b-2 border-celya-orange_dark').addClass('text-celya-dark');
+            $('.wc-tabs li a').removeClass('text-celya-orange_dark').addClass('text-celya-dark');
             $('.wc-tab').hide().removeClass('active');
             
             // Activer l'onglet cliqué
             $(this).closest('li').addClass('active');
-            $(this).removeClass('text-celya-dark').addClass('text-celya-orange_dark border-b-2 border-celya-orange_dark');
+            $(this).removeClass('text-celya-dark').addClass('text-celya-orange_dark');
             $(target).show().addClass('active');
         });
     });

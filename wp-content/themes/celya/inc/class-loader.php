@@ -3,7 +3,7 @@
  * Chargement automatique des classes personnalisées
  * 
  * À ajouter dans functions.php :
- * require_once get_template_directory() . '/inc/functions-loader.php';
+ * require_once get_template_directory() . '/inc/class-loader.php';
  * 
  * @package Celya
  * @since 1.0.0

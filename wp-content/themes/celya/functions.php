@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Charger les classes personnalisées
 require_once get_template_directory() . '/inc/class-loader.php';
 
+require_once get_template_directory() . '/inc/woocommerce-custom-fields.php';
 require_once get_template_directory() . '/inc/woocommerce-setup.php';
 require_once get_template_directory() . '/inc/woocommerce-setup-breadcrumb.php';
 require_once get_template_directory() . '/inc/woocommerce-setup-single-product.php';
@@ -207,29 +208,6 @@ function celya_widgets_init() {
 add_action( 'widgets_init', 'celya_widgets_init' );
 
 /**
- * 6. INCLURE FICHIERS ADDITIONNELS
- */
-$includes = array(
-    '/inc/woocommerce-setup.php',
-    '/inc/custom-fields.php',
-    // '/inc/b2b-functions.php', // Décommenter quand prêt
-);
-
-foreach ( $includes as $file ) {
-    $filepath = get_template_directory() . $file;
-    if ( file_exists( $filepath ) ) {
-        require $filepath;
-    }
-}
-
-// Permet d'autoriser l'import de fichiers SVG
-function celya_allow_svg( $mimes ) {
-    $mimes['svg'] = 'image/svg+xml';
-    return $mimes;
-}
-add_filter( 'upload_mimes', 'celya_allow_svg' );
-
-/**
  * 7. OPTIMISATIONS
  */
 
@@ -242,3 +220,10 @@ add_action( 'init', 'celya_disable_emojis' );
 
 // Lazy loading natif
 add_filter( 'wp_lazy_loading_enabled', '__return_true' );
+
+// Permet d'autoriser l'import de fichiers SVG
+function celya_allow_svg( $mimes ) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'celya_allow_svg' );
