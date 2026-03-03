@@ -134,6 +134,11 @@ function celya_customize_product_tabs( $tabs ) {
                 'priority' => 50,
                 'callback' => 'celya_tab_conservation',
             );
+            $tabs['celya_degustation'] = array(
+                'title'    => __( 'Degustation', 'celya' ),
+                'priority' => 60,
+                'callback' => 'celya_tab_degustation',
+            );
         }
     } else {
         // Produit simple : conditionnel selon les données
@@ -161,11 +166,19 @@ function celya_customize_product_tabs( $tabs ) {
             );
         }
 
-        if ( ! empty( $specs['conservation'] ) || ! empty( $specs['degustation'] ) ) {
+        if ( ! empty( $specs['conservation'] )) {
             $tabs['celya_conservation'] = array(
                 'title'    => __( 'Conservation', 'celya' ),
                 'priority' => 50,
                 'callback' => 'celya_tab_conservation',
+            );
+        }
+
+        if (! empty( $specs['degustation'] )) {
+            $tabs['celya_degustation'] = array(
+                'title'    => __( 'Degustation', 'celya' ),
+                'priority' => 60,
+                'callback' => 'celya_tab_degustation',
             );
         }
     }
@@ -213,6 +226,11 @@ function celya_tab_conservation() {
     celya_load_tab_template( 'conservation', $specs );
 }
 
+function celya_tab_degustation() {
+    global $product;
+    $specs = celya_get_specs_for_display( $product );
+    celya_load_tab_template( 'degustation', $specs );
+}
 
 // =============================================================================
 // 4. ENDPOINT AJAX — Retourne le HTML des onglets pour une variation donnée
@@ -252,6 +270,7 @@ function celya_ajax_get_variation_tabs() {
         'ingredients_allergens' => '',
         'nutri'                 => '',
         'conservation'          => '',
+        'degustation'          => '',
     );
 
     foreach ( array_keys( $tabs ) as $tab_name ) {

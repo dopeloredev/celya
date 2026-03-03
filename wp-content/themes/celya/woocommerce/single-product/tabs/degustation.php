@@ -8,12 +8,12 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$conservation = $specs['conservation'] ?? '';
+$degustation  = $specs['degustation']  ?? '';
 
-$has_content = ! empty( $conservation );
+$has_content = ! empty( $degustation );
 ?>
 
-<div class="celya-tab celya-tab--conservation">
+<div class="celya-tab celya-tab--degustation">
 
     <?php if ( ! $has_content ) : ?>
     <p class="text-sm text-gray-400 italic py-4">
@@ -21,16 +21,15 @@ $has_content = ! empty( $conservation );
     </p>
 
     <?php else : ?>
-
-        <?php if ( ! empty( $conservation ) ) : ?>
-        <div class="celya-spec-block mb-6 p-5 bg-celya-light rounded-celya-s">
+        <?php if ( ! empty( $degustation ) ) : ?>
+        <div class="celya-spec-block p-5 bg-celya-green_light rounded-celya-s">
             <h3 class="text-celya-primary font-serif font-bold text-lg mb-2">
-                🏠 <?php esc_html_e( 'Conservation', 'celya' ); ?>
+                <?php esc_html_e( 'Conseil dégustation', 'celya' ); ?>
             </h3>
-            <p class="text-sm text-gray-700"><?php echo nl2br( esc_html( $conservation ) ); ?></p>
+            <p class="text-sm text-gray-700"><?php echo nl2br( esc_html( $degustation ) ); ?></p>
         </div>
         <?php endif; ?>
-        
+
     <?php endif; ?>
 
 </div>
