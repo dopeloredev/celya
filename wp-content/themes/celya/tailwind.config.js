@@ -3,6 +3,7 @@ module.exports = {
   content: [
     './**/*.php',
     './assets/**/*.js',
+    './assets/**/*.css',
     './template-parts/**/*.php',
     './woocommerce/**/*.php',
     // Important : inclure tous les fichiers où vous utilisez Tailwind
@@ -30,6 +31,7 @@ module.exports = {
           red_light: '#FA807F',
           grey_dark: '#2C2C2C',
           grey_light: '#F6F6F6',
+          white: '#ffffff',
         },
       },
       

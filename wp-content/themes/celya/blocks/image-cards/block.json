@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "celya/image-cards",
+  "version": "1.0.0",
+  "title": "Celya — Image Cards",
+  "category": "celya",
+  "description": "Grille de cards avec image en haut et contenu libre.",
+  "icon": "cover-image",
+  "keywords": ["cards", "image", "grille", "celya"],
+  "supports": {
+    "html": false,
+    "align": false,
+    "spacing": { "margin": true, "padding": true }
+  },
+  "attributes": {
+    "columns": { "type": "number", "default": 3 },
+    "gap":     { "type": "number", "default": 24 }
+  },
+  "editorScript": "celya-image-cards-editor",
+  "style": "celya-image-cards-style",
+  "render": "file:./render.php"
+}

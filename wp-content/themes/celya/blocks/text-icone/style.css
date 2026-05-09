@@ -1,0 +1,68 @@
+/* ── celya/text-icone — styles frontend + éditeur ── */
+
+.celya-text-icone {
+    display:     flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap:         1rem;
+}
+
+.celya-text-icone__icon-wrap {
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    overflow:        hidden;
+    flex-shrink:     0;
+}
+
+.celya-text-icone__icon {
+    object-fit:  contain;
+    display:     block;
+    flex-shrink: 0;
+}
+
+.celya-text-icone__content {
+    flex:    1;
+    min-width: 0;
+}
+
+/* Supprime les marges excessives sur le premier/dernier enfant */
+.celya-text-icone__content > *:first-child {
+    margin-top: 0;
+}
+
+.celya-text-icone__content > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Titres dans le contenu */
+.celya-text-icone__content h1,
+.celya-text-icone__content h2,
+.celya-text-icone__content h3,
+.celya-text-icone__content h4,
+.celya-text-icone__content h5,
+.celya-text-icone__content h6 {
+    font-family: var(--wp--preset--font-family--arima, Georgia, serif);
+    color:       var(--wp--preset--color--celya-primary, #59332A);
+    margin-top:  0;
+}
+
+/* Paragraphes */
+.celya-text-icone__content p {
+    font-family: var(--wp--preset--font-family--montserrat, system-ui, sans-serif);
+    color:       var(--wp--preset--color--celya-dark, #2C2C2C);
+    margin-top:  0.25rem;
+}
+
+/* Ajustements éditeur */
+.wp-block-celya-text-icone {
+    display:     flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap:         1rem;
+}
+
+.wp-block-celya-text-icone .celya-text-icone__content {
+    flex:    1;
+    min-width: 0;
+}

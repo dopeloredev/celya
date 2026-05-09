@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "celya/steps-cards",
+  "version": "2.0.0",
+  "title": "Celya — Étapes en cards",
+  "category": "celya",
+  "description": "Rangée de cards avec icône et contenu libre. Chaque card accepte n'importe quel bloc.",
+  "icon": "grid-view",
+  "keywords": ["cards", "étapes", "steps", "celya"],
+  "supports": {
+    "html": false,
+    "align": false,
+    "spacing": { "margin": true, "padding": true }
+  },
+  "attributes": {
+    "showNumbers":    { "type": "boolean", "default": true },
+    "showConnector":  { "type": "boolean", "default": true },
+    "connectorColor": { "type": "string",  "default": "celya-orange-dark" }
+  },
+  "editorScript": "celya-steps-cards-editor",
+  "style": "celya-steps-cards-style",
+  "render": "file:./render.php"
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "celya/steps-card",
+  "version": "1.0.0",
+  "title": "Celya — Card d'étape",
+  "category": "celya",
+  "description": "Card individuelle avec icône et contenu libre (titres, textes, boutons…). À utiliser à l'intérieur du bloc Étapes.",
+  "icon": "welcome-widgets-menus",
+  "parent": ["celya/steps-cards"],
+  "keywords": ["card", "étape", "icone", "celya"],
+  "supports": {
+    "html": false,
+    "align": false,
+    "spacing": { "padding": false, "margin": false }
+  },
+  "attributes": {
+    "iconId":      { "type": "number",  "default": 0 },
+    "iconUrl":     { "type": "string",  "default": "" },
+    "iconAlt":     { "type": "string",  "default": "" },
+    "showIcon":    { "type": "boolean", "default": true },
+    "cardBgColor": { "type": "string",  "default": "celya-white" },
+    "iconBgColor": { "type": "string",  "default": "celya-orange-light" },
+    "iconShape":   { "type": "string",  "default": "circle" },
+    "iconRadius":  { "type": "number",  "default": 12 },
+    "iconSize":    { "type": "number",  "default": 64 },
+    "showBorder":  { "type": "boolean", "default": false },
+    "borderColor": { "type": "string",  "default": "celya-primary" }
+  },
+  "editorScript": "celya-steps-card-editor",
+  "style": "celya-steps-cards-style",
+  "render": "file:./render.php"
+}

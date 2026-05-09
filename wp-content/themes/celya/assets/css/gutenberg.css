@@ -1,0 +1,21 @@
+@layer components {
+
+    /* Largeur normale (aucun alignement ou centré) */
+    .wp-block-group:not(.alignfull):not(.alignwide) {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16;
+    }
+
+    /* Large */
+    .wp-block-group.alignwide {
+        @apply relative w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16;
+    }
+
+    /* Pleine largeur */
+    .wp-block-group.alignfull {
+        @apply relative w-full py-12 md:py-16;
+        margin-left: calc(-50vw + 50%);
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+}

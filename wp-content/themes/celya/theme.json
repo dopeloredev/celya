@@ -1,0 +1,226 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [
+        { "slug": "celya-primary",      "color": "#59332A", "name": "Marron artisanal" },
+        { "slug": "celya-secondary",    "color": "#F2D0A7", "name": "Beige biscuit" },
+        { "slug": "celya-light",        "color": "#FAF9F8", "name": "Blanc crème" },
+        { "slug": "celya-dark",         "color": "#2C2C2C", "name": "Texte principal" },
+        { "slug": "celya-orange-dark",  "color": "#F2B28D", "name": "Orange foncé" },
+        { "slug": "celya-orange-light", "color": "#FDECE2", "name": "Orange clair" },
+        { "slug": "celya-blue-dark",    "color": "#BDD9F2", "name": "Bleu foncé" },
+        { "slug": "celya-blue-light",   "color": "#F2F7FC", "name": "Bleu clair" },
+        { "slug": "celya-green-dark",   "color": "#ABE0A4", "name": "Vert foncé" },
+        { "slug": "celya-green-light",  "color": "#E9F6E8", "name": "Vert clair" },
+        { "slug": "celya-yellow-dark",  "color": "#F2D479", "name": "Jaune foncé" },
+        { "slug": "celya-yellow-light", "color": "#FCF5DD", "name": "Jaune clair" },
+        { "slug": "celya-pink-dark",    "color": "#EDA2C1", "name": "Rose foncé" },
+        { "slug": "celya-pink-light",   "color": "#F9E8EE", "name": "Rose clair" },
+        { "slug": "celya-grey-light",   "color": "#F6F6F6", "name": "Gris clair" },
+        { "slug": "celya-white",        "color": "#ffffff", "name": "Blanc pur" }
+      ]
+    },
+    "typography": {
+      "customFontSize": true,
+      "fontFamilies": [
+        {
+          "slug": "montserrat",
+          "name": "Montserrat",
+          "fontFamily": "Montserrat, system-ui, sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Montserrat",
+              "fontWeight": "300",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/montserrat/Montserrat-Light.ttf"]
+            },
+            {
+              "fontFamily": "Montserrat",
+              "fontWeight": "300",
+              "fontStyle": "italic",
+              "src": ["file:./assets/fonts/montserrat/Montserrat-LightItalic.ttf"]
+            },
+            {
+              "fontFamily": "Montserrat",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/montserrat/Montserrat-Regular.ttf"]
+            },
+            {
+              "fontFamily": "Montserrat",
+              "fontWeight": "400",
+              "fontStyle": "italic",
+              "src": ["file:./assets/fonts/montserrat/Montserrat-Italic.ttf"]
+            },
+            {
+              "fontFamily": "Montserrat",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/montserrat/Montserrat-Medium.ttf"]
+            },
+            {
+              "fontFamily": "Montserrat",
+              "fontWeight": "500",
+              "fontStyle": "italic",
+              "src": ["file:./assets/fonts/montserrat/Montserrat-MediumItalic.ttf"]
+            },
+            {
+              "fontFamily": "Montserrat",
+              "fontWeight": "600",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/montserrat/Montserrat-SemiBold.ttf"]
+            },
+            {
+              "fontFamily": "Montserrat",
+              "fontWeight": "600",
+              "fontStyle": "italic",
+              "src": ["file:./assets/fonts/montserrat/Montserrat-SemiBoldItalic.ttf"]
+            },
+            {
+              "fontFamily": "Montserrat",
+              "fontWeight": "700",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/montserrat/Montserrat-Bold.ttf"]
+            },
+            {
+              "fontFamily": "Montserrat",
+              "fontWeight": "700",
+              "fontStyle": "italic",
+              "src": ["file:./assets/fonts/montserrat/Montserrat-BoldItalic.ttf"]
+            },
+            {
+              "fontFamily": "Montserrat",
+              "fontWeight": "800",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/montserrat/Montserrat-ExtraBold.ttf"]
+            }
+          ]
+        },
+        {
+          "slug": "arima",
+          "name": "Arima",
+          "fontFamily": "Arima, Georgia, serif",
+          "fontFace": [
+            {
+              "fontFamily": "Arima",
+              "fontWeight": "300",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/arima/Arima-Light.ttf"]
+            },
+            {
+              "fontFamily": "Arima",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/arima/Arima-Regular.ttf"]
+            },
+            {
+              "fontFamily": "Arima",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/arima/Arima-Medium.ttf"]
+            },
+            {
+              "fontFamily": "Arima",
+              "fontWeight": "600",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/arima/Arima-SemiBold.ttf"]
+            },
+            {
+              "fontFamily": "Arima",
+              "fontWeight": "700",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/arima/Arima-Bold.ttf"]
+            }
+          ]
+        }
+      ],
+      "fontSizes": [
+        { "slug": "xs",   "size": "0.75rem",  "name": "Très petit" },
+        { "slug": "sm",   "size": "0.875rem", "name": "Petit" },
+        { "slug": "base", "size": "1rem",     "name": "Normal" },
+        { "slug": "lg",   "size": "1.125rem", "name": "Grand" },
+        { "slug": "xl",   "size": "1.25rem",  "name": "Très grand" },
+        { "slug": "2xl",  "size": "1.5rem",   "name": "2XL" },
+        { "slug": "3xl",  "size": "1.875rem", "name": "3XL" },
+        { "slug": "4xl",  "size": "2.25rem",  "name": "4XL" },
+        { "slug": "5xl",  "size": "3rem",     "name": "5XL" }
+      ]
+    },
+    "spacing": {
+      "units": ["px", "rem", "%", "em"]
+    },
+    "border": {
+      "radius": true
+    },
+    "layout": {
+      "contentSize": "1280px",
+      "wideSize": "1536px"
+    }
+  },
+  "styles": {
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--montserrat)",
+      "fontSize": "var(--wp--preset--font-size--base)",
+      "lineHeight": "1.625"
+    },
+    "color": {
+      "text": "var(--wp--preset--color--celya-dark)",
+      "background": "var(--wp--preset--color--celya-light)"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--arima)"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--celya-primary)"
+        }
+      },
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--celya-primary)"
+        }
+      },
+      "button": {
+        "color": {
+          "text": "var(--wp--preset--color--celya-light)",
+          "background": "var(--wp--preset--color--celya-primary)"
+        },
+        "border": {
+          "radius": "9999px"
+        },
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--montserrat)",
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": "0.05em",
+          "fontSize": "var(--wp--preset--font-size--sm)"
+        }
+      }
+    },
+    "blocks": {
+      "core/paragraph": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--montserrat)"
+        }
+      },
+      "core/heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--arima)"
+        }
+      },
+      "core/list": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--montserrat)"
+        }
+      },
+      "core/quote": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--arima)"
+        }
+      }
+    }
+  }
+}

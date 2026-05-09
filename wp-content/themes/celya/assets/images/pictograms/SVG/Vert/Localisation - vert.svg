@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Localisation" xmlns="http://www.w3.org/2000/svg" viewBox="74.41 28.85 58.26 89.99">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #abe0a4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M124.8,77.89c3.67-4.95,5.87-11.21,5.87-18.02,0-16.03-12.15-29.02-27.13-29.02s-27.13,12.99-27.13,29.02c0,7.08,2.37,13.56,6.31,18.6l20.63,38.37,21.46-38.95Z"/>
+  <circle class="cls-1" cx="103.54" cy="59.88" r="12.14"/>
+</svg>

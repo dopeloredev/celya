@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "celya/text-icone",
+  "version": "1.0.0",
+  "title": "Celya — Texte Icône",
+  "category": "celya",
+  "description": "Affiche une icône à gauche et un contenu libre (titres, textes…) à droite.",
+  "icon": "align-pull-left",
+  "keywords": ["icone", "texte", "icon", "celya", "ligne"],
+  "supports": {
+    "html": false,
+    "align": false,
+    "spacing": {
+      "margin": true,
+      "padding": false
+    }
+  },
+  "attributes": {
+    "mediaId":         { "type": "number", "default": 0 },
+    "mediaUrl":        { "type": "string", "default": "" },
+    "mediaAlt":        { "type": "string", "default": "" },
+    "backgroundColor": { "type": "string", "default": "celya-secondary" },
+    "borderRadius":    { "type": "string", "default": "medium" },
+    "iconSize":        { "type": "number", "default": 72 },
+    "verticalAlign":   { "type": "string", "default": "flex-start" }
+  },
+  "editorScript": "celya-text-icone-editor",
+  "style": "celya-text-icone-style",
+  "render": "file:./render.php"
+}

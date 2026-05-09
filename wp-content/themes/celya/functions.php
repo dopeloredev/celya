@@ -18,7 +18,7 @@ require_once get_template_directory() . '/inc/woocommerce-custom-fields.php';
 require_once get_template_directory() . '/inc/woocommerce-setup-single-product-tabs.php';
 require_once get_template_directory() . '/inc/woocommerce-setup-breadcrumb.php';
 require_once get_template_directory() . '/inc/woocommerce-setup-single-product.php';
-
+require_once get_template_directory() . '/inc/celya-block-registration.php';
 /**
  * 1. SETUP DU THÈME
  */
@@ -46,8 +46,27 @@ function celya_theme_setup() {
         'primary' => __( 'Menu Principal', 'celya-tailwind' ),
         'footer'  => __( 'Menu Footer', 'celya-tailwind' ),
     ));
+
+    // Support du theme.json / editor styles
+    add_theme_support( 'align-wide' ); // Active les boutons Large + Pleine largeur dans Gutenberg
+    add_theme_support( 'editor-styles' );
+    add_theme_support( 'wp-block-styles' );
+    add_theme_support( 'align-wide' );
+    
+    // Désactiver la palette de couleurs par défaut de WP
+    add_theme_support( 'disable-custom-colors' );
+    // Désactiver les tailles de police par défaut de WP
+    add_theme_support( 'disable-custom-font-sizes' );
 }
 add_action( 'after_setup_theme', 'celya_theme_setup' );
+
+/**
+ * Intégrer les variables du thèmes dans gutenberg
+ */
+function celya_editor_styles() {
+    add_editor_style( 'assets/css/output.css' );
+}
+add_action( 'after_setup_theme', 'celya_editor_styles' );
 
 /**
  * Ajouter les options de contact dans le customizer
@@ -174,7 +193,16 @@ function celya_enqueue_assets() {
         filemtime( get_template_directory() . '/assets/js/app.js' ),
         true
     );
-    
+    if ( is_product() ) { // Charger les modules JS uniquement sur les pages produit
+        wp_enqueue_script(
+            'celya-product-page',
+            get_template_directory_uri() . '/assets/js/modules/product-page.js',
+            array( 'celya-app' ), // dépend de app.js → chargé après
+            filemtime( get_template_directory() . '/assets/js/modules/product-page.js' ),
+            true // footer
+        );
+    }
+        
     // Localiser le script pour AJAX
     wp_localize_script( 'celya-app', 'celyaData', array(
         'ajaxUrl' => admin_url( 'admin-ajax.php' ),
@@ -208,8 +236,18 @@ function celya_widgets_init() {
 }
 add_action( 'widgets_init', 'celya_widgets_init' );
 
+
+function celya_block_category( $categories ) {
+    return array_merge(
+        [ [ 'slug' => 'celya', 'title' => 'Celya', 'icon' => 'admin-appearance' ] ],
+        $categories
+    );
+}
+add_filter( 'block_categories_all', 'celya_block_category' );
+
+
 /**
- * 7. OPTIMISATIONS
+ * 6. OPTIMISATIONS
  */
 
 // Désactiver emojis

@@ -22,89 +22,85 @@ if ( post_password_required() ) {
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         
         <!-- COLONNE GAUCHE : Galerie d'images (7 colonnes) -->
-        <div class="lg:col-span-7 space-y-4">
-            
-            <!-- Image principale -->
-            <div class="relative group aspect-square rounded-2xl overflow-hidden bg-white shadow-md border border-celya-light">
-                <?php
-                // Image principale du produit
-                if ( has_post_thumbnail() ) {
-                    echo '<div class="w-full h-full">';
-                    the_post_thumbnail( 'woocommerce_single', array(
-                        'class' => 'w-full h-full object-cover',
-                    ));
-                    echo '</div>';
-                } else {
-                    echo '<div class="w-full h-full flex items-center justify-center bg-celya-light">';
-                    echo wc_placeholder_img( 'woocommerce_single' );
-                    echo '</div>';
-                }
-                ?>
-                
-                <!-- Bouton zoom -->
-                <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur p-2 rounded-lg shadow-sm cursor-pointer hover:bg-white transition-colors">
-                    <svg class="w-6 h-6 text-celya-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
-                    </svg>
-                </div>
-                
-                <!-- Tags produit -->
-                <div class="absolute top-4 left-4 flex flex-col gap-2">
+                <div class="lg:col-span-7">
+            <div class="flex gap-4">
+
+                <!-- Miniatures verticales à gauche -->
+                <div class="flex flex-col gap-3 w-20 flex-shrink-0">
                     <?php
-                    $product_tags = get_the_terms( $product->get_id(), 'product_tag' );
-                    if ( $product_tags && ! is_wp_error( $product_tags ) ) :
-                        $first_tag = $product_tags[0]->name;
-                        $tag_classe = '';
-                        
-                        if ( $first_tag === 'Salé' ) {
-                            $tag_classe = 'bg-celya-blue_dark text-white';
-                        } elseif ( $first_tag === 'Sucré' ) {
-                            $tag_classe = 'bg-celya-orange_dark text-white';
-                        } elseif ( $first_tag === 'Spécialité' ) {
-                            $tag_classe = 'bg-celya-green_dark text-white';
-                        }
-                        
-                        if ( $tag_classe ) :
-                            echo '<span class="' . esc_attr( $tag_classe ) . ' text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">' . esc_html( $first_tag ) . '</span>';
-                        endif;
-                    endif;
+                    // Miniature image principale
+                    $main_thumb_url  = get_the_post_thumbnail_url( get_the_ID(), 'woocommerce_single' );
+                    $main_thumb_small = get_the_post_thumbnail_url( get_the_ID(), 'woocommerce_gallery_thumbnail' );
                     ?>
-                </div>
-            </div>
-            
-            <!-- Miniatures de la galerie -->
-            <?php
-            $attachment_ids = $product->get_gallery_image_ids();
-            if ( $attachment_ids ) :
-                ?>
-                <div class="grid grid-cols-4 gap-4">
-                    <!-- Miniature de l'image principale -->
-                    <div class="aspect-square rounded-lg border-2 border-celya-orange_dark overflow-hidden cursor-pointer">
+                    <div class="celya-thumb active-thumb aspect-square rounded-lg overflow-hidden cursor-pointer border-2 border-celya-orange_dark"
+                        data-full="<?php echo esc_url( $main_thumb_url ); ?>">
                         <?php 
                         if ( has_post_thumbnail() ) {
-                            the_post_thumbnail( 'woocommerce_gallery_thumbnail', array(
-                                'class' => 'w-full h-full object-cover',
+                            echo '<div class="w-full h-full">';
+                            the_post_thumbnail( 'woocommerce_single', array(
+                                'class' => 'w-full h-full object-cover transition-opacity duration-200',
                             ));
+                            echo '</div>';
+                        } else {
+                            echo '<div class="w-full h-full flex items-center justify-center bg-celya-light transition-opacity duration-200">';
+                            echo wc_placeholder_img( 'woocommerce_single' );
+                            echo '</div>';
                         }
                         ?>
                     </div>
-                    
-                    <!-- Autres miniatures -->
-                    <?php 
-                    $counter = 0;
+
+                    <?php
+                    $attachment_ids = $product->get_gallery_image_ids();
                     foreach ( $attachment_ids as $attachment_id ) :
-                        if ( $counter >= 3 ) break; // Limiter à 4 images au total
-                        ?>
-                        <div class="aspect-square rounded-lg border border-transparent overflow-hidden cursor-pointer opacity-70 hover:opacity-100 hover:border-celya-orange_dark transition-all">
-                            <?php echo wp_get_attachment_image( $attachment_id, 'woocommerce_gallery_thumbnail', false, array( 'class' => 'w-full h-full object-cover' ) ); ?>
-                        </div>
-                    <?php 
-                        $counter++;
-                    endforeach; 
+                        $full_url  = wp_get_attachment_image_url( $attachment_id, 'woocommerce_single' );
+                        $thumb_url = wp_get_attachment_image_url( $attachment_id, 'woocommerce_gallery_thumbnail' );
                     ?>
+                    <div class="celya-thumb aspect-square rounded-lg overflow-hidden cursor-pointer border-2 border-transparent opacity-60 hover:opacity-100 hover:border-celya-orange_dark transition-all"
+                        data-full="<?php echo esc_url( $full_url ); ?>">
+                        <img src="<?php echo esc_url( $thumb_url ); ?>" class="w-full h-full object-cover" alt="">
+                    </div>
+                    <?php endforeach; ?>
                 </div>
-            <?php endif; ?>
-            
+
+                <!-- Image principale -->
+                <div class="relative flex-1 aspect-square rounded-2xl overflow-hidden bg-white shadow-md border border-celya-light group">
+                    <?php
+                    // Image principale du produit
+                    if ( has_post_thumbnail() ) {
+                        echo '<div class="w-full h-full">';
+                        the_post_thumbnail( 'woocommerce_single', array(
+                            'class' => 'w-full h-full object-cover transition-opacity duration-200',
+                        ));
+                        echo '</div>';
+                    } else {
+                        echo '<div class="w-full h-full flex items-center justify-center bg-celya-light transition-opacity duration-200">';
+                        echo wc_placeholder_img( 'woocommerce_single' );
+                        echo '</div>';
+                    }
+                    ?>
+
+                    <!-- Tags produit -->
+                    <div class="absolute top-4 right-4 flex flex-col gap-2">
+                        <?php
+                        $product_tags = get_the_terms( $product->get_id(), 'product_tag' );
+                        if ( $product_tags && ! is_wp_error( $product_tags ) ) :
+                            $first_tag  = $product_tags[0]->name;
+                            $tag_classe = '';
+                            if ( $first_tag === 'Salé' )       $tag_classe = 'bg-celya-blue_dark text-white';
+                            elseif ( $first_tag === 'Sucré' )   $tag_classe = 'bg-celya-orange_dark text-white';
+                            elseif ( $first_tag === 'Spécialité' ) $tag_classe = 'bg-celya-green_dark text-white';
+                            if ( $tag_classe ) :
+                                echo '<span class="' . esc_attr( $tag_classe ) . ' text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">' . esc_html( $first_tag ) . '</span>';
+                            endif;
+                        endif;
+
+                        if ( $product->is_on_sale() ) :
+                            echo '<span class="bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">Promo</span>';
+                        endif;
+                        ?>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- COLONNE DROITE : Informations produit (5 colonnes) -->

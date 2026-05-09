@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "celya/image-card",
+  "version": "1.0.0",
+  "title": "Celya — Image Card",
+  "category": "celya",
+  "description": "Card individuelle avec image en haut et contenu libre (titre, texte…). À utiliser dans le bloc Image Cards.",
+  "icon": "format-image",
+  "parent": ["celya/image-cards"],
+  "keywords": ["card", "image", "celya"],
+  "supports": {
+    "html": false,
+    "align": false,
+    "spacing": { "padding": false, "margin": false }
+  },
+  "attributes": {
+    "imageId":    { "type": "number", "default": 0 },
+    "imageUrl":   { "type": "string", "default": "" },
+    "imageAlt":   { "type": "string", "default": "" },
+    "imageRatio": { "type": "string", "default": "4/3" },
+    "cardBgColor": { "type": "string", "default": "celya-white" }
+  },
+  "editorScript": "celya-image-card-editor",
+  "style": "celya-image-cards-style",
+  "render": "file:./render.php"
+}

@@ -1,0 +1,125 @@
+/* ==========================================================================
+   PRODUCT TEMPLATE BLOCK - Styles carte produit Gutenberg
+   ========================================================================== */
+
+/* Conteneur <li> produit */
+.wc-block-product-template .wc-block-product {
+    @apply bg-white rounded-2xl shadow-lg overflow-hidden;
+    @apply transition-all duration-300 transform;
+}
+.wc-block-product-template .wc-block-product:hover {
+    @apply shadow-2xl -translate-y-2;
+}
+
+/* ── Image ── */
+.wc-block-product-template .wc-block-components-product-image {
+    @apply relative overflow-hidden bg-celya-light m-0;
+}
+.wc-block-product-template .wc-block-components-product-image a {
+    @apply block;
+}
+.wc-block-product-template .wc-block-components-product-image img {
+    @apply w-full object-cover;
+    height: 16rem;
+    transition: transform 500ms;
+    max-width: none !important;
+}
+.wc-block-product-template .wc-block-product:hover .wc-block-components-product-image img {
+    transform: scale(1.1);
+}
+
+/* ── Zone de contenu (titre + prix + bouton) ── */
+.wc-block-product-template .wp-block-post-title,
+.wc-block-product-template .wc-block-components-product-price,
+.wc-block-product-template .wc-block-components-product-button {
+    @apply px-6;
+}
+
+/* ── Titre ── */
+.wc-block-product-template .wp-block-post-title {
+    @apply font-serif font-bold text-celya-primary text-xl pt-6 pb-0;
+    text-align: left !important;
+}
+.wc-block-product-template .wp-block-post-title a {
+    @apply text-celya-primary transition-colors duration-200;
+    text-decoration: none;
+}
+.wc-block-product-template .wp-block-post-title a:hover {
+    @apply text-celya-orange_dark;
+}
+
+/* ── Prix ── */
+.wc-block-product-template .wc-block-components-product-price {
+    @apply pt-2 pb-0;
+    text-align: left !important;
+}
+.wc-block-product-template .wc-block-components-product-price .woocommerce-Price-amount {
+    @apply text-2xl font-bold text-celya-orange_dark ;
+}
+
+/* ── Bouton Ajouter au panier ── */
+.wc-block-product-template .wc-block-components-product-button {
+    @apply pb-6 pt-4;
+    text-align: left !important;
+}
+.wc-block-product-template .wc-block-components-product-button__button {
+    @apply bg-celya-primary text-white px-6 py-2 rounded-full font-semibold inline-block text-sm;
+    @apply transition-colors duration-300;
+    text-decoration: none !important;
+}
+.wc-block-product-template .wc-block-components-product-button__button:hover {
+    @apply bg-celya-orange_dark;
+}
+
+/* Texte du bouton — WooCommerce génère un <span> vide */
+.wc-block-product-template .wc-block-components-product-button__button span:empty::after {
+    content: "Ajouter";
+}
+.wc-block-product-template .wc-block-product.product-type-variable
+.wc-block-components-product-button__button span:empty::after {
+    content: "Voir les options";
+}
+
+/* ── Produit épuisé ── */
+.wc-block-product-template .wc-block-product:not(.instock)
+.wc-block-components-product-button__button {
+    @apply bg-gray-300 text-gray-500 cursor-not-allowed;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   TAGS PRODUITS - Via classes natives WooCommerce sur le <li>
+   ========================================================================== */
+
+/* Position de base sur le conteneur image */
+.wc-block-product-template .wc-block-components-product-image {
+    position: relative;
+}
+
+/* Badge générique */
+.wc-block-product-template .wc-block-product[class*="product_tag-"]
+.wc-block-components-product-image::after {
+    @apply absolute top-3 right-3 z-10 text-xs px-3 py-1 rounded-full font-sans font-semibold;
+    content: "";
+}
+
+/* Sucré */
+.wc-block-product-template .wc-block-product.product_tag-sucre
+.wc-block-components-product-image::after {
+    @apply bg-celya-orange_dark text-celya-dark;
+    content: "Sucré";
+}
+
+/* Salé */
+.wc-block-product-template .wc-block-product.product_tag-sale
+.wc-block-components-product-image::after {
+    @apply bg-celya-blue_dark text-celya-dark;
+    content: "Salé";
+}
+
+/* Spécialité */
+.wc-block-product-template .wc-block-product.product_tag-specialite
+.wc-block-components-product-image::after {
+    @apply bg-celya-green_dark text-celya-dark;
+    content: "Spécialité";
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="bouteille" xmlns="http://www.w3.org/2000/svg" viewBox="82.75 26.75 41.57 129.59">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #f2d479;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <line id="bouchon" class="cls-1" x1="95.2" y1="43.27" x2="111.87" y2="43.27"/>
+  <g>
+    <path id="socle" class="cls-1" d="M116.01,154.34h-25.06c-3.32-.01-6.2-3.28-6.2-7.37v-65.62c.02-4.81,1.98-9.08,4.92-11.94l4.36-4.23.05-33.39c0-1.76,1.27-3.04,2.64-3.04l13.85.04c1.42,0,2.42,1.59,2.42,3.27l.02,33.12,4.37,4.24c2.93,2.85,4.9,7.12,4.9,11.93v65.62c.01,4.09-2.86,7.37-6.29,7.37Z"/>
+    <rect id="etiquette" class="cls-1" x="84.76" y="103.61" width="37.56" height="20.37" rx="6.2" ry="6.2"/>
+  </g>
+</svg>

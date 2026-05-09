@@ -583,6 +583,24 @@
   background-color: rgb(253 236 226 / var(--tw-bg-opacity));
   border-radius: 0.5rem;
   padding: 1.5rem;
+}
+
+@media (max-width: 1023px) {
+  .celya-account-nav .woocommerce .woocommerce-info.border-b {
+    display: none;
+  }
+
+  #mobile-menu.celya-account-nav .woocommerce .woocommerce-info.border-b {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  #mobile-menu:not(.celya-account-nav .woocommerce .woocommerce-info.border-b) {
+    max-height: 500px;
+  }
+}
+
+.woocommerce .woocommerce-info {
   font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
   --tw-text-opacity: 1;
   color: rgb(44 44 44 / var(--tw-text-opacity));
@@ -1112,6 +1130,21 @@
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
+@media (max-width: 1023px) {
+  .celya-account-nav .p-6.woocommerce div.product .woocommerce-tabs ul.tabs::before {
+    display: none;
+  }
+
+  #mobile-menu.celya-account-nav .p-6.woocommerce div.product .woocommerce-tabs ul.tabs::before {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  #mobile-menu:not(.celya-account-nav .p-6.woocommerce div.product .woocommerce-tabs ul.tabs)::before {
+    max-height: 500px;
+  }
+}
+
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
   margin: 0px;
   display: block;
@@ -1196,6 +1229,21 @@
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+@media (max-width: 1023px) {
+  .celya-account-nav #reviews .comment.border-b {
+    display: none;
+  }
+
+  #mobile-menu.celya-account-nav #reviews .comment.border-b {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  #mobile-menu:not(.celya-account-nav #reviews .comment.border-b) {
+    max-height: 500px;
+  }
 }
 
 #reviews .comment:hover {
@@ -1464,6 +1512,21 @@
     border-color: rgb(229 231 235 / var(--tw-border-opacity));
   }
 
+  @media (max-width: 1023px) {
+    .celya-account-nav .p-6.woocommerce-tabs .tabs li {
+      display: none;
+    }
+
+    #mobile-menu.celya-account-nav .p-6.woocommerce-tabs .tabs li {
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    #mobile-menu:not(.celya-account-nav .p-6.woocommerce-tabs .tabs li) {
+      max-height: 500px;
+    }
+  }
+
   .woocommerce-tabs .tabs li:last-child {
     border-bottom-width: 0px;
   }
@@ -1480,6 +1543,2584 @@
   .variation-buttons {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+}
+
+/* ==========================================================================
+   PRODUCT TEMPLATE BLOCK - Styles carte produit Gutenberg
+   ========================================================================== */
+
+/* Conteneur <li> produit */
+
+.wc-block-product-template .wc-block-product {
+  overflow: hidden;
+  border-radius: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.wc-block-product-template .wc-block-product:hover {
+  --tw-translate-y: -0.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+/* ── Image ── */
+
+.wc-block-product-template .wc-block-components-product-image {
+  position: relative;
+  margin: 0px;
+  overflow: hidden;
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 249 248 / var(--tw-bg-opacity));
+}
+
+.wc-block-product-template .wc-block-components-product-image a {
+  display: block;
+}
+
+.wc-block-product-template .wc-block-components-product-image img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 16rem;
+  transition: transform 500ms;
+  max-width: none !important;
+}
+
+.wc-block-product-template .wc-block-product:hover .wc-block-components-product-image img {
+  transform: scale(1.1);
+}
+
+/* ── Zone de contenu (titre + prix + bouton) ── */
+
+.wc-block-product-template .wp-block-post-title,
+.wc-block-product-template .wc-block-components-product-price,
+.wc-block-product-template .wc-block-components-product-button {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* ── Titre ── */
+
+.wc-block-product-template .wp-block-post-title {
+  padding-top: 1.5rem;
+  padding-bottom: 0px;
+  font-family: Arima, Georgia, Cambria, Times New Roman, Times, serif;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  font-weight: 700;
+  text-align: left !important;
+}
+
+.wc-block-product-template .wp-block-post-title a {
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+  text-decoration: none;
+}
+
+.wc-block-product-template .wp-block-post-title a:hover {
+  --tw-text-opacity: 1;
+  color: rgb(242 178 141 / var(--tw-text-opacity));
+}
+
+/* ── Prix ── */
+
+.wc-block-product-template .wc-block-components-product-price {
+  padding-top: 0.5rem;
+  padding-bottom: 0px;
+  text-align: left !important;
+}
+
+.wc-block-product-template .wc-block-components-product-price .woocommerce-Price-amount {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(242 178 141 / var(--tw-text-opacity));
+  font-weight: 700;
+}
+
+/* ── Bouton Ajouter au panier ── */
+
+.wc-block-product-template .wc-block-components-product-button {
+  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  text-align: left !important;
+}
+
+.wc-block-product-template .wc-block-components-product-button__button {
+  display: inline-block;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(89 51 42 / var(--tw-bg-opacity));
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  font-weight: 600;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  text-decoration: none !important;
+}
+
+.wc-block-product-template .wc-block-components-product-button__button:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 178 141 / var(--tw-bg-opacity));
+}
+
+/* Texte du bouton — WooCommerce génère un <span> vide */
+
+.wc-block-product-template .wc-block-components-product-button__button span:empty::after {
+  content: "Ajouter";
+}
+
+.wc-block-product-template .wc-block-product.product-type-variable
+.wc-block-components-product-button__button span:empty::after {
+  content: "Voir les options";
+}
+
+/* ── Produit épuisé ── */
+
+.wc-block-product-template .wc-block-product:not(.instock)
+.wc-block-components-product-button__button {
+  cursor: not-allowed;
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   TAGS PRODUITS - Via classes natives WooCommerce sur le <li>
+   ========================================================================== */
+
+/* Position de base sur le conteneur image */
+
+.wc-block-product-template .wc-block-components-product-image {
+  position: relative;
+}
+
+/* Badge générique */
+
+.wc-block-product-template .wc-block-product[class*="product_tag-"]
+.wc-block-components-product-image::after {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 10;
+  border-radius: 9999px;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  content: "";
+}
+
+/* Sucré */
+
+.wc-block-product-template .wc-block-product.product_tag-sucre
+.wc-block-components-product-image::after {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 178 141 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+  content: "Sucré";
+}
+
+/* Salé */
+
+.wc-block-product-template .wc-block-product.product_tag-sale
+.wc-block-components-product-image::after {
+  --tw-bg-opacity: 1;
+  background-color: rgb(189 217 242 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+  content: "Salé";
+}
+
+/* Spécialité */
+
+.wc-block-product-template .wc-block-product.product_tag-specialite
+.wc-block-components-product-image::after {
+  --tw-bg-opacity: 1;
+  background-color: rgb(171 224 164 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+  content: "Spécialité";
+}
+
+/**
+ * ==========================================================================
+ * WOOCOMMERCE MY ACCOUNT STYLES - Celya
+ * ==========================================================================
+ */
+
+/* ========== LAYOUT ========== */
+
+.celya-myaccount {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .celya-myaccount {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* ========== NAVIGATION SIDEBAR ========== */
+
+.celya-account-nav .celya-nav-item {
+  text-decoration: none;
+}
+
+/* Active state injecté via PHP avec border-l — on renforce ici */
+
+.celya-account-nav li.is-active .celya-nav-item {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 236 226 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  font-weight: 600;
+  border-left: 3px solid #F2B28D;
+}
+
+/* ========== STATUTS DE COMMANDE ========== */
+
+.celya-order-status {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+}
+
+.celya-status-pending {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(133 77 14 / var(--tw-text-opacity));
+}
+
+.celya-status-processing {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(30 64 175 / var(--tw-text-opacity));
+}
+
+.celya-status-on-hold {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 237 213 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(154 52 18 / var(--tw-text-opacity));
+}
+
+.celya-status-completed {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(22 101 52 / var(--tw-text-opacity));
+}
+
+.celya-status-cancelled {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
+.celya-status-refunded {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 232 255 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(107 33 168 / var(--tw-text-opacity));
+}
+
+.celya-status-failed {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(185 28 28 / var(--tw-text-opacity));
+}
+
+/* ========== FORMULAIRES MY ACCOUNT ========== */
+
+/* Les styles d'inputs/labels/selects sont dans forms.css (global) */
+
+/* Annule la marge WooCommerce sur les .form-row dans les grilles account */
+
+.celya-account-form .form-row {
+  margin-bottom: 0px;
+}
+
+/* Champs full-width dans une grille sm:grid-cols-2 */
+
+@media (min-width: 640px) {
+  .celya-account-form .form-row-wide {
+    grid-column: span 2 / span 2;
+  }
+}
+
+/* ========== WOOCOMMERCE OVERRIDES ========== */
+
+/* Réinitialise les styles WC natifs dans l'espace client */
+
+.woocommerce-MyAccount-content h2 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .woocommerce-MyAccount-content h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+/* Tableau commandes - override WC */
+
+.woocommerce-orders-table {
+  width: 100%;
+}
+
+/* Messages espace client */
+
+.woocommerce-MyAccount-content .woocommerce-Message {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.75rem;
+  border-left-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: rgb(34 197 94 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 253 244 / var(--tw-bg-opacity));
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(22 101 52 / var(--tw-text-opacity));
+}
+
+.woocommerce-MyAccount-content .woocommerce-message {
+  margin-bottom: 1.5rem;
+  border-radius: 0.75rem;
+  border-left-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: rgb(34 197 94 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 253 244 / var(--tw-bg-opacity));
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(22 101 52 / var(--tw-text-opacity));
+}
+
+.woocommerce-MyAccount-content .woocommerce-error {
+  margin-bottom: 1.5rem;
+  list-style-type: none;
+  border-radius: 0.75rem;
+  border-left-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
+}
+
+.woocommerce-MyAccount-content .woocommerce-info {
+  margin-bottom: 1.5rem;
+  border-radius: 0.75rem;
+  border-left-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 246 255 / var(--tw-bg-opacity));
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(30 64 175 / var(--tw-text-opacity));
+}
+
+/* Boutons dans les contenus WC */
+
+.woocommerce-MyAccount-content .button,
+.woocommerce-MyAccount-content .woocommerce-Button {
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(89 51 42 / var(--tw-bg-opacity));
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+}
+
+.woocommerce-MyAccount-content .button:hover,
+.woocommerce-MyAccount-content .woocommerce-Button:hover {
+  --tw-translate-y: -0.125rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  --tw-shadow-colored: 0 12px 32px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.woocommerce-MyAccount-content .button:focus,
+.woocommerce-MyAccount-content .woocommerce-Button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-offset-width: 2px;
+}
+
+.woocommerce-MyAccount-content .button,
+.woocommerce-MyAccount-content .woocommerce-Button {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 1023px) {
+  .celya-account-nav {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Navigation horizontale scrollable sur mobile */
+
+  .celya-account-nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 0.25rem;
+    overflow-x: auto;
+    padding: 0.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .celya-account-nav ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .celya-account-nav ul li {
+    flex-shrink: 0;
+  }
+
+  .celya-account-nav .celya-nav-item {
+    white-space: nowrap;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  /* Cache le bloc utilisateur sur mobile (remplacé par un plus compact) */
+
+  .celya-account-nav .p-6.border-b {
+    display: none;
+  }
+
+  #mobile-menu.celya-account-nav .p-6.border-b {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  #mobile-menu:not(.celya-account-nav .p-6.border-b) {
+    max-height: 500px;
+  }
+}
+
+/**
+ * ==========================================================================
+ * WOOCOMMERCE CART STYLES — Celya
+ * ==========================================================================
+ */
+
+/* ==========================================================================
+   LAYOUT GLOBAL
+   ========================================================================== */
+
+.celya-cart-wrapper {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .celya-cart-wrapper {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+/* ==========================================================================
+   EN-TÊTE PAGE PANIER
+   ========================================================================== */
+
+.celya-cart-count {
+  margin-left: 0.5rem;
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   EN-TÊTES COLONNES (custom, remplace le thead de la table)
+   ========================================================================== */
+
+.celya-cart-cols-header {
+  margin-bottom: 0.25rem;
+  display: none;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-bottom: 0.75rem;
+}
+
+#mobile-menu.celya-cart-cols-header {
+  max-height: 0;
+  overflow: hidden;
+}
+
+#mobile-menu:not(.celya-cart-cols-header) {
+  max-height: 500px;
+}
+
+@media (min-width: 768px) {
+  .celya-cart-cols-header {
+    display: grid;
+  }
+}
+
+.celya-cart-cols-header > div {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   TABLE PANIER — Rendu "cartes" via border-collapse: separate
+   ========================================================================== */
+
+.celya-cart-table {
+  border-collapse: separate !important;
+  border-spacing: 0 0.6rem !important;
+  width: 100%;
+  table-layout: auto;
+}
+
+/* Thead masqué visuellement (gardé pour compat WC JS) */
+
+.celya-thead-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ---- Lignes produits ---- */
+
+.woocommerce-cart-form__cart-item td,
+.woocommerce-cart-form__cart-item th {
+  background-color: #ffffff;
+  padding: 1.1rem 0.75rem;
+  vertical-align: middle;
+  border: none;
+}
+
+.woocommerce-cart-form__cart-item td:first-child,
+.woocommerce-cart-form__cart-item th:first-child {
+  border-radius: 1rem 0 0 1rem;
+  padding-left: 1.25rem;
+  /* Shadow côté gauche */
+  box-shadow: -3px 6px 20px rgba(89, 51, 42, 0.07);
+}
+
+.woocommerce-cart-form__cart-item td:last-child,
+.woocommerce-cart-form__cart-item th:last-child {
+  border-radius: 0 1rem 1rem 0;
+  padding-right: 1.25rem;
+  /* Shadow côté droit */
+  box-shadow: 3px 6px 20px rgba(89, 51, 42, 0.07);
+}
+
+/* Cellules du milieu : shadow haut/bas */
+
+.woocommerce-cart-form__cart-item td:not(:first-child):not(:last-child),
+.woocommerce-cart-form__cart-item th:not(:first-child):not(:last-child) {
+  box-shadow: 0 6px 20px rgba(89, 51, 42, 0.04);
+}
+
+/* Hover discret sur toute la ligne */
+
+.woocommerce-cart-form__cart-item:hover td,
+.woocommerce-cart-form__cart-item:hover th {
+  background-color: #fdf8f5;
+  transition: background-color 0.2s ease;
+}
+
+/* ---- Colonne : Remove (caché — remplacé par bouton dans subtotal) ---- */
+
+.celya-td-remove {
+  display: none;
+}
+
+#mobile-menu.celya-td-remove {
+  max-height: 0;
+  overflow: hidden;
+}
+
+#mobile-menu:not(.celya-td-remove) {
+  max-height: 500px;
+}
+
+/* ---- Colonne : Image produit ---- */
+
+.celya-td-thumb {
+  width: 5.5rem;
+}
+
+.celya-cart-thumb {
+  height: 5rem;
+  width: 5rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 249 248 / var(--tw-bg-opacity));
+}
+
+.celya-cart-thumb img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.celya-cart-thumb a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+/* ---- Colonne : Nom produit ---- */
+
+.celya-td-name {
+  font-weight: 400;
+}
+
+.celya-cart-product-link {
+  font-family: Arima, Georgia, Cambria, Times New Roman, Times, serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  line-height: 1.375;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  font-weight: 600;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.celya-cart-product-link:hover {
+  --tw-text-opacity: 1;
+  color: rgb(242 178 141 / var(--tw-text-opacity));
+}
+
+.celya-cart-product-link {
+  text-decoration: none;
+}
+
+/* Meta données (variations, options) */
+
+.celya-td-name .wc-item-meta {
+  margin-top: 0.25rem;
+}
+
+.celya-td-name .wc-item-meta dt,
+.celya-td-name .wc-item-meta dd {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+  font-weight: 400;
+}
+
+.celya-td-name .wc-item-meta dt::after {
+  content: ': ';
+}
+
+/* ---- Colonne : Prix unitaire ---- */
+
+.celya-td-price {
+  text-align: center;
+}
+
+.celya-td-price .woocommerce-Price-amount {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+  font-weight: 500;
+}
+
+/* ---- Colonne : Quantité ---- */
+
+.celya-td-qty {
+  text-align: center;
+}
+
+.celya-td-qty .quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.celya-td-qty .quantity .qty {
+  width: 3.5rem !important;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  -moz-appearance: textfield;
+  box-shadow: none !important;
+}
+
+.celya-td-qty .quantity .qty:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(242 178 141 / var(--tw-border-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(242,178,141,.25) !important;
+}
+
+.celya-td-qty .quantity .qty::-webkit-outer-spin-button,
+.celya-td-qty .quantity .qty::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ---- Colonne : Sous-total + Bouton supprimer ---- */
+
+.celya-td-subtotal {
+  text-align: right;
+}
+
+.celya-subtotal-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.celya-line-total .woocommerce-Price-amount {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  font-weight: 700;
+}
+
+/* Bouton supprimer l'article */
+
+.celya-remove-btn {
+  display: flex;
+  height: 1.75rem;
+  width: 1.75rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.celya-remove-btn:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.celya-remove-btn {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+  text-decoration: none;
+}
+
+.celya-remove-btn svg {
+  height: 0.875rem;
+  width: 0.875rem;
+}
+
+/* ==========================================================================
+   BARRE ACTIONS — Coupon + Mise à jour
+   ========================================================================== */
+
+/* La <tr class="actions"> n'a pas de fond */
+
+.celya-td-actions {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding-top: 0.5rem;
+  padding-bottom: 0px;
+}
+
+.celya-cart-actions-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .celya-cart-actions-bar {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.celya-cart-actions-bar {
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  box-shadow: 0 2px 12px rgba(89, 51, 42, 0.06);
+}
+
+/* Zone coupon */
+
+.celya-coupon-wrap {
+  width: 100%;
+  flex: 1 1 0%;
+}
+
+@media (min-width: 640px) {
+  .celya-coupon-wrap {
+    width: auto;
+  }
+}
+
+.celya-coupon-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.celya-coupon-inner:focus-within {
+  --tw-border-opacity: 1;
+  border-color: rgb(242 178 141 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.celya-coupon-inner {
+  box-shadow: none;
+}
+
+.celya-coupon-inner:focus-within {
+  box-shadow: 0 0 0 3px rgba(242,178,141,.2);
+}
+
+.celya-coupon-icon {
+  height: 1rem;
+  width: 1rem;
+  flex-shrink: 0;
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.celya-coupon-input {
+  flex: 1 1 0%;
+  border-style: none;
+  background-color: transparent;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+}
+
+.celya-coupon-input::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+
+.celya-coupon-input::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+
+.celya-coupon-input {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  min-width: 0px;
+  padding: 0px;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.celya-coupon-input:focus {
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+.celya-coupon-btn {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+}
+
+.celya-coupon-btn:hover {
+  --tw-text-opacity: 1;
+  color: rgb(242 178 141 / var(--tw-text-opacity));
+}
+
+.celya-coupon-btn {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+  cursor: pointer;
+  white-space: nowrap;
+  border-style: none;
+  background-color: transparent;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+/* Bouton mettre à jour */
+
+.celya-update-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+.celya-update-btn:hover {
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+}
+
+.celya-update-btn {
+  border-radius: 0.75rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.celya-update-btn:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(89 51 42 / var(--tw-border-opacity));
+  --tw-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --tw-shadow-colored: 0 4px 12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.celya-update-btn svg {
+  height: 0.875rem;
+  width: 0.875rem;
+}
+
+/* ==========================================================================
+   RÉCAPITULATIF DE COMMANDE (cart_totals)
+   ========================================================================== */
+
+.cart_totals {
+  overflow: hidden;
+  border-radius: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  box-shadow: 0 4px 24px rgba(89, 51, 42, 0.09);
+}
+
+/* Masque le h2 natif WooCommerce (on le remplace dans le template) */
+
+.cart_totals > h2 {
+  display: none;
+}
+
+#mobile-menu.cart_totals > h2 {
+  max-height: 0;
+  overflow: hidden;
+}
+
+#mobile-menu:not(.cart_totals > h2) {
+  max-height: 500px;
+}
+
+/* En-tête du récap */
+
+.celya-totals-header {
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity));
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 1023px) {
+  .celya-account-nav .p-6.celya-totals-header {
+    display: none;
+  }
+
+  #mobile-menu.celya-account-nav .p-6.celya-totals-header {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  #mobile-menu:not(.celya-account-nav .p-6.celya-totals-header) {
+    max-height: 500px;
+  }
+}
+
+.celya-totals-header {
+  background: linear-gradient(135deg, #FDECE2 0%, #FAF9F8 100%);
+}
+
+.celya-totals-header h2 {
+  font-family: Arima, Georgia, Cambria, Times New Roman, Times, serif;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  font-weight: 700;
+  /* Override du reset h2 global */
+  font-size: 1.25rem !important;
+}
+
+/* Corps du récap */
+
+.celya-totals-body > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0px * var(--tw-space-y-reverse));
+}
+
+.celya-totals-body {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+/* Ligne générique du tableau totaux */
+
+.celya-totals-body .shop_table tr {
+  border-style: none;
+}
+
+.celya-totals-body .shop_table th,
+.celya-totals-body .shop_table td {
+  border-style: none;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 0px;
+  padding-right: 0px;
+  vertical-align: middle;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.celya-totals-body .shop_table tr:last-child th,
+.celya-totals-body .shop_table tr:last-child td {
+  border-bottom: none;
+}
+
+.celya-totals-body .shop_table th {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+  font-weight: 500;
+}
+
+.celya-totals-body .shop_table td {
+  text-align: right;
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+  font-weight: 600;
+}
+
+/* Sous-total */
+
+.cart-subtotal th,
+.cart-subtotal td {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Réductions coupons */
+
+.cart-discount th {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
+}
+
+.cart-discount td {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
+}
+
+.cart-discount .woocommerce-remove-coupon {
+  margin-left: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(248 113 113 / var(--tw-text-opacity));
+}
+
+.cart-discount .woocommerce-remove-coupon:hover {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
+.cart-discount .woocommerce-remove-coupon {
+  text-decoration-line: none;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Livraison */
+
+.shipping th,
+.shipping td {
+  vertical-align: top;
+}
+
+.woocommerce-shipping-methods {
+  margin: 0px;
+  list-style-type: none;
+}
+
+.woocommerce-shipping-methods > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.375rem * var(--tw-space-y-reverse));
+}
+
+.woocommerce-shipping-methods {
+  padding: 0px;
+}
+
+.woocommerce-shipping-methods li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+  font-weight: 400;
+}
+
+.woocommerce-shipping-methods li label {
+  cursor: pointer;
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+  font-weight: 400;
+}
+
+.woocommerce-shipping-calculator {
+  margin-top: 0.5rem;
+}
+
+/* Total final */
+
+.order-total th,
+.order-total td {
+  border-style: none;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.order-total th {
+  font-family: Arima, Georgia, Cambria, Times New Roman, Times, serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  font-weight: 700;
+}
+
+.order-total td {
+  font-family: Arima, Georgia, Cambria, Times New Roman, Times, serif;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  font-weight: 700;
+}
+
+.order-total .woocommerce-Price-amount {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  font-weight: 700;
+}
+
+/* Bouton "Passer la commande" */
+
+.wc-proceed-to-checkout {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.wc-proceed-to-checkout .checkout-button,
+.wc-proceed-to-checkout a.button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  --tw-bg-opacity: 1;
+  background-color: rgb(89 51 42 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.wc-proceed-to-checkout .checkout-button:hover,
+.wc-proceed-to-checkout a.button:hover {
+  --tw-translate-y: -0.125rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  --tw-shadow-colored: 0 12px 32px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.wc-proceed-to-checkout .checkout-button,
+.wc-proceed-to-checkout a.button {
+  text-decoration-line: none;
+  text-decoration: none !important;
+}
+
+/* Trust badges sous le bouton Commander */
+
+.celya-trust-badges {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-top: 0px;
+}
+
+.celya-trust-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  border-top-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity));
+  padding-top: 1rem;
+}
+
+.celya-trust-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.375rem;
+  text-align: center;
+}
+
+.celya-trust-badge-icon {
+  display: flex;
+  height: 2rem;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 236 226 / var(--tw-bg-opacity));
+}
+
+.celya-trust-badge-icon svg {
+  height: 1rem;
+  width: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+}
+
+.celya-trust-badge span {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  line-height: 1.25;
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   PANIER VIDE
+   ========================================================================== */
+
+.celya-cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .celya-cart-empty {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+.celya-cart-empty-icon {
+  margin-bottom: 2rem;
+  display: flex;
+  height: 7rem;
+  width: 7rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 236 226 / var(--tw-bg-opacity));
+}
+
+.celya-cart-empty-icon svg {
+  height: 3.5rem;
+  width: 3.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  opacity: 0.6;
+}
+
+.celya-cart-empty h2 {
+  margin-bottom: 0.75rem;
+  font-family: Arima, Georgia, Cambria, Times New Roman, Times, serif;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .celya-cart-empty h2 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
+.celya-cart-empty h2 {
+  font-size: clamp(1.4rem, 3vw, 1.9rem) !important;
+}
+
+.celya-cart-empty p {
+  margin-bottom: 2rem;
+  max-width: 24rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+.celya-cart-empty .return-to-shop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 178 141 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.celya-cart-empty .return-to-shop:hover {
+  --tw-translate-y: -0.125rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  --tw-shadow-colored: 0 12px 32px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.celya-cart-empty .return-to-shop {
+  text-decoration: none !important;
+}
+
+/* ==========================================================================
+   MESSAGES WooCommerce sur la page panier
+   ========================================================================== */
+
+.woocommerce-cart .woocommerce-notices-wrapper .woocommerce-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-left-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: rgb(34 197 94 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 253 244 / var(--tw-bg-opacity));
+  margin-bottom: 1.25rem;
+  border-radius: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(22 101 52 / var(--tw-text-opacity));
+  list-style: none;
+}
+
+.woocommerce-cart .woocommerce-notices-wrapper .woocommerce-error {
+  border-left-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
+  margin-bottom: 1.25rem;
+  border-radius: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  list-style: none;
+}
+
+.woocommerce-cart .woocommerce-notices-wrapper .woocommerce-info {
+  border-left-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: rgb(242 178 141 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 236 226 / var(--tw-bg-opacity));
+  margin-bottom: 1.25rem;
+  border-radius: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+  list-style: none;
+}
+
+.woocommerce-cart .woocommerce-notices-wrapper .woocommerce-message a.button,
+.woocommerce-cart .woocommerce-notices-wrapper .woocommerce-message .restore-item {
+  margin-left: auto;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(21 128 61 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+.woocommerce-cart .woocommerce-notices-wrapper .woocommerce-message a.button:hover,
+.woocommerce-cart .woocommerce-notices-wrapper .woocommerce-message .restore-item:hover {
+  text-decoration-line: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  /* La table devient un "stack" vertical de blocs sur mobile */
+
+  .celya-cart-table,
+    .celya-cart-table tbody,
+    .celya-cart-table tr,
+    .celya-cart-table td,
+    .celya-cart-table th {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .celya-thead-hidden {
+    display: none !important;
+  }
+
+  .woocommerce-cart-form__cart-item {
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    box-shadow: 0 4px 16px rgba(89, 51, 42, 0.08);
+  }
+
+  /* Réinitialise les shadows et radius des cellules sur mobile */
+
+  .woocommerce-cart-form__cart-item td,
+    .woocommerce-cart-form__cart-item th {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border-bottom-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(249 250 251 / var(--tw-border-opacity));
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  @media (max-width: 1023px) {
+    .celya-account-nav .p-6.woocommerce-cart-form__cart-item td,.celya-account-nav .p-6
+    .woocommerce-cart-form__cart-item th {
+      display: none;
+    }
+
+    #mobile-menu.celya-account-nav .p-6.woocommerce-cart-form__cart-item td,#mobile-menu.celya-account-nav .p-6
+    .woocommerce-cart-form__cart-item th {
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    #mobile-menu:not(.celya-account-nav .p-6.woocommerce-cart-form__cart-item td),#mobile-menu:not(.celya-account-nav .p-6
+    .woocommerce-cart-form__cart-item th) {
+      max-height: 500px;
+    }
+  }
+
+  .woocommerce-cart-form__cart-item td:last-child,
+    .woocommerce-cart-form__cart-item th:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Image full-width sur mobile */
+
+  .celya-td-thumb {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .celya-cart-thumb {
+    margin-left: auto;
+    margin-right: auto;
+    height: 4rem;
+    width: 4rem;
+  }
+
+  /* Nom centré */
+
+  .celya-td-name {
+    padding-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  /* Labels mobiles via data-title */
+
+  .celya-td-price::before,
+    .celya-td-qty::before,
+    .celya-td-subtotal::before {
+    content: attr(data-title) " : ";
+    margin-right: 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  .celya-td-price,
+    .celya-td-qty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  .celya-td-subtotal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+  }
+
+  .celya-subtotal-cell {
+    flex-direction: row-reverse;
+    gap: 1rem;
+  }
+
+  /* Actions bar en colonne */
+
+  .celya-cart-actions-bar {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .celya-coupon-wrap {
+    width: 100%;
+  }
+
+  .celya-update-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/**
+ * ==========================================================================
+ * CELYA — Formulaires (styles globaux)
+ * Couvre : WooCommerce (my-account, checkout, login), commentaires, formulaires natifs
+ * ==========================================================================
+ */
+
+/* ==========================================================================
+   VARIABLES DE DESIGN
+   Toutes les valeurs sont définies ici pour cohérence et maintenance aisée.
+   ========================================================================== */
+
+:root {
+  --celya-input-border:        #e5e7eb;
+  /* gray-200 */
+  --celya-input-border-focus:  #F2B28D;
+  /* celya-orange_dark */
+  --celya-input-ring:          rgba(242,178,141,.35);
+  --celya-input-bg:            #ffffff;
+  --celya-input-radius:        0.75rem;
+  /* rounded-xl */
+  --celya-input-px:            1rem;
+  --celya-input-py:            0.75rem;
+  --celya-input-text:          #2C2C2C;
+  /* celya-dark */
+  --celya-input-placeholder:   #9ca3af;
+  /* gray-400 */
+  --celya-label-text:          #2C2C2C;
+  --celya-label-size:          0.875rem;
+  /* text-sm */
+  --celya-error-text:          #ef4444;
+  /* red-500 */
+}
+
+/* ==========================================================================
+   LABELS
+   ========================================================================== */
+
+.woocommerce .woocommerce-form-row label,
+.woocommerce .form-row label,
+.woocommerce-checkout label,
+.woocommerce-EditAccountForm label,
+.woocommerce-address-fields label,
+#commentform label,
+.celya-form label,
+.form-label {
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+  font-weight: 600;
+}
+
+/* Astérisque "obligatoire" */
+
+.woocommerce .required,
+.celya-form .required {
+  margin-left: 0.125rem;
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   INPUTS TEXTE — cible toutes les classes WooCommerce + natif
+   ========================================================================== */
+
+.woocommerce-Input,
+.woocommerce-Input--text,
+.woocommerce-Input--email,
+.woocommerce-Input--password,
+.input-text,
+.woocommerce input[type="text"],
+.woocommerce input[type="email"],
+.woocommerce input[type="password"],
+.woocommerce input[type="tel"],
+.woocommerce input[type="number"],
+.woocommerce input[type="url"],
+.woocommerce input[type="search"],
+.woocommerce-checkout input[type="text"],
+.woocommerce-checkout input[type="email"],
+.woocommerce-checkout input[type="password"],
+.woocommerce-checkout input[type="tel"],
+#commentform input[type="text"],
+#commentform input[type="email"],
+#commentform input[type="url"],
+.celya-form input[type="text"],
+.celya-form input[type="email"],
+.celya-form input[type="password"],
+.celya-form input[type="tel"],
+.form-input {
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+  border-radius: 0.75rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
+
+.woocommerce-Input::-moz-placeholder, .woocommerce-Input--text::-moz-placeholder, .woocommerce-Input--email::-moz-placeholder, .woocommerce-Input--password::-moz-placeholder, .input-text::-moz-placeholder, .woocommerce input[type="text"]::-moz-placeholder, .woocommerce input[type="email"]::-moz-placeholder, .woocommerce input[type="password"]::-moz-placeholder, .woocommerce input[type="tel"]::-moz-placeholder, .woocommerce input[type="number"]::-moz-placeholder, .woocommerce input[type="url"]::-moz-placeholder, .woocommerce input[type="search"]::-moz-placeholder, .woocommerce-checkout input[type="text"]::-moz-placeholder, .woocommerce-checkout input[type="email"]::-moz-placeholder, .woocommerce-checkout input[type="password"]::-moz-placeholder, .woocommerce-checkout input[type="tel"]::-moz-placeholder, #commentform input[type="text"]::-moz-placeholder, #commentform input[type="email"]::-moz-placeholder, #commentform input[type="url"]::-moz-placeholder, .celya-form input[type="text"]::-moz-placeholder, .celya-form input[type="email"]::-moz-placeholder, .celya-form input[type="password"]::-moz-placeholder, .celya-form input[type="tel"]::-moz-placeholder, .form-input::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+
+.woocommerce-Input::placeholder,
+.woocommerce-Input--text::placeholder,
+.woocommerce-Input--email::placeholder,
+.woocommerce-Input--password::placeholder,
+.input-text::placeholder,
+.woocommerce input[type="text"]::placeholder,
+.woocommerce input[type="email"]::placeholder,
+.woocommerce input[type="password"]::placeholder,
+.woocommerce input[type="tel"]::placeholder,
+.woocommerce input[type="number"]::placeholder,
+.woocommerce input[type="url"]::placeholder,
+.woocommerce input[type="search"]::placeholder,
+.woocommerce-checkout input[type="text"]::placeholder,
+.woocommerce-checkout input[type="email"]::placeholder,
+.woocommerce-checkout input[type="password"]::placeholder,
+.woocommerce-checkout input[type="tel"]::placeholder,
+#commentform input[type="text"]::placeholder,
+#commentform input[type="email"]::placeholder,
+#commentform input[type="url"]::placeholder,
+.celya-form input[type="text"]::placeholder,
+.celya-form input[type="email"]::placeholder,
+.celya-form input[type="password"]::placeholder,
+.celya-form input[type="tel"]::placeholder,
+.form-input::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+
+.woocommerce-Input,
+.woocommerce-Input--text,
+.woocommerce-Input--email,
+.woocommerce-Input--password,
+.input-text,
+.woocommerce input[type="text"],
+.woocommerce input[type="email"],
+.woocommerce input[type="password"],
+.woocommerce input[type="tel"],
+.woocommerce input[type="number"],
+.woocommerce input[type="url"],
+.woocommerce input[type="search"],
+.woocommerce-checkout input[type="text"],
+.woocommerce-checkout input[type="email"],
+.woocommerce-checkout input[type="password"],
+.woocommerce-checkout input[type="tel"],
+#commentform input[type="text"],
+#commentform input[type="email"],
+#commentform input[type="url"],
+.celya-form input[type="text"],
+.celya-form input[type="email"],
+.celya-form input[type="password"],
+.celya-form input[type="tel"],
+.form-input {
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.woocommerce-Input:focus,
+.woocommerce-Input--text:focus,
+.woocommerce-Input--email:focus,
+.woocommerce-Input--password:focus,
+.input-text:focus,
+.woocommerce input[type="text"]:focus,
+.woocommerce input[type="email"]:focus,
+.woocommerce input[type="password"]:focus,
+.woocommerce input[type="tel"]:focus,
+.woocommerce input[type="number"]:focus,
+.woocommerce input[type="url"]:focus,
+.woocommerce input[type="search"]:focus,
+.woocommerce-checkout input[type="text"]:focus,
+.woocommerce-checkout input[type="email"]:focus,
+.woocommerce-checkout input[type="password"]:focus,
+.woocommerce-checkout input[type="tel"]:focus,
+#commentform input[type="text"]:focus,
+#commentform input[type="email"]:focus,
+#commentform input[type="url"]:focus,
+.celya-form input[type="text"]:focus,
+.celya-form input[type="email"]:focus,
+.celya-form input[type="password"]:focus,
+.celya-form input[type="tel"]:focus,
+.form-input:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(242 178 141 / var(--tw-border-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.woocommerce-Input,
+.woocommerce-Input--text,
+.woocommerce-Input--email,
+.woocommerce-Input--password,
+.input-text,
+.woocommerce input[type="text"],
+.woocommerce input[type="email"],
+.woocommerce input[type="password"],
+.woocommerce input[type="tel"],
+.woocommerce input[type="number"],
+.woocommerce input[type="url"],
+.woocommerce input[type="search"],
+.woocommerce-checkout input[type="text"],
+.woocommerce-checkout input[type="email"],
+.woocommerce-checkout input[type="password"],
+.woocommerce-checkout input[type="tel"],
+#commentform input[type="text"],
+#commentform input[type="email"],
+#commentform input[type="url"],
+.celya-form input[type="text"],
+.celya-form input[type="email"],
+.celya-form input[type="password"],
+.celya-form input[type="tel"],
+.form-input {
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.woocommerce-Input:focus,
+.woocommerce-Input--text:focus,
+.woocommerce-Input--email:focus,
+.woocommerce-Input--password:focus,
+.input-text:focus,
+.woocommerce input[type="text"]:focus,
+.woocommerce input[type="email"]:focus,
+.woocommerce input[type="password"]:focus,
+.woocommerce input[type="tel"]:focus,
+.woocommerce-checkout input[type="text"]:focus,
+.woocommerce-checkout input[type="email"]:focus,
+.woocommerce-checkout input[type="password"]:focus,
+.woocommerce-checkout input[type="tel"]:focus,
+#commentform input[type="text"]:focus,
+#commentform input[type="email"]:focus,
+#commentform input[type="url"]:focus,
+.celya-form input:focus,
+.form-input:focus {
+  outline: none;
+  border-color: var(--celya-input-border-focus);
+  box-shadow: 0 0 0 3px var(--celya-input-ring);
+}
+
+/* ==========================================================================
+   SELECT
+   ========================================================================== */
+
+.woocommerce select,
+.woocommerce-checkout select,
+.woocommerce-address-fields select,
+.woocommerce-EditAccountForm select,
+.celya-form select {
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+  border-radius: 0.75rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.woocommerce select:focus,
+.woocommerce-checkout select:focus,
+.woocommerce-address-fields select:focus,
+.woocommerce-EditAccountForm select:focus,
+.celya-form select:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(242 178 141 / var(--tw-border-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.woocommerce select,
+.woocommerce-checkout select,
+.woocommerce-address-fields select,
+.woocommerce-EditAccountForm select,
+.celya-form select {
+  /* Flèche custom */
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-position: right 0.875rem center;
+  background-repeat: no-repeat;
+  background-size: 1.1em;
+  padding-right: 2.5rem;
+  box-sizing: border-box;
+}
+
+.woocommerce select:focus,
+.woocommerce-checkout select:focus,
+.celya-form select:focus {
+  outline: none;
+  border-color: var(--celya-input-border-focus);
+  box-shadow: 0 0 0 3px var(--celya-input-ring);
+}
+
+/* ==========================================================================
+   TEXTAREA
+   ========================================================================== */
+
+.woocommerce textarea,
+.woocommerce-checkout textarea,
+#commentform textarea,
+.celya-form textarea {
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+  border-radius: 0.75rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  resize: vertical;
+}
+
+.woocommerce textarea::-moz-placeholder, .woocommerce-checkout textarea::-moz-placeholder, #commentform textarea::-moz-placeholder, .celya-form textarea::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+
+.woocommerce textarea::placeholder,
+.woocommerce-checkout textarea::placeholder,
+#commentform textarea::placeholder,
+.celya-form textarea::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+
+.woocommerce textarea,
+.woocommerce-checkout textarea,
+#commentform textarea,
+.celya-form textarea {
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.woocommerce textarea:focus,
+.woocommerce-checkout textarea:focus,
+#commentform textarea:focus,
+.celya-form textarea:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(242 178 141 / var(--tw-border-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.woocommerce textarea,
+.woocommerce-checkout textarea,
+#commentform textarea,
+.celya-form textarea {
+  min-height: 120px;
+  box-sizing: border-box;
+}
+
+.woocommerce textarea:focus,
+.woocommerce-checkout textarea:focus,
+#commentform textarea:focus,
+.celya-form textarea:focus {
+  outline: none;
+  border-color: var(--celya-input-border-focus);
+  box-shadow: 0 0 0 3px var(--celya-input-ring);
+}
+
+/* ==========================================================================
+   CHECKBOX & RADIO
+   ========================================================================== */
+
+.woocommerce input[type="checkbox"],
+.woocommerce-checkout input[type="checkbox"],
+.woocommerce input[type="radio"],
+.woocommerce-checkout input[type="radio"],
+.celya-form input[type="checkbox"],
+.celya-form input[type="radio"] {
+  height: 1rem;
+  width: 1rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  accent-color: #F2B28D;
+  flex-shrink: 0;
+}
+
+.woocommerce .woocommerce-form__label-for-checkbox,
+.woocommerce-checkout .woocommerce-form__label-for-checkbox {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   FIELDSET
+   ========================================================================== */
+
+.woocommerce fieldset,
+.woocommerce-checkout fieldset,
+.celya-form fieldset {
+  margin-top: 1.5rem;
+  border-radius: 0.75rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(250 249 248 / var(--tw-border-opacity));
+  padding: 1.5rem;
+}
+
+@media (max-width: 1023px) {
+  .celya-account-nav .woocommerce fieldset.border-b,.celya-account-nav 
+.woocommerce-checkout fieldset.border-b,.celya-account-nav 
+.celya-form fieldset.border-b {
+    display: none;
+  }
+
+  #mobile-menu.celya-account-nav .woocommerce fieldset.border-b,#mobile-menu.celya-account-nav 
+.woocommerce-checkout fieldset.border-b,#mobile-menu.celya-account-nav 
+.celya-form fieldset.border-b {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  #mobile-menu:not(.celya-account-nav .woocommerce fieldset.border-b),#mobile-menu:not(.celya-account-nav 
+.woocommerce-checkout fieldset.border-b),#mobile-menu:not(.celya-account-nav 
+.celya-form fieldset.border-b) {
+    max-height: 500px;
+  }
+}
+
+.woocommerce fieldset legend,
+.woocommerce-checkout fieldset legend,
+.celya-form fieldset legend {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-family: Arima, Georgia, Cambria, Times New Roman, Times, serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   STRUCTURE DES LIGNES WOOCOMMERCE (.form-row)
+   ========================================================================== */
+
+.woocommerce .form-row,
+.woocommerce-checkout .form-row,
+.woocommerce-address-fields .form-row,
+.woocommerce-EditAccountForm .form-row {
+  margin-bottom: 1.25rem;
+}
+
+/* Supprime les marges WooCommerce par défaut */
+
+.woocommerce .form-row p,
+.woocommerce .form-row span {
+  margin: 0px;
+}
+
+/* Wrapper input (WC ajoute un div autour) */
+
+.woocommerce .form-row .woocommerce-input-wrapper {
+  display: block;
+  width: 100%;
+}
+
+/* Grille de champs (first/last) */
+
+.woocommerce .woocommerce-address-fields__field-wrapper,
+.woocommerce-checkout .col2-set .col-1,
+.woocommerce-checkout .col2-set .col-2 {
+  width: 100%;
+}
+
+/* ==========================================================================
+   MESSAGES DE VALIDATION
+   ========================================================================== */
+
+/* Erreur sous un champ */
+
+.woocommerce .form-row.woocommerce-invalid input,
+.woocommerce .form-row.woocommerce-invalid select,
+.woocommerce .form-row.woocommerce-invalid textarea,
+.celya-form .is-invalid input,
+.celya-form .is-invalid select {
+  --tw-border-opacity: 1;
+  border-color: rgb(248 113 113 / var(--tw-border-opacity));
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.woocommerce .form-row.woocommerce-validated input,
+.woocommerce .form-row.woocommerce-validated select {
+  --tw-border-opacity: 1;
+  border-color: rgb(74 222 128 / var(--tw-border-opacity));
+}
+
+/* Message d'erreur texte */
+
+.woocommerce .form-row .form-row-label-required,
+.woocommerce-invalid-required-field label::after {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.woocommerce .form-error,
+.celya-form .form-error,
+.form-error {
+  margin-top: 0.25rem;
+  display: block;
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+/* Succès */
+
+.woocommerce .form-success,
+.celya-form .form-success {
+  margin-top: 0.25rem;
+  display: block;
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
+}
+
+/* ==========================================================================
+   FORMULAIRE COMMENTAIRES / AVIS
+   ========================================================================== */
+
+#commentform > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+
+#commentform .comment-notes {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+#commentform .comment-form-author,
+#commentform .comment-form-email,
+#commentform .comment-form-url,
+#commentform .comment-form-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#commentform .comment-form-cookies-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+#commentform .comment-form-cookies-consent label {
+  margin-bottom: 0px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+  font-weight: 400;
+}
+
+#commentform .form-submit {
+  margin-top: 0.5rem;
+}
+
+#commentform .submit {
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(89 51 42 / var(--tw-bg-opacity));
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+}
+
+#commentform .submit:hover {
+  --tw-translate-y: -0.125rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  --tw-shadow-colored: 0 12px 32px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+#commentform .submit:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-offset-width: 2px;
+}
+
+#commentform .submit {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   FORMULAIRE CONNEXION WOOCOMMERCE
+   ========================================================================== */
+
+.woocommerce-form-login > :not([hidden]) ~ :not([hidden]),
+.woocommerce-form-register > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+
+.woocommerce-form-login .woocommerce-form-login__rememberme {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+  font-weight: 400;
+}
+
+.woocommerce-LostPassword {
+  margin-top: 0.75rem;
+}
+
+.woocommerce-LostPassword a {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.woocommerce-LostPassword a:hover {
+  --tw-text-opacity: 1;
+  color: rgb(242 178 141 / var(--tw-text-opacity));
+}
+
+/* ==========================================================================
+   FORMULAIRE MOT DE PASSE PERDU
+   ========================================================================== */
+
+.woocommerce-form-lost-password > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+
+/* ==========================================================================
+   COMPOSANTS UTILITAIRES (réutilisables dans tout le thème)
+   ========================================================================== */
+
+/* Champ générique stylé */
+
+.form-input {
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+  border-radius: 0.75rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
+
+.form-input::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+
+.form-input::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+
+.form-input {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.form-input:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(242 178 141 / var(--tw-border-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Label générique */
+
+.form-label {
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(44 44 44 / var(--tw-text-opacity));
+  font-weight: 600;
+}
+
+/* Message d'erreur générique */
+
+.form-error {
+  margin-top: 0.25rem;
+  display: block;
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+/* Groupe label + input */
+
+.form-group {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   OVERRIDE DES STYLES TAILWIND FORMS (plugin @tailwindcss/forms)
+   Réinitialise les bordures/radius du plugin pour adopter notre style.
+   ========================================================================== */
+
+[type='text'],
+[type='email'],
+[type='url'],
+[type='password'],
+[type='number'],
+[type='date'],
+[type='tel'],
+[type='search'],
+textarea,
+select {
+  border-radius: var(--celya-input-radius);
+  border-color: var(--celya-input-border);
+}
+
+[type='text']:focus,
+[type='email']:focus,
+[type='url']:focus,
+[type='password']:focus,
+[type='number']:focus,
+[type='date']:focus,
+[type='tel']:focus,
+[type='search']:focus,
+textarea:focus,
+select:focus {
+  --tw-ring-color: var(--celya-input-ring);
+  border-color: var(--celya-input-border-focus);
+  box-shadow: 0 0 0 3px var(--celya-input-ring);
 }
 
 /* Directives Tailwind */
@@ -2395,6 +5036,64 @@ em, i {
   }
 }
 
+.form-input,.form-textarea,.form-select,.form-multiselect {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #fff;
+  border-color: #6b7280;
+  border-width: 1px;
+  border-radius: 0px;
+  padding-top: 0.5rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  --tw-shadow: 0 0 #0000;
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus, .form-multiselect:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: #2563eb;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  border-color: #2563eb;
+}
+
+.form-input::-moz-placeholder, .form-textarea::-moz-placeholder {
+  color: #6b7280;
+  opacity: 1;
+}
+
+.form-input::placeholder,.form-textarea::placeholder {
+  color: #6b7280;
+  opacity: 1;
+}
+
+.form-input::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}
+
+.form-input::-webkit-date-and-time-value {
+  min-height: 1.5em;
+  text-align: inherit;
+}
+
+.form-input::-webkit-datetime-edit {
+  display: inline-flex;
+}
+
+.form-input::-webkit-datetime-edit,.form-input::-webkit-datetime-edit-year-field,.form-input::-webkit-datetime-edit-month-field,.form-input::-webkit-datetime-edit-day-field,.form-input::-webkit-datetime-edit-hour-field,.form-input::-webkit-datetime-edit-minute-field,.form-input::-webkit-datetime-edit-second-field,.form-input::-webkit-datetime-edit-millisecond-field,.form-input::-webkit-datetime-edit-meridiem-field {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .prose {
   color: var(--tw-prose-body);
   max-width: 65ch;
@@ -2897,6 +5596,96 @@ em, i {
   margin-bottom: 0;
 }
 
+/* Largeur normale (aucun alignement ou centré) */
+
+.wp-block-group:not(.alignfull):not(.alignwide) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .wp-block-group:not(.alignfull):not(.alignwide) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .wp-block-group:not(.alignfull):not(.alignwide) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wp-block-group:not(.alignfull):not(.alignwide) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Large */
+
+.wp-block-group.alignwide {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1536px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .wp-block-group.alignwide {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .wp-block-group.alignwide {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wp-block-group.alignwide {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Pleine largeur */
+
+.wp-block-group.alignfull {
+  position: relative;
+  width: 100%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .wp-block-group.alignfull {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.wp-block-group.alignfull {
+  margin-left: calc(-50vw + 50%);
+  width: 100vw !important;
+  max-width: 100vw !important;
+}
+
 #wpadminbar {
   display: none;
 }
@@ -2982,6 +5771,45 @@ em, i {
   --tw-ring-offset-width: 2px;
 }
 
+.btn-celya-outline {
+  border-radius: 9999px;
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(89 51 42 / var(--tw-border-opacity));
+  background-color: transparent;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+}
+
+.btn-celya-outline:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(89 51 42 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.btn-celya-outline:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-offset-width: 2px;
+}
+
 .btn-celya-orange-dark {
   border-radius: 9999px;
   --tw-bg-opacity: 1;
@@ -3023,6 +5851,25 @@ em, i {
 /* ===================
      CARDS PRODUITS
      =================== */
+
+.product-card {
+  overflow: hidden;
+  border-radius: 4rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.product-card:hover {
+  --tw-translate-y: -0.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 8px 24px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 
 /* ===================
      TAGS PRODUITS
@@ -3147,9 +5994,73 @@ em, i {
 
 /* Wrapper pour background pleine largeur */
 
+.section-wrapper {
+  width: 100%;
+}
+
+.section-title {
+  margin-bottom: 2rem;
+  font-family: Arima, Georgia, Cambria, Times New Roman, Times, serif;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+.section-subtitle {
+  margin-bottom: 0.5rem;
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  --tw-text-opacity: 1;
+  color: rgb(89 51 42 / var(--tw-text-opacity));
+  font-weight: 500;
+}
+
+.section-container-full {
+  position: relative;
+  width: 100%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .section-container-full {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
 /* ===================
      FORMULAIRES
+     → Voir forms.css
      =================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.visible {
+  visibility: visible;
+}
 
 .invisible {
   visibility: hidden;
@@ -3157,6 +6068,10 @@ em, i {
 
 .collapse {
   visibility: collapse;
+}
+
+.static {
+  position: static;
 }
 
 .absolute {
@@ -3175,20 +6090,32 @@ em, i {
   inset: 0px;
 }
 
+.-bottom-10 {
+  bottom: -2.5rem;
+}
+
 .-right-1 {
   right: -0.25rem;
+}
+
+.-right-4 {
+  right: -1rem;
+}
+
+.-right-8 {
+  right: -2rem;
 }
 
 .-top-1 {
   top: -0.25rem;
 }
 
-.bottom-0 {
-  bottom: 0px;
+.-top-8 {
+  top: -2rem;
 }
 
-.bottom-4 {
-  bottom: 1rem;
+.bottom-0 {
+  bottom: 0px;
 }
 
 .left-0 {
@@ -3197,10 +6124,6 @@ em, i {
 
 .left-3 {
   left: 0.75rem;
-}
-
-.left-4 {
-  left: 1rem;
 }
 
 .right-3 {
@@ -3213,6 +6136,10 @@ em, i {
 
 .top-0 {
   top: 0px;
+}
+
+.top-28 {
+  top: 7rem;
 }
 
 .top-3 {
@@ -3235,6 +6162,46 @@ em, i {
   z-index: 50;
 }
 
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
+
+.col-span-4 {
+  grid-column: span 4 / span 4;
+}
+
+.col-span-5 {
+  grid-column: span 5 / span 5;
+}
+
+.col-span-6 {
+  grid-column: span 6 / span 6;
+}
+
+.col-span-7 {
+  grid-column: span 7 / span 7;
+}
+
+.col-span-8 {
+  grid-column: span 8 / span 8;
+}
+
+.\!m-0 {
+  margin: 0px !important;
+}
+
+.m-0 {
+  margin: 0px;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -3242,6 +6209,10 @@ em, i {
 
 .mb-0 {
   margin-bottom: 0px;
+}
+
+.mb-0\.5 {
+  margin-bottom: 0.125rem;
 }
 
 .mb-1 {
@@ -3264,6 +6235,10 @@ em, i {
   margin-bottom: 1rem;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem;
 }
@@ -3272,8 +6247,28 @@ em, i {
   margin-bottom: 2rem;
 }
 
+.ml-0 {
+  margin-left: 0px;
+}
+
+.ml-0\.5 {
+  margin-left: 0.125rem;
+}
+
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .ml-auto {
   margin-left: auto;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
 }
 
 .mr-3 {
@@ -3306,6 +6301,10 @@ em, i {
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .mt-6 {
@@ -3350,12 +6349,20 @@ em, i {
   display: flex;
 }
 
+.inline-flex {
+  display: inline-flex;
+}
+
 .table {
   display: table;
 }
 
 .grid {
   display: grid;
+}
+
+.contents {
+  display: contents;
 }
 
 .hidden {
@@ -3372,6 +6379,10 @@ em, i {
 
 .h-10 {
   height: 2.5rem;
+}
+
+.h-11 {
+  height: 2.75rem;
 }
 
 .h-12 {
@@ -3394,6 +6405,10 @@ em, i {
   height: 5rem;
 }
 
+.h-28 {
+  height: 7rem;
+}
+
 .h-3 {
   height: 0.75rem;
 }
@@ -3404,6 +6419,10 @@ em, i {
 
 .h-4 {
   height: 1rem;
+}
+
+.h-40 {
+  height: 10rem;
 }
 
 .h-5 {
@@ -3426,6 +6445,10 @@ em, i {
   height: 2rem;
 }
 
+.h-9 {
+  height: 2.25rem;
+}
+
 .h-96 {
   height: 24rem;
 }
@@ -3442,12 +6465,20 @@ em, i {
   height: 100%;
 }
 
+.min-h-96 {
+  min-height: 24rem;
+}
+
 .w-0 {
   width: 0px;
 }
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-11 {
+  width: 2.75rem;
 }
 
 .w-12 {
@@ -3466,6 +6497,14 @@ em, i {
   width: 0.5rem;
 }
 
+.w-20 {
+  width: 5rem;
+}
+
+.w-28 {
+  width: 7rem;
+}
+
 .w-3 {
   width: 0.75rem;
 }
@@ -3476,6 +6515,10 @@ em, i {
 
 .w-4 {
   width: 1rem;
+}
+
+.w-40 {
+  width: 10rem;
 }
 
 .w-48 {
@@ -3496,6 +6539,10 @@ em, i {
 
 .w-8 {
   width: 2rem;
+}
+
+.w-9 {
+  width: 2.25rem;
 }
 
 .w-auto {
@@ -3530,8 +6577,16 @@ em, i {
   max-width: none;
 }
 
+.max-w-screen-2xl {
+  max-width: 1536px;
+}
+
 .flex-1 {
   flex: 1 1 0%;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
 }
 
 .flex-shrink-0 {
@@ -3542,8 +6597,78 @@ em, i {
   border-collapse: collapse;
 }
 
+.-translate-x-0 {
+  --tw-translate-x: -0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-0 {
+  --tw-translate-y: -0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.scale-105 {
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.scale-110 {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
 }
 
 @keyframes spin {
@@ -3560,16 +6685,50 @@ em, i {
   cursor: pointer;
 }
 
+.resize {
+  resize: both;
+}
+
+.list-none {
+  list-style-type: none;
+}
+
+.appearance-none {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-8 {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
 }
 
 .flex-col {
@@ -3620,6 +6779,10 @@ em, i {
   gap: 0.25rem;
 }
 
+.gap-1\.5 {
+  gap: 0.375rem;
+}
+
 .gap-12 {
   gap: 3rem;
 }
@@ -3636,12 +6799,21 @@ em, i {
   gap: 1rem;
 }
 
+.gap-5 {
+  gap: 1.25rem;
+}
+
 .gap-6 {
   gap: 1.5rem;
 }
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-x-5 {
+  -moz-column-gap: 1.25rem;
+       column-gap: 1.25rem;
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -3686,6 +6858,12 @@ em, i {
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
+.space-y-5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -3698,6 +6876,25 @@ em, i {
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+
+.divide-celya-light > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(250 249 248 / var(--tw-divide-opacity));
+}
+
+.self-auto {
+  align-self: auto;
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -3708,6 +6905,18 @@ em, i {
 
 .whitespace-nowrap {
   white-space: nowrap;
+}
+
+.text-wrap {
+  text-wrap: wrap;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.break-all {
+  word-break: break-all;
 }
 
 .rounded {
@@ -3771,6 +6980,10 @@ em, i {
   border-bottom-width: 2px;
 }
 
+.border-l {
+  border-left-width: 1px;
+}
+
 .border-l-2 {
   border-left-width: 2px;
 }
@@ -3785,6 +6998,19 @@ em, i {
 
 .border-t {
   border-top-width: 1px;
+}
+
+.border-dashed {
+  border-style: dashed;
+}
+
+.border-none {
+  border-style: none;
+}
+
+.border-blue-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity));
 }
 
 .border-celya-light {
@@ -3802,6 +7028,11 @@ em, i {
   border-color: rgb(89 51 42 / var(--tw-border-opacity));
 }
 
+.border-celya-secondary {
+  --tw-border-opacity: 1;
+  border-color: rgb(242 208 167 / var(--tw-border-opacity));
+}
+
 .border-gray-100 {
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
@@ -3815,6 +7046,16 @@ em, i {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-gray-50 {
+  --tw-border-opacity: 1;
+  border-color: rgb(249 250 251 / var(--tw-border-opacity));
+}
+
+.border-gray-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
 }
 
 .border-green-500 {
@@ -3845,9 +7086,28 @@ em, i {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-blue-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+}
+
+.bg-blue-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 246 255 / var(--tw-bg-opacity));
+}
+
 .bg-celya-blue_dark {
   --tw-bg-opacity: 1;
   background-color: rgb(189 217 242 / var(--tw-bg-opacity));
+}
+
+.bg-celya-blue_dark\/40 {
+  background-color: rgb(189 217 242 / 0.4);
+}
+
+.bg-celya-blue_light {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 247 252 / var(--tw-bg-opacity));
 }
 
 .bg-celya-green_dark {
@@ -3875,6 +7135,14 @@ em, i {
   background-color: rgb(242 178 141 / var(--tw-bg-opacity));
 }
 
+.bg-celya-orange_dark\/20 {
+  background-color: rgb(242 178 141 / 0.2);
+}
+
+.bg-celya-orange_dark\/30 {
+  background-color: rgb(242 178 141 / 0.3);
+}
+
 .bg-celya-orange_light {
   --tw-bg-opacity: 1;
   background-color: rgb(253 236 226 / var(--tw-bg-opacity));
@@ -3883,6 +7151,16 @@ em, i {
 .bg-celya-primary {
   --tw-bg-opacity: 1;
   background-color: rgb(89 51 42 / var(--tw-bg-opacity));
+}
+
+.bg-celya-secondary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 208 167 / var(--tw-bg-opacity));
+}
+
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
 .bg-gray-200 {
@@ -3900,9 +7178,19 @@ em, i {
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
+.bg-green-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+}
+
 .bg-green-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(240 253 244 / var(--tw-bg-opacity));
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
 
 .bg-green-600 {
@@ -3910,9 +7198,33 @@ em, i {
   background-color: rgb(22 163 74 / var(--tw-bg-opacity));
 }
 
+.bg-orange-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 237 213 / var(--tw-bg-opacity));
+}
+
+.bg-purple-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 232 255 / var(--tw-bg-opacity));
+}
+
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+}
+
 .bg-red-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 242 242 / var(--tw-bg-opacity));
+}
+
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+
+.bg-transparent {
+  background-color: transparent;
 }
 
 .bg-white {
@@ -3920,8 +7232,13 @@ em, i {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-white\/90 {
-  background-color: rgb(255 255 255 / 0.9);
+.bg-white\/5 {
+  background-color: rgb(255 255 255 / 0.05);
+}
+
+.bg-yellow-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-20 {
@@ -3934,6 +7251,10 @@ em, i {
 
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
 
 .bg-gradient-to-r {
@@ -3950,6 +7271,22 @@ em, i {
   --tw-gradient-from: #F2B28D var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(242 178 141 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-celya-orange_light {
+  --tw-gradient-from: #FDECE2 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(253 236 226 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-celya-primary {
+  --tw-gradient-from: #59332A var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(89 51 42 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-celya-dark {
+  --tw-gradient-to: #2C2C2C var(--tw-gradient-to-position);
 }
 
 .to-celya-primary {
@@ -3978,6 +7315,10 @@ em, i {
      object-fit: cover;
 }
 
+.p-0 {
+  padding: 0px;
+}
+
 .p-10 {
   padding: 2.5rem;
 }
@@ -3988,6 +7329,10 @@ em, i {
 
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .p-4 {
@@ -4004,6 +7349,11 @@ em, i {
 
 .p-8 {
   padding: 2rem;
+}
+
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .px-1 {
@@ -4026,9 +7376,19 @@ em, i {
   padding-right: 1rem;
 }
 
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
 }
 
 .px-8 {
@@ -4056,6 +7416,11 @@ em, i {
   padding-bottom: 0.375rem;
 }
 
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
 .py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -4071,6 +7436,11 @@ em, i {
   padding-bottom: 0.5rem;
 }
 
+.py-2\.5 {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+
 .py-20 {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -4081,9 +7451,19 @@ em, i {
   padding-bottom: 0.75rem;
 }
 
+.py-3\.5 {
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+}
+
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .py-6 {
@@ -4106,6 +7486,18 @@ em, i {
 
 .pb-16 {
   padding-bottom: 4rem;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
 }
 
 .pb-6 {
@@ -4138,6 +7530,10 @@ em, i {
 
 .pt-1 {
   padding-top: 0.25rem;
+}
+
+.pt-2 {
+  padding-top: 0.5rem;
 }
 
 .pt-4 {
@@ -4230,6 +7626,10 @@ em, i {
   font-weight: 800;
 }
 
+.font-light {
+  font-weight: 300;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -4270,14 +7670,32 @@ em, i {
   letter-spacing: 0.05em;
 }
 
+.tracking-widest {
+  letter-spacing: 0.1em;
+}
+
+.text-amber-600 {
+  --tw-text-opacity: 1;
+  color: rgb(217 119 6 / var(--tw-text-opacity));
+}
+
 .text-celya-dark {
   --tw-text-opacity: 1;
   color: rgb(44 44 44 / var(--tw-text-opacity));
 }
 
+.text-celya-dark\/70 {
+  color: rgb(44 44 44 / 0.7);
+}
+
 .text-celya-orange_dark {
   --tw-text-opacity: 1;
   color: rgb(242 178 141 / var(--tw-text-opacity));
+}
+
+.text-celya-orange_light {
+  --tw-text-opacity: 1;
+  color: rgb(253 236 226 / var(--tw-text-opacity));
 }
 
 .text-celya-primary {
@@ -4315,6 +7733,21 @@ em, i {
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
+.text-green-500 {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
+.text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
+}
+
+.text-green-700 {
+  --tw-text-opacity: 1;
+  color: rgb(21 128 61 / var(--tw-text-opacity));
+}
+
 .text-green-800 {
   --tw-text-opacity: 1;
   color: rgb(22 101 52 / var(--tw-text-opacity));
@@ -4340,6 +7773,11 @@ em, i {
   color: rgb(185 28 28 / var(--tw-text-opacity));
 }
 
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -4354,8 +7792,39 @@ em, i {
   text-decoration-line: underline;
 }
 
+.underline-offset-2 {
+  text-underline-offset: 2px;
+}
+
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.placeholder-gray-400::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+
+.placeholder-gray-400::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+
 .opacity-0 {
   opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-60 {
+  opacity: 0.6;
 }
 
 .opacity-70 {
@@ -4368,9 +7837,21 @@ em, i {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-2xl {
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow-celya {
   --tw-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   --tw-shadow-colored: 0 8px 24px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-celya-sm {
+  --tw-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --tw-shadow-colored: 0 4px 12px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -4392,13 +7873,27 @@ em, i {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.filter {
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.outline {
+  outline-style: solid;
+}
+
+.ring-celya-orange_dark {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(242 178 141 / var(--tw-ring-opacity));
+}
+
+.grayscale {
+  --tw-grayscale: grayscale(100%);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.backdrop-blur {
-  --tw-backdrop-blur: blur(8px);
-  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition {
@@ -4415,6 +7910,12 @@ em, i {
 
 .transition-colors {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-opacity {
+  transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -4437,11 +7938,29 @@ em, i {
   transition-duration: 500ms;
 }
 
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* Text balance */
+
+.text-balance {
+  text-wrap: balance;
+}
 
 /* Background texture */
 
+.bg-texture {
+  background-image: url('../images/bg-texture-biscuit.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 /* Font weight utilities personnalisées */
+
+.font-light {
+  font-weight: 300;
+}
 
 .font-normal {
   font-weight: 400;
@@ -4789,17 +8308,14 @@ em, i {
     padding-bottom: 0;
   }
   .quantity input {
+    text-align: center;
+  }
+  .quantity input {
     width: 100%;
   }
   .quantity input {
-    border-radius: 0.5rem;
-  }
-  .quantity input {
-    border-width: 1px;
-  }
-  .quantity input {
-    --tw-border-opacity: 1;
-    border-color: rgb(209 213 219 / var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
   .quantity input {
     padding-left: 1rem;
@@ -4810,11 +8326,99 @@ em, i {
     padding-bottom: 0.75rem;
   }
   .quantity input {
-    font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
   .quantity input {
     --tw-text-opacity: 1;
     color: rgb(44 44 44 / var(--tw-text-opacity));
+  }
+  .quantity input {
+    border-radius: 0.75rem;
+  }
+  .quantity input {
+    border-width: 1px;
+  }
+  .quantity input {
+    --tw-border-opacity: 1;
+    border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  }
+  .quantity input::-moz-placeholder {
+    --tw-placeholder-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+  }
+  .quantity input::placeholder {
+    --tw-placeholder-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+  }
+  .quantity input {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  .quantity input {
+    transition-duration: 200ms;
+  }
+  .quantity input {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .quantity input:focus {
+    --tw-border-opacity: 1;
+    border-color: rgb(242 178 141 / var(--tw-border-opacity));
+  }
+  .quantity input:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  .quantity input {
+    box-shadow: none;
+    box-sizing: border-box;
+  }
+  .quantity input:focus {
+    outline: none;
+    border-color: var(--celya-input-border-focus);
+    box-shadow: 0 0 0 3px var(--celya-input-ring);
+  }
+  .quantity input {
+    width: 100%;
+  }
+  .quantity input {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+  .quantity input {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .quantity input {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  .quantity input {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .quantity input {
+    --tw-text-opacity: 1;
+    color: rgb(44 44 44 / var(--tw-text-opacity));
+  }
+  .quantity input {
+    border-radius: 0.75rem;
+  }
+  .quantity input {
+    border-width: 1px;
+  }
+  .quantity input {
+    --tw-border-opacity: 1;
+    border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  }
+  .quantity input::-moz-placeholder {
+    --tw-placeholder-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+  }
+  .quantity input::placeholder {
+    --tw-placeholder-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-placeholder-opacity));
   }
   .quantity input {
     transition-property: all;
@@ -4825,19 +8429,12 @@ em, i {
     transition-duration: 200ms;
   }
   .quantity input:focus {
-    border-color: transparent;
+    --tw-border-opacity: 1;
+    border-color: rgb(242 178 141 / var(--tw-border-opacity));
   }
   .quantity input:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
-  }
-  .quantity input:focus {
-    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-  }
-  .quantity input {
-    text-align: center;
   }
 }
 
@@ -4939,6 +8536,11 @@ em, i {
   border-width: 0px;
 }
 
+.focus-within\:border-celya-orange_dark:focus-within {
+  --tw-border-opacity: 1;
+  border-color: rgb(242 178 141 / var(--tw-border-opacity));
+}
+
 .hover\:-translate-y-0:hover {
   --tw-translate-y: -0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -4951,6 +8553,11 @@ em, i {
 
 .hover\:-translate-y-2:hover {
   --tw-translate-y: -0.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:translate-y-0:hover {
+  --tw-translate-y: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -4975,6 +8582,10 @@ em, i {
   background-color: rgb(250 249 248 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-celya-light\/50:hover {
+  background-color: rgb(250 249 248 / 0.5);
+}
+
 .hover\:bg-celya-orange_dark:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(242 178 141 / var(--tw-bg-opacity));
@@ -4990,24 +8601,19 @@ em, i {
   background-color: rgb(89 51 42 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-green-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-green-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(21 128 61 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-white:hover {
+.hover\:bg-red-50:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.hover\:from-celya-primary:hover {
-  --tw-gradient-from: #59332A var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(89 51 42 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.hover\:to-celya-orange_dark:hover {
-  --tw-gradient-to: #F2B28D var(--tw-gradient-to-position);
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
 }
 
 .hover\:text-celya-orange_dark:hover {
@@ -5018,6 +8624,11 @@ em, i {
 .hover\:text-celya-primary:hover {
   --tw-text-opacity: 1;
   color: rgb(89 51 42 / var(--tw-text-opacity));
+}
+
+.hover\:text-red-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .hover\:text-white:hover {
@@ -5035,15 +8646,27 @@ em, i {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.hover\:shadow-md:hover {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+.hover\:shadow-celya:hover {
+  --tw-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 8px 24px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.hover\:shadow-xl:hover {
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+.hover\:shadow-celya-hover:hover {
+  --tw-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  --tw-shadow-colored: 0 12px 32px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hover\:shadow-celya-sm:hover {
+  --tw-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --tw-shadow-colored: 0 4px 12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hover\:shadow-md:hover {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -5076,10 +8699,29 @@ em, i {
   width: 100%;
 }
 
+.group:hover .group-hover\:-translate-x-0 {
+  --tw-translate-x: -0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.group:hover .group-hover\:-translate-x-0\.5 {
+  --tw-translate-x: -0.125rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .group:hover .group-hover\:scale-110 {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.group:hover .group-hover\:bg-celya-orange_dark\/20 {
+  background-color: rgb(242 178 141 / 0.2);
+}
+
+.group:hover .group-hover\:text-celya-orange_dark {
+  --tw-text-opacity: 1;
+  color: rgb(242 178 141 / var(--tw-text-opacity));
 }
 
 .group:hover .group-hover\:opacity-100 {
@@ -5087,8 +8729,20 @@ em, i {
 }
 
 @media (min-width: 640px) {
+  .sm\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
   .sm\:block {
     display: block;
+  }
+
+  .sm\:flex {
+    display: flex;
+  }
+
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .sm\:grid-cols-3 {
@@ -5099,6 +8753,14 @@ em, i {
     flex-direction: row;
   }
 
+  .sm\:items-center {
+    align-items: center;
+  }
+
+  .sm\:self-auto {
+    align-self: auto;
+  }
+
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -5106,6 +8768,18 @@ em, i {
 }
 
 @media (min-width: 768px) {
+  .md\:block {
+    display: block;
+  }
+
+  .md\:grid {
+    display: grid;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:h-\[600px\] {
     height: 600px;
   }
@@ -5128,6 +8802,10 @@ em, i {
 
   .md\:p-10 {
     padding: 2.5rem;
+  }
+
+  .md\:p-8 {
+    padding: 2rem;
   }
 
   .md\:text-2xl {
@@ -5155,6 +8833,11 @@ em, i {
     line-height: 1;
   }
 
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
@@ -5162,8 +8845,28 @@ em, i {
 }
 
 @media (min-width: 1024px) {
+  .lg\:sticky {
+    position: sticky;
+  }
+
+  .lg\:top-28 {
+    top: 7rem;
+  }
+
+  .lg\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .lg\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .lg\:col-span-4 {
+    grid-column: span 4 / span 4;
   }
 
   .lg\:col-span-5 {
@@ -5176,6 +8879,10 @@ em, i {
 
   .lg\:col-span-7 {
     grid-column: span 7 / span 7;
+  }
+
+  .lg\:col-span-8 {
+    grid-column: span 8 / span 8;
   }
 
   .lg\:flex {
@@ -5194,6 +8901,10 @@ em, i {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .lg\:grid-cols-8 {
     grid-template-columns: repeat(8, minmax(0, 1fr));
   }
@@ -5201,5 +8912,10 @@ em, i {
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 }

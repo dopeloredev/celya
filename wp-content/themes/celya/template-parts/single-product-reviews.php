@@ -87,24 +87,93 @@ $all_comments = get_comments( array(
                     <p class="text-xl text-celya-dark mb-1">Résumé des avis :</p>
                     <p class="text-sm text-celya-dark italic mt-2">"<?php echo esc_html( $excerpt ); ?>"</p>
                 <?php endif; ?>
-
-                <a href="#review_form_wrapper" class="inline-block btn-celya-orange-dark text-sm">
-                    Donner votre avis
-                </a>
+                
+                <?php // On vérifie qu'un utilisateur soit bien connecté pour afficher le bouton pour donner son avis 
+                if ( get_option( 'woocommerce_review_rating_verification_required' ) === 'no' || wc_customer_bought_product( '', get_current_user_id(), $product->get_id() ) ) : 
+                ?>
+                    <a href="#review_form_wrapper" class="inline-block btn-celya-orange-dark text-sm">
+                        Donner votre avis
+                    </a>
+                <?php endif; ?>
             </div>
-
         </div>
+
+        <!-- Formulaire de dépôt d'avis -->
+        <?php if ( get_option( 'woocommerce_review_rating_verification_required' ) === 'no' || wc_customer_bought_product( '', get_current_user_id(), $product->get_id() ) ) : ?>
+            <div id="review_form_wrapper" class="mt-8 hidden">
+                <div class="bg-white rounded-celya-m p-6">
+                    <?php
+                    $commenter = wp_get_current_commenter();
+
+                    $comment_form = array(
+                        'title_reply'        => have_comments()
+                            ? esc_html__( 'Donner votre avis', 'woocommerce' )
+                            : sprintf( esc_html__( 'Donner votre avis sur "%s"', 'woocommerce' ), get_the_title() ),
+                        'title_reply_before' => '<h3 id="reply-title" class="font-serif text-2xl font-bold text-celya-primary mb-6">',
+                        'title_reply_after'  => '</h3>',
+                        'comment_notes_after'=> '',
+                        'label_submit'       => esc_html__( 'Envoyer', 'woocommerce' ),
+                        'logged_in_as'       => '',
+                        'comment_field'      => '',
+                        'submit_button'      => '<button type="submit" class="bg-celya-orange_dark hover:bg-celya-primary text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300">%4$s</button>',
+                    );
+
+                    $name_email_required = (bool) get_option( 'require_name_email', 1 );
+                    $fields = array(
+                        'author' => array( 'label' => __( 'Nom', 'woocommerce' ),    'type' => 'text',  'value' => $commenter['comment_author'],       'required' => $name_email_required ),
+                        'email'  => array( 'label' => __( 'E-mail', 'woocommerce' ), 'type' => 'email', 'value' => $commenter['comment_author_email'], 'required' => $name_email_required ),
+                    );
+
+                    $comment_form['fields'] = array();
+                    foreach ( $fields as $key => $field ) {
+                        $html  = '<p class="comment-form-' . esc_attr( $key ) . ' mb-4">';
+                        $html .= '<label for="' . esc_attr( $key ) . '" class="block text-sm font-semibold text-celya-dark mb-2">' . esc_html( $field['label'] );
+                        if ( $field['required'] ) {
+                            $html .= '&nbsp;<span class="required text-red-500">*</span>';
+                        }
+                        $html .= '</label>';
+                        $html .= '<input id="' . esc_attr( $key ) . '" name="' . esc_attr( $key ) . '" type="' . esc_attr( $field['type'] ) . '" value="' . esc_attr( $field['value'] ) . '" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-celya-orange_dark" ' . ( $field['required'] ? 'required' : '' ) . ' /></p>';
+                        $comment_form['fields'][ $key ] = $html;
+                    }
+
+                    $account_page_url = wc_get_page_permalink( 'myaccount' );
+                    if ( $account_page_url ) {
+                        $comment_form['must_log_in'] = '<p class="bg-celya-orange_light border-l-4 border-celya-orange_dark p-4 rounded mb-6 text-sm">' . sprintf( __( 'Vous devez être <a href="%s" class="underline">connecté</a> pour publier un avis.', 'woocommerce' ), esc_url( $account_page_url ) ) . '</p>';
+                    }
+
+                    if ( wc_review_ratings_enabled() ) {
+                        $comment_form['comment_field']  = '<div class="comment-form-rating mb-4">';
+                        $comment_form['comment_field'] .= '<label for="rating" class="block text-sm font-semibold text-celya-dark mb-2">' . esc_html__( 'Votre note', 'woocommerce' );
+                        if ( wc_review_ratings_required() ) {
+                            $comment_form['comment_field'] .= '&nbsp;<span class="required text-red-500">*</span>';
+                        }
+                        $comment_form['comment_field'] .= '</label>';
+                        $comment_form['comment_field'] .= '<select name="rating" id="rating" required class="w-auto px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-celya-orange_dark">';
+                        $comment_form['comment_field'] .= '<option value="">' . esc_html__( 'Choisir une note', 'woocommerce' ) . '</option>';
+                        $comment_form['comment_field'] .= '<option value="5">' . esc_html__( 'Excellent (5/5)', 'woocommerce' ) . '</option>';
+                        $comment_form['comment_field'] .= '<option value="4">' . esc_html__( 'Bien (4/5)', 'woocommerce' ) . '</option>';
+                        $comment_form['comment_field'] .= '<option value="3">' . esc_html__( 'Moyen (3/5)', 'woocommerce' ) . '</option>';
+                        $comment_form['comment_field'] .= '<option value="2">' . esc_html__( 'Pas terrible (2/5)', 'woocommerce' ) . '</option>';
+                        $comment_form['comment_field'] .= '<option value="1">' . esc_html__( 'Très mauvais (1/5)', 'woocommerce' ) . '</option>';
+                        $comment_form['comment_field'] .= '</select></div>';
+                    }
+
+                    $comment_form['comment_field'] .= '<p class="comment-form-comment mb-4"><label for="comment" class="block text-sm font-semibold text-celya-dark mb-2">' . esc_html__( 'Votre avis', 'woocommerce' ) . '&nbsp;<span class="required text-red-500">*</span></label><textarea id="comment" name="comment" cols="45" rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-celya-orange_dark"></textarea></p>';
+
+                    comment_form( apply_filters( 'woocommerce_product_review_comment_form_args', $comment_form ) );
+                    ?>
+                </div>
+            </div>
+        <?php else : ?>
+            <p class="bg-celya-orange_light border-l-4 border-celya-orange_dark p-4 rounded mt-8 text-sm">
+                <?php esc_html_e( 'Seuls les clients connectés ayant acheté ce produit ont la possibilité de laisser un avis.', 'woocommerce' ); ?>
+            </p>
+        <?php endif; ?>
     </div>
 
     <!-- En-tête liste des avis -->
     <div class="flex items-center justify-between mb-8">
         <h2 class="text-3xl text-celya-primary">Les derniers avis</h2>
-        <a href="#review_form_wrapper" class="flex items-center gap-2 text-sm font-semibold text-celya-dark hover:text-celya-orange_dark transition-colors">
-            Voir tous les avis
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-        </a>
     </div>
 
     <!-- Grille des 6 derniers avis -->
@@ -148,76 +217,4 @@ $all_comments = get_comments( array(
 
     <?php endif; // fin if $rating_count > 0 ?>
 
-    <!-- Formulaire de dépôt d'avis -->
-    <?php if ( get_option( 'woocommerce_review_rating_verification_required' ) === 'no' || wc_customer_bought_product( '', get_current_user_id(), $product->get_id() ) ) : ?>
-    <div id="review_form_wrapper" class="mt-4">
-        <div class="bg-celya-light rounded-celya-m p-8">
-            <?php
-            $commenter = wp_get_current_commenter();
-
-            $comment_form = array(
-                'title_reply'        => have_comments()
-                    ? esc_html__( 'Donner votre avis', 'woocommerce' )
-                    : sprintf( esc_html__( 'Soyez le premier à laisser votre avis sur "%s"', 'woocommerce' ), get_the_title() ),
-                'title_reply_before' => '<h3 id="reply-title" class="font-serif text-2xl font-bold text-celya-primary mb-6">',
-                'title_reply_after'  => '</h3>',
-                'comment_notes_after'=> '',
-                'label_submit'       => esc_html__( 'Envoyer', 'woocommerce' ),
-                'logged_in_as'       => '',
-                'comment_field'      => '',
-                'submit_button'      => '<button type="submit" class="bg-celya-orange_dark hover:bg-celya-primary text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300">%4$s</button>',
-            );
-
-            $name_email_required = (bool) get_option( 'require_name_email', 1 );
-            $fields = array(
-                'author' => array( 'label' => __( 'Nom', 'woocommerce' ),    'type' => 'text',  'value' => $commenter['comment_author'],       'required' => $name_email_required ),
-                'email'  => array( 'label' => __( 'E-mail', 'woocommerce' ), 'type' => 'email', 'value' => $commenter['comment_author_email'], 'required' => $name_email_required ),
-            );
-
-            $comment_form['fields'] = array();
-            foreach ( $fields as $key => $field ) {
-                $html  = '<p class="comment-form-' . esc_attr( $key ) . ' mb-4">';
-                $html .= '<label for="' . esc_attr( $key ) . '" class="block text-sm font-semibold text-celya-dark mb-2">' . esc_html( $field['label'] );
-                if ( $field['required'] ) {
-                    $html .= '&nbsp;<span class="required text-red-500">*</span>';
-                }
-                $html .= '</label>';
-                $html .= '<input id="' . esc_attr( $key ) . '" name="' . esc_attr( $key ) . '" type="' . esc_attr( $field['type'] ) . '" value="' . esc_attr( $field['value'] ) . '" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-celya-orange_dark" ' . ( $field['required'] ? 'required' : '' ) . ' /></p>';
-                $comment_form['fields'][ $key ] = $html;
-            }
-
-            $account_page_url = wc_get_page_permalink( 'myaccount' );
-            if ( $account_page_url ) {
-                $comment_form['must_log_in'] = '<p class="bg-celya-orange_light border-l-4 border-celya-orange_dark p-4 rounded mb-6 text-sm">' . sprintf( __( 'Vous devez être <a href="%s" class="underline">connecté</a> pour publier un avis.', 'woocommerce' ), esc_url( $account_page_url ) ) . '</p>';
-            }
-
-            if ( wc_review_ratings_enabled() ) {
-                $comment_form['comment_field']  = '<div class="comment-form-rating mb-4">';
-                $comment_form['comment_field'] .= '<label for="rating" class="block text-sm font-semibold text-celya-dark mb-2">' . esc_html__( 'Votre note', 'woocommerce' );
-                if ( wc_review_ratings_required() ) {
-                    $comment_form['comment_field'] .= '&nbsp;<span class="required text-red-500">*</span>';
-                }
-                $comment_form['comment_field'] .= '</label>';
-                $comment_form['comment_field'] .= '<select name="rating" id="rating" required class="w-auto px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-celya-orange_dark">';
-                $comment_form['comment_field'] .= '<option value="">' . esc_html__( 'Choisir une note', 'woocommerce' ) . '</option>';
-                $comment_form['comment_field'] .= '<option value="5">' . esc_html__( 'Excellent (5/5)', 'woocommerce' ) . '</option>';
-                $comment_form['comment_field'] .= '<option value="4">' . esc_html__( 'Bien (4/5)', 'woocommerce' ) . '</option>';
-                $comment_form['comment_field'] .= '<option value="3">' . esc_html__( 'Moyen (3/5)', 'woocommerce' ) . '</option>';
-                $comment_form['comment_field'] .= '<option value="2">' . esc_html__( 'Pas terrible (2/5)', 'woocommerce' ) . '</option>';
-                $comment_form['comment_field'] .= '<option value="1">' . esc_html__( 'Très mauvais (1/5)', 'woocommerce' ) . '</option>';
-                $comment_form['comment_field'] .= '</select></div>';
-            }
-
-            $comment_form['comment_field'] .= '<p class="comment-form-comment mb-4"><label for="comment" class="block text-sm font-semibold text-celya-dark mb-2">' . esc_html__( 'Votre avis', 'woocommerce' ) . '&nbsp;<span class="required text-red-500">*</span></label><textarea id="comment" name="comment" cols="45" rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-celya-orange_dark"></textarea></p>';
-
-            comment_form( apply_filters( 'woocommerce_product_review_comment_form_args', $comment_form ) );
-            ?>
-        </div>
-    </div>
-    <?php else : ?>
-    <p class="bg-celya-orange_light border-l-4 border-celya-orange_dark p-4 rounded mt-8 text-sm">
-        <?php esc_html_e( 'Seuls les clients connectés ayant acheté ce produit ont la possibilité de laisser un avis.', 'woocommerce' ); ?>
-    </p>
-    <?php endif; ?>
-
-</div><!-- #reviews -->
+</div>

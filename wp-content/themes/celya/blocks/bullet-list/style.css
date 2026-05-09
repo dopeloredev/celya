@@ -1,0 +1,94 @@
+/* ── celya/bullet-list — styles frontend + éditeur ── */
+
+.celya-bullet-list {
+    list-style:     none;
+    padding:        0;
+    margin:         0;
+    display:        flex;
+    flex-direction: column;
+}
+
+.celya-bullet-list__item {
+    display:     flex;
+    align-items: center;
+    gap:         10px;
+}
+
+.celya-bullet-list__marker {
+    flex-shrink: 0;
+    display:     flex;
+    align-items: center;
+}
+
+.celya-bullet-list__icon {
+    object-fit: contain;
+    display:    block;
+}
+
+.celya-bullet-list__dot {
+    font-size:   1.2em;
+    line-height: 1;
+    color:       inherit;
+}
+
+.celya-bullet-list__text {
+    flex-grow:   1;
+    line-height: 1.6;
+}
+
+/* ── Éditeur ── */
+
+.celya-bullet-list--editor {
+    padding: 4px 0;
+}
+
+.celya-bullet-list__item--editor {
+    position: relative;
+}
+
+.celya-bullet-list__item--editor .celya-bullet-list__text {
+    outline: none;
+}
+
+.celya-bullet-list__delete-btn {
+    opacity:     0;
+    transition:  opacity 0.15s ease;
+    flex-shrink: 0;
+    font-size:   22px !important;
+    line-height: 1 !important;
+    padding:     2px 8px !important;
+    min-width:   unset !important;
+    height:      unset !important;
+    color:       #cc1818 !important;
+}
+
+.celya-bullet-list__item--editor:hover .celya-bullet-list__delete-btn {
+    opacity: 1;
+}
+
+.celya-bullet-list__add-item {
+    visibility: visible;
+}
+
+.celya-bullet-list__add-item .celya-bullet-list__marker {
+    visibility: hidden;
+}
+
+.celya-bullet-list__add-btn {
+    display:       inline-flex;
+    align-items:   center;
+    gap:           6px;
+    padding:       5px 10px;
+    font-size:     12px;
+    font-family:   inherit;
+    color:         #59332A;
+    background:    transparent;
+    border:        1px dashed #59332A;
+    border-radius: 4px;
+    cursor:        pointer;
+    transition:    background 0.15s ease;
+}
+
+.celya-bullet-list__add-btn:hover {
+    background: #F2D0A720;
+}

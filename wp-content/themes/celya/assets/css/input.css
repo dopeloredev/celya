@@ -1,8 +1,13 @@
 /* Import des fonts locales depuis fonts.css */
 @import './fonts.css';
+@import './gutenberg.css';
 @import './navigation.css';
 @import './woocommerce-category.css';
 @import './woocommerce-single-product.css';
+@import './woocommerce-product-card.css';
+@import './woocommerce-myaccount.css';
+@import './woocommerce-cart.css';
+@import './forms.css';
 
 /* Directives Tailwind */
 @tailwind base;
@@ -148,22 +153,8 @@
   
   /* ===================
      FORMULAIRES
+     → Voir forms.css
      =================== */
-  
-  .form-input {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg
-           font-sans text-celya-dark
-           focus:outline-none focus:ring-2 focus:border-transparent
-           transition-all duration-200;
-  }
-  
-  .form-label {
-    @apply block text-sm font-sans font-semibold text-celya-dark mb-2;
-  }
-  
-  .form-error {
-    @apply text-sm text-red-600 mt-1 font-sans;
-  }
 }
 
 /* ==========================================================================

@@ -6,6 +6,15 @@
     get_header();
 ?>
 
+<main id="site-content">
+  <?php
+  while ( have_posts() ) :
+    the_post();
+    the_content();
+  endwhile;
+  ?>
+</main>
+
 
 <!-- Section Hero avec Hero Banner -->
 <section class="relative w-full h-[500px] md:h-[600px] bg-cover bg-center" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/banners/accueil-banniere.png');">

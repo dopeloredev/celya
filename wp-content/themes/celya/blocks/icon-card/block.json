@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "celya/icon-card",
+  "version": "1.0.0",
+  "title": "Celya — Icône avec fond",
+  "category": "celya",
+  "description": "Affiche une icône (PNG/SVG) avec un fond carré coloré et des angles arrondis.",
+  "icon": "admin-appearance",
+  "keywords": ["icone", "fond", "couleur", "celya", "icon"],
+  "supports": {
+    "html": false,
+    "align": false,
+    "spacing": {
+      "margin": true,
+      "padding": false
+    }
+  },
+  "attributes": {
+    "mediaId":         { "type": "number", "default": 0 },
+    "mediaUrl":        { "type": "string", "default": "" },
+    "mediaAlt":        { "type": "string", "default": "" },
+    "backgroundColor": { "type": "string", "default": "celya-primary" },
+    "borderRadius":    { "type": "string", "default": "none" },
+    "size":            { "type": "number", "default": 80 }
+  },
+  "editorScript": "celya-icon-card-editor",
+  "style": "celya-icon-card-style",
+  "render": "file:./render.php"
+}

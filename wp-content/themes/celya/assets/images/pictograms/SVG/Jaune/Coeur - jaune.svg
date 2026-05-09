@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Coeur" xmlns="http://www.w3.org/2000/svg" viewBox="51.48 26.32 103.80 103.93">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #f2d479;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="fOGUnb">
+    <path class="cls-1" d="M63.33,82.14c-9.85-11.63-8.92-30.73.71-41.83,9.91-11.42,25.87-11.69,35.77-.1l3.76,4.4,4.04-4.71c9.94-11.58,26.07-10.83,35.77.73,9.69,11.55,9.9,30.5-.02,42.17l-37.5,44.1c-1.15,1.35-3.54,1.27-4.69-.09l-37.83-44.68Z"/>
+  </g>
+</svg>

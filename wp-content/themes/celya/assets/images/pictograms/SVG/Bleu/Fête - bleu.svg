@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Fête" xmlns="http://www.w3.org/2000/svg" viewBox="36.34 31.65 116.87 114.25">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #bdd9f2;
+        stroke-linecap: round;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <g>
+    <polygon class="cls-1" points="72 65.4 117.69 113.38 38.34 143.9 72 65.4"/>
+    <line class="cls-1" x1="61.89" y1="88.98" x2="91.99" y2="123.27"/>
+    <line class="cls-1" x1="51.38" y1="113.48" x2="67.8" y2="132.57"/>
+  </g>
+  <path class="cls-2" d="M82.37,64.15s11.39-12.11,2.86-30.5"/>
+  <path class="cls-2" d="M121.63,102.38s15.32-6.45,29.58,7.96"/>
+  <path class="cls-2" d="M104.59,81.85s-3.85-7.58,4.28-8.15c0,0,7.21-.03,5.68-5.36,0,0-2.34-9.34,5.63-9.58,0,0,8.68-.91,4.82-9.87"/>
+  <path class="cls-2" d="M112.24,91.07s5.78,6.24,9.12-1.2c0,0,2.53-6.76,6.99-3.48,0,0,7.95,5.42,10.94-1.97,0,0,3.85-7.84,10.93-1.11"/>
+  <rect class="cls-2" x="94.37" y="63.87" width="7.82" height="7.82" transform="translate(-19.15 46.28) rotate(-24.22)"/>
+  <circle class="cls-2" cx="130.4" cy="69.13" r="5.23"/>
+  <rect class="cls-2" x="137.85" y="90.46" width="5.09" height="5.09" transform="translate(-25.8 65.78) rotate(-24.22)"/>
+</svg>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Contact" xmlns="http://www.w3.org/2000/svg" viewBox="64.59 42.72 77.91 88.80">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #f3b38d;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <circle class="cls-2" cx="103.54" cy="64.56" r="19.84"/>
+  <path class="cls-1" d="M140.49,129.52c0-20.31-16.54-36.78-36.95-36.78s-36.95,16.47-36.95,36.78h73.91Z"/>
+</svg>

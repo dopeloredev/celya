@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="horloge" xmlns="http://www.w3.org/2000/svg" viewBox="48.99 26.34 108.29 107.28">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #abe0a4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #abe0a4;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="103.54" cy="79.98" r="51.64"/>
+  <path class="cls-2" d="M118.47,78.9h-11.62v-21.33c0-1.5-1.21-2.71-2.71-2.71h-1.2c-1.5,0-2.71,1.21-2.71,2.71v24.54c0,1.5,1.21,2.71,2.71,2.71h1.2s.04,0,.06,0c.02,0,.04,0,.06,0h14.22c1.5,0,2.71-1.21,2.71-2.71v-.49c0-1.5-1.21-2.71-2.71-2.71Z"/>
+  <rect class="cls-2" x="99.82" y="29.29" width="7.42" height="3.7" rx="1.85" ry="1.85" transform="translate(72.4 134.67) rotate(-90)"/>
+  <rect class="cls-2" x="99.82" y="126.82" width="7.42" height="3.7" rx="1.85" ry="1.85" transform="translate(-25.13 232.2) rotate(-90)"/>
+  <rect class="cls-2" x="147.86" y="78.13" width="7.42" height="3.7" rx="1.85" ry="1.85" transform="translate(303.13 159.96) rotate(180)"/>
+  <rect class="cls-2" x="50.99" y="78.13" width="7.42" height="3.7" rx="1.85" ry="1.85" transform="translate(109.41 159.96) rotate(180)"/>
+</svg>
