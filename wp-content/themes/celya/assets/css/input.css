@@ -17,6 +17,7 @@
 /* Custom CSS layers */
 @layer base {
   /* Reset & Base Styles */
+  html { margin: 0 !important}
   body {
     @apply font-sans text-celya-dark antialiased;
   }

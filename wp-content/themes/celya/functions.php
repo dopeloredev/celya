@@ -19,6 +19,7 @@ require_once get_template_directory() . '/inc/woocommerce-setup-single-product-t
 require_once get_template_directory() . '/inc/woocommerce-setup-breadcrumb.php';
 require_once get_template_directory() . '/inc/woocommerce-setup-single-product.php';
 require_once get_template_directory() . '/inc/celya-block-registration.php';
+require_once get_template_directory() . '/inc/realisations.php';
 /**
  * 1. SETUP DU THÈME
  */
@@ -37,9 +38,11 @@ function celya_theme_setup() {
     add_theme_support( 'responsive-embeds' );
     
     // Tailles d'images personnalisées
-    add_image_size( 'celya-product-thumb', 400, 400, true );
-    add_image_size( 'celya-product-large', 800, 800, true );
-    add_image_size( 'celya-hero', 1920, 800, true );
+    add_image_size( 'celya-realisation-sm',  200, 200, true );
+    add_image_size( 'celya-realisation-md',  300, 300, true );
+    add_image_size( 'celya-product-thumb',   400, 400, true );
+    add_image_size( 'celya-product-large',   800, 800, true );
+    add_image_size( 'celya-hero',           1920, 800, true );
     
     // Menus
     register_nav_menus( array(
@@ -193,6 +196,16 @@ function celya_enqueue_assets() {
         filemtime( get_template_directory() . '/assets/js/app.js' ),
         true
     );
+    if ( is_page_template( 'template-realisations.php' ) ) {
+        wp_enqueue_script(
+            'celya-realisations-archive',
+            get_template_directory_uri() . '/assets/js/modules/realisations-archive.js',
+            [ 'celya-app' ],
+            filemtime( get_template_directory() . '/assets/js/modules/realisations-archive.js' ),
+            true
+        );
+    }
+
     if ( is_product() ) { // Charger les modules JS uniquement sur les pages produit
         wp_enqueue_script(
             'celya-product-page',

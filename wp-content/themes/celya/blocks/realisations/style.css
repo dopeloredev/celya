@@ -1,0 +1,54 @@
+/* celya/realisations — styles des pills via CSS custom properties */
+
+.wp-block-celya-realisations {
+    --pill-inactive-border: #59332A;
+    --pill-inactive-bg:     transparent;
+    --pill-inactive-text:   #59332A;
+    --pill-active-border:   #59332A;
+    --pill-active-bg:       #59332A;
+    --pill-active-text:     #ffffff;
+}
+
+.wp-block-celya-realisations .realisation-filter-pill {
+    display:       inline-flex;
+    align-items:   center;
+    border:        1.5px solid var(--pill-inactive-border);
+    border-radius: 9999px;
+    padding:       0.375rem 1rem;
+    font-size:     0.875rem;
+    font-weight:   500;
+    line-height:   1.25;
+    cursor:        pointer;
+    background:    var(--pill-inactive-bg);
+    color:         var(--pill-inactive-text);
+    transition:    background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.wp-block-celya-realisations .realisation-filter-pill[aria-pressed="true"] {
+    border-color: var(--pill-active-border);
+    background:   var(--pill-active-bg);
+    color:        var(--pill-active-text);
+}
+
+.wp-block-celya-realisations .realisation-filter-pill[aria-pressed="false"]:hover {
+    opacity: 0.7;
+}
+
+/* Animation des cartes */
+.wp-block-celya-realisations .realisation-item {
+    transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+/* Grille responsive pilotée par --grid-cols */
+.wp-block-celya-realisations .realisation-grid {
+    display:               grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:                   1rem;
+}
+
+@media (min-width: 768px) {
+    .wp-block-celya-realisations .realisation-grid {
+        grid-template-columns: repeat(var(--grid-cols, 4), 1fr);
+        gap:                   1.5rem;
+    }
+}

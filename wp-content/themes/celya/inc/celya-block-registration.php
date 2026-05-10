@@ -110,5 +110,30 @@ function celya_register_blocks() {
     );
 
     register_block_type( get_template_directory() . '/blocks/text-icone' );
+
+    wp_register_script(
+        'celya-realisations-editor',
+        get_template_directory_uri() . '/blocks/realisations/editor.js',
+        [ 'wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-data', 'wp-server-side-render' ],
+        filemtime( get_template_directory() . '/blocks/realisations/editor.js' ),
+        true
+    );
+
+    wp_register_script(
+        'celya-realisations-view',
+        get_template_directory_uri() . '/blocks/realisations/view.js',
+        [],
+        filemtime( get_template_directory() . '/blocks/realisations/view.js' ),
+        true
+    );
+
+    wp_register_style(
+        'celya-realisations-style',
+        get_template_directory_uri() . '/blocks/realisations/style.css',
+        [],
+        filemtime( get_template_directory() . '/blocks/realisations/style.css' )
+    );
+
+    register_block_type( get_template_directory() . '/blocks/realisations' );
 }
 add_action( 'init', 'celya_register_blocks' );
