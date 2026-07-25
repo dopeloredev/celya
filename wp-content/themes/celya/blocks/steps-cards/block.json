@@ -19,6 +19,7 @@
     "connectorColor": { "type": "string",  "default": "celya-orange-dark" }
   },
   "editorScript": "celya-steps-cards-editor",
+  "viewScript":   "celya-steps-cards-view",
   "style": "celya-steps-cards-style",
   "render": "file:./render.php"
 }

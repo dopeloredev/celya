@@ -22,7 +22,8 @@
     "mediaAlt":        { "type": "string", "default": "" },
     "backgroundColor": { "type": "string", "default": "celya-primary" },
     "borderRadius":    { "type": "string", "default": "none" },
-    "size":            { "type": "number", "default": 80 }
+    "size":            { "type": "number", "default": 80 },
+    "iconAlignment":   { "type": "string", "default": "left" }
   },
   "editorScript": "celya-icon-card-editor",
   "style": "celya-icon-card-style",

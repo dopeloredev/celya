@@ -1,0 +1,643 @@
+/**
+ * ==========================================================================
+ * CELYA — Formulaires (styles globaux)
+ * Couvre : WooCommerce (my-account, checkout, login), commentaires, formulaires natifs
+ * ==========================================================================
+ */
+
+/* ==========================================================================
+   VARIABLES DE DESIGN
+   Toutes les valeurs sont définies ici pour cohérence et maintenance aisée.
+   ========================================================================== */
+
+:root {
+    --celya-input-border:        #e5e7eb;          /* gray-200 */
+    --celya-input-border-focus:  #F2B28D;          /* celya-orange_dark */
+    --celya-input-ring:          rgba(242,178,141,.35);
+    --celya-input-bg:            #ffffff;
+    --celya-input-radius:        0.75rem;           /* rounded-xl */
+    --celya-input-px:            1rem;
+    --celya-input-py:            0.75rem;
+    --celya-input-text:          #2C2C2C;          /* celya-dark */
+    --celya-input-placeholder:   #9ca3af;          /* gray-400 */
+    --celya-label-text:          #2C2C2C;
+    --celya-label-size:          0.875rem;         /* text-sm */
+    --celya-error-text:          #ef4444;          /* red-500 */
+}
+
+/* ==========================================================================
+   LABELS
+   ========================================================================== */
+
+.woocommerce .woocommerce-form-row label,
+.woocommerce .form-row label,
+.woocommerce-checkout label,
+.woocommerce-EditAccountForm label,
+.woocommerce-address-fields label,
+#commentform label,
+.celya-form label,
+.form-label {
+    @apply block text-sm font-semibold text-celya-dark mb-2;
+}
+
+/* Astérisque "obligatoire" */
+.woocommerce .required,
+.celya-form .required {
+    @apply text-red-500 ml-0.5;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   INPUTS TEXTE — cible toutes les classes WooCommerce + natif
+   ========================================================================== */
+.woocommerce form .form-row .input-text, 
+.woocommerce form .form-row select {
+    @apply w-full p-2.5 text-sm bg-white text-celya-dark;
+    @apply border border-gray-200 rounded-xl;
+    @apply placeholder-gray-400;
+    @apply transition-all duration-200 ease-in-out;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+.wc-block-components-form .wc-block-components-text-input input[type=email],
+.wc-block-components-form .wc-block-components-text-input input[type=number], 
+.wc-block-components-form .wc-block-components-text-input input[type=password],
+.wc-block-components-form .wc-block-components-text-input input[type=tel],
+.wc-block-components-form .wc-block-components-text-input input[type=text],
+.wc-block-components-form .wc-block-components-text-input input[type=url], 
+.wc-block-components-text-input input[type=email], 
+.wc-block-components-text-input input[type=number], 
+.wc-block-components-text-input input[type=password], 
+.wc-block-components-text-input input[type=tel], 
+.wc-block-components-text-input input[type=text], 
+.wc-block-components-text-input input[type=url] {
+    @apply w-full px-2 py-1 bg-white text-celya-dark text-sm;
+    @apply border border-gray-200 rounded-xl;
+    @apply placeholder-gray-400;
+    @apply transition-all duration-200 ease-in-out;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+.wc-block-components-text-input {
+    @apply relative mb-2;
+}
+
+/* Texte placeholder dans les champs texte */
+.wc-block-components-text-input label,
+.wc-block-components-address-form label,
+.wc-block-components-totals-coupon label {
+    @apply block text-xs font-semibold text-celya-dark mb-1;
+}
+
+/* Floating label (état actif / rempli) */
+.wc-block-components-form .wc-block-components-text-input label, 
+.wc-block-components-text-input label {
+    @apply text-sm;
+}
+
+.wc-block-components-text-input.is-active label,
+.wc-block-components-text-input.has-value label {
+    @apply text-xs text-celya-primary;
+}
+
+/* ==========================================================================
+   INPUTS TEXTE FOCUS — cible toutes les classes WooCommerce + natif
+   ========================================================================== */
+.woocommerce form .form-row .input-text:focus,
+.woocommerce form .form-row select:focus,
+.wc-block-components-form .wc-block-components-text-input input:-webkit-autofill:focus, 
+.wc-block-components-form .wc-block-components-text-input.is-active input[type=email]:focus, 
+.wc-block-components-form .wc-block-components-text-input.is-active input[type=number]:focus, 
+.wc-block-components-form .wc-block-components-text-input.is-active input[type=password]:focus, 
+.wc-block-components-form .wc-block-components-text-input.is-active input[type=tel]:focus, 
+.wc-block-components-form .wc-block-components-text-input.is-active input[type=text]:focus, 
+.wc-block-components-form .wc-block-components-text-input.is-active input[type=url]:focus, 
+.wc-block-components-text-input input:-webkit-autofill:focus, 
+.wc-block-components-text-input.is-active input[type=email]:focus, 
+.wc-block-components-text-input.is-active input[type=number]:focus, 
+.wc-block-components-text-input.is-active input[type=password]:focus, 
+.wc-block-components-text-input.is-active input[type=tel]:focus, 
+.wc-block-components-text-input.is-active input[type=text]:focus, 
+.wc-block-components-text-input.is-active input[type=url]:focus {
+    @apply border border-celya-orange_dark rounded-xl;
+    @apply transition-all duration-200 ease-in-out;
+    outline: none;
+    box-shadow: 0 0 0 3px var(--celya-input-ring);
+}
+
+.celya-form input[type="text"],
+.celya-form input[type="email"],
+.celya-form input[type="password"],
+.celya-form input[type="tel"],
+.form-input {
+    @apply w-full px-4 py-3 bg-white text-celya-dark text-sm;
+    @apply border border-gray-200 rounded-xl;
+    @apply placeholder-gray-400;
+    @apply transition-all duration-200 ease-in-out;
+    @apply focus:outline-none focus:border-celya-orange_dark;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   SELECT
+   ========================================================================== */
+
+.woocommerce select,
+.woocommerce-checkout select,
+.woocommerce-address-fields select,
+.woocommerce-EditAccountForm select,
+.celya-form select {
+    @apply w-full px-4 py-3 bg-white text-celya-dark text-sm;
+    @apply border border-gray-200 rounded-xl;
+    @apply transition-all duration-200 ease-in-out cursor-pointer;
+    @apply focus:outline-none focus:border-celya-orange_dark;
+    /* Flèche custom */
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-position: right 0.875rem center;
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    padding-right: 2.5rem;
+    box-sizing: border-box;
+}
+
+.woocommerce select:focus,
+.woocommerce-checkout select:focus,
+.celya-form select:focus {
+    outline: none;
+    border-color: var(--celya-input-border-focus);
+    box-shadow: 0 0 0 3px var(--celya-input-ring);
+}
+
+/* Select pays (checkout, customer area, etc.) */
+.wc-block-components-address-form__country {
+    @apply mb-2;
+}
+.wc-blocks-components-select .wc-blocks-components-select__label {
+    @apply block font-semibold text-celya-primary mb-1;
+    font-size: 0.6rem;
+}
+.wc-blocks-components-select .wc-blocks-components-select__select {
+    @apply text-celya-dark text-sm;
+    border: 1px solid var(--celya-input-border);
+}
+.wc-blocks-components-select .wc-blocks-components-select__select:focus {
+    @apply border-celya-orange_dark;
+}
+
+.wc-blocks-components-select__select {
+    @apply w-full bg-white text-celya-dark text-sm border border-gray-200 rounded-xl;
+    @apply appearance-none cursor-pointer shadow-none outline-none box-border;
+    @apply transition-[border-color,box-shadow] duration-200 ease-in-out;
+    padding: 0.875rem 2.5rem 0.875rem 1rem;
+}
+
+.wc-blocks-components-select__select:focus {
+    border-color: theme('colors.celya.orange_dark');
+    box-shadow: 0 0 0 3px var(--celya-input-ring);
+}
+
+.wc-blocks-components-select__expand {
+    @apply absolute pointer-events-none text-gray-400;
+    right: 0.875rem;
+    bottom: 0.875rem;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* ==========================================================================
+   TEXTAREA
+   ========================================================================== */
+
+.woocommerce textarea,
+.woocommerce-checkout textarea,
+#commentform textarea,
+.celya-form textarea {
+    @apply w-full px-4 py-3 bg-white text-celya-dark text-sm;
+    @apply border border-gray-200 rounded-xl;
+    @apply placeholder-gray-400 resize-y;
+    @apply transition-all duration-200 ease-in-out;
+    @apply focus:outline-none focus:border-celya-orange_dark;
+    min-height: 120px;
+    box-sizing: border-box;
+}
+
+.woocommerce textarea:focus,
+.woocommerce-checkout textarea:focus,
+#commentform textarea:focus,
+.celya-form textarea:focus {
+    outline: none;
+    border-color: var(--celya-input-border-focus);
+    box-shadow: 0 0 0 3px var(--celya-input-ring);
+}
+
+/* ==========================================================================
+   CHECKBOX
+   ========================================================================== */
+.wc-block-components-checkbox .wc-block-components-checkbox__input[type=checkbox] {
+    @apply w-4 h-4 border border-gray-200 rounded cursor-pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #ffffff;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.wc-block-components-checkbox .wc-block-components-checkbox__input[type=checkbox]:focus {
+    @apply outline-offset-2;
+    outline: solid 1px var(--celya-input-border-focus);
+    border: solid 1px var(--celya-input-border-focus);
+}
+.wc-block-components-checkbox .wc-block-components-checkbox__input[type=checkbox]:checked {
+    background-color: theme('colors.celya.orange_dark');
+    border-color: theme('colors.celya.orange_dark');
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M3 8l4 4 6-6'/%3E%3C/svg%3E");
+    background-size: 72%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.woocommerce .woocommerce-form__label-for-checkbox,
+.woocommerce-checkout .woocommerce-form__label-for-checkbox {
+    @apply flex items-center gap-2 cursor-pointer font-normal;
+}
+
+/* ==========================================================================
+   RADIOBOX
+   ========================================================================== */
+.woocommerce input[type="radio"],
+.woocommerce-checkout input[type="radio"] {
+    @apply rounded-full;
+}
+
+.wc-block-components-radio-control .wc-block-components-radio-control__input:hover {
+    @apply transition-all duration-200;
+    background: theme('colors.celya.orange_dark');
+    border: solid 1px var(--celya-input-border-focus);
+}
+
+.wc-block-components-radio-control {
+    @apply flex flex-col;
+}
+
+.wc-block-components-radio-control__option {
+    @apply border-0 rounded-none pl-10;
+    @apply flex items-center gap-3 bg-white border border-gray-200 rounded-celya-s cursor-pointer;
+    @apply transition-[border-color,background-color] duration-200 ease-in-out;
+}
+.wc-block-components-radio-control--highlight-checked:after {
+    content: none;
+}
+
+.wc-block-components-radio-control__option:hover {
+    border-color: theme('colors.celya.orange_dark');
+    @apply bg-celya-orange_light;
+}
+
+/* Radio sélectionnée */
+.wc-block-components-radio-control__option-checked,
+.wc-block-components-radio-control__option--checked-option-highlighted {
+    @apply !bg-celya-orange_light;
+    border-color: theme('colors.celya.orange_dark') !important;
+}
+
+.wc-block-components-radio-control .wc-block-components-radio-control__input:checked {
+    background: theme('colors.celya.orange_dark');
+    border: solid 1px var(--celya-input-border-focus);
+}
+.wc-block-components-radio-control .wc-block-components-radio-control__input:checked:before {
+    background: #ffffff;
+}
+
+.wc-block-components-radio-control--highlight-checked .wc-block-components-radio-control-accordion-option--checked-option-highlighted, 
+.wc-block-components-radio-control--highlight-checked label.wc-block-components-radio-control__option--checked-option-highlighted {
+    box-shadow: inset 0 0 0 0.5px theme('colors.celya.orange_dark') !important;
+}
+
+.wc-block-components-radio-control__input {
+    @apply flex-shrink-0 cursor-pointer;
+    width: 1.125rem !important;
+    height: 1.125rem !important;
+    accent-color: theme('colors.celya.orange_dark');
+}
+
+.wc-block-components-radio-control__option-layout {
+    @apply flex-1 min-w-0;
+}
+
+.wc-block-components-radio-control__label-group {
+    @apply flex items-center justify-between gap-4;
+}
+
+.wc-block-components-radio-control__label {
+    @apply text-sm font-semibold text-celya-dark;
+}
+
+.wc-block-components-radio-control__secondary-label {
+    @apply text-sm font-bold text-celya-primary whitespace-nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Radio accordéon — options de paiement (checkout WooCommerce Blocks)
+   -------------------------------------------------------------------------- */
+.wc-block-components-radio-control-accordion-option {
+    @apply border border-gray-200 rounded-celya-s overflow-hidden;
+    @apply transition-[border-color] duration-200 ease-in-out;
+    border-width: 1.5px;
+}
+
+.wc-block-components-radio-control-accordion-option + .wc-block-components-radio-control-accordion-option {
+    @apply mt-2.5;
+}
+
+.wc-block-components-radio-control-accordion-option .wc-block-components-radio-control__option {
+    @apply border-0 rounded-none pl-11;
+}
+
+.wc-block-components-radio-control-accordion-option .wc-block-components-radio-control__option:hover {
+    @apply !bg-celya-orange_light;
+}
+
+.wc-block-components-radio-control-accordion-option--checked-option-highlighted {
+    border-color: theme('colors.celya.orange_dark') !important;
+}
+
+.wc-block-components-radio-control-accordion-option--checked-option-highlighted
+.wc-block-components-radio-control__option {
+    @apply !bg-celya-orange_light;
+}
+
+.wc-block-components-payment-method-label {
+    @apply text-sm font-semibold text-celya-dark;
+}
+/* Description sous le label d'un radio */
+.wc-block-components-radio-control-accordion-content {
+    @apply text-xs text-gray-500 italic leading-relaxed bg-celya-orange_light pb-2 px-4;
+}
+
+/* ==========================================================================
+   FIELDSET
+   ========================================================================== */
+
+.woocommerce fieldset,
+.woocommerce-checkout fieldset,
+.celya-form fieldset {
+    @apply border border-celya-light rounded-xl p-6 mt-6;
+}
+
+.woocommerce fieldset legend,
+.woocommerce-checkout fieldset legend,
+.celya-form fieldset legend {
+    @apply font-serif font-semibold text-celya-primary text-base px-2;
+}
+
+/* ==========================================================================
+   STRUCTURE DES LIGNES WOOCOMMERCE (.form-row)
+   ========================================================================== */
+
+.woocommerce .form-row,
+.woocommerce-checkout .form-row,
+.woocommerce-address-fields .form-row,
+.woocommerce-EditAccountForm .form-row {
+    @apply mb-5;
+}
+
+/* Supprime les marges WooCommerce par défaut */
+.woocommerce .form-row p,
+.woocommerce .form-row span {
+    @apply m-0;
+}
+
+/* Wrapper input (WC ajoute un div autour) */
+.woocommerce .form-row .woocommerce-input-wrapper {
+    @apply block w-full;
+}
+
+/* Grille de champs (first/last) */
+.woocommerce .woocommerce-address-fields__field-wrapper,
+.woocommerce-checkout .col2-set .col-1,
+.woocommerce-checkout .col2-set .col-2 {
+    @apply w-full;
+}
+
+/* ==========================================================================
+   MESSAGES DE VALIDATION
+   ========================================================================== */
+
+/* Erreur sous un champ */
+.woocommerce .form-row.woocommerce-invalid input,
+.woocommerce .form-row.woocommerce-invalid select,
+.woocommerce .form-row.woocommerce-invalid textarea,
+.celya-form .is-invalid input,
+.celya-form .is-invalid select {
+    @apply border-red-400;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.woocommerce .form-row.woocommerce-validated input,
+.woocommerce .form-row.woocommerce-validated select {
+    @apply border-green-400;
+}
+
+/* Message d'erreur texte */
+.woocommerce .form-row .form-row-label-required,
+.woocommerce-invalid-required-field label::after {
+    @apply text-red-500;
+}
+
+.woocommerce .form-error,
+.celya-form .form-error,
+.form-error {
+    @apply text-xs text-red-500 mt-1 block font-sans;
+}
+
+/* Succès */
+.woocommerce .form-success,
+.celya-form .form-success {
+    @apply text-xs text-green-600 mt-1 block font-sans;
+}
+
+/* ==========================================================================
+   FORMULAIRE COMMENTAIRES / AVIS
+   ========================================================================== */
+
+#commentform {
+    @apply space-y-5;
+}
+
+#commentform .comment-notes {
+    @apply text-sm text-gray-500 mb-4;
+}
+
+#commentform .comment-form-author,
+#commentform .comment-form-email,
+#commentform .comment-form-url,
+#commentform .comment-form-comment {
+    @apply flex flex-col gap-2;
+}
+
+#commentform .comment-form-cookies-consent {
+    @apply flex items-start gap-3;
+}
+
+#commentform .comment-form-cookies-consent label {
+    @apply text-sm font-normal text-gray-500 mb-0 cursor-pointer;
+}
+
+#commentform .form-submit {
+    @apply mt-2;
+}
+
+#commentform .submit {
+    @apply btn-celya cursor-pointer;
+}
+
+/* ==========================================================================
+   FORMULAIRE CONNEXION WOOCOMMERCE
+   ========================================================================== */
+
+.woocommerce-form-login,
+.woocommerce-form-register {
+    @apply space-y-5;
+}
+
+.woocommerce-form-login .woocommerce-form-login__rememberme {
+    @apply flex items-center gap-2 text-sm text-gray-500 font-normal;
+}
+
+.woocommerce-LostPassword {
+    @apply mt-3;
+}
+
+.woocommerce-LostPassword a {
+    @apply text-sm text-celya-primary hover:text-celya-orange_dark transition-colors underline underline-offset-2;
+}
+
+/* ==========================================================================
+   FORMULAIRE MOT DE PASSE PERDU
+   ========================================================================== */
+
+.woocommerce-form-lost-password {
+    @apply space-y-5;
+}
+
+/* ==========================================================================
+   COMPOSANTS UTILITAIRES (réutilisables dans tout le thème)
+   ========================================================================== */
+
+/* Champ générique stylé */
+.form-input {
+    @apply w-full px-4 py-3 bg-white text-celya-dark text-sm;
+    @apply border border-gray-200 rounded-xl;
+    @apply placeholder-gray-400;
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus:border-celya-orange_dark;
+}
+
+/* Label générique */
+.form-label {
+    @apply block text-sm font-semibold text-celya-dark mb-2;
+}
+
+/* Message d'erreur générique */
+.form-error {
+    @apply block text-xs text-red-500 mt-1 font-sans;
+}
+
+/* Groupe label + input */
+.form-group {
+    @apply flex flex-col gap-2 mb-5;
+}
+
+/* ==========================================================================
+   OVERRIDE GLOBAL — tous les champs de saisie du site
+   Couvre : shortcodes WooCommerce, blocs Gutenberg, commentaires, formulaires natifs
+   ========================================================================== */
+
+[type='text'],
+[type='email'],
+[type='url'],
+[type='password'],
+[type='number'],
+[type='date'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='time'],
+[type='tel'],
+[type='search'],
+textarea,
+select {
+    background-color: var(--celya-input-bg);
+    border-radius: var(--celya-input-radius);
+    border-color: var(--celya-input-border);
+    color: var(--celya-input-text);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+[type='text']:focus,
+[type='email']:focus,
+[type='url']:focus,
+[type='password']:focus,
+[type='number']:focus,
+[type='date']:focus,
+[type='datetime-local']:focus,
+[type='month']:focus,
+[type='week']:focus,
+[type='time']:focus,
+[type='tel']:focus,
+[type='search']:focus,
+textarea:focus,
+select:focus {
+    --tw-ring-color: var(--celya-input-ring);
+    outline: none;
+    border-color: var(--celya-input-border-focus);
+    box-shadow: 0 0 0 3px var(--celya-input-ring);
+}
+
+/* ==========================================================================
+   WOOCOMMERCE BLOCKS — formulaires Gutenberg (checkout, coupon, adresses)
+   Les blocs WC utilisent des classes wc-block-components-* propres.
+   ========================================================================== */
+
+/* Inputs texte des blocs WooCommerce */
+
+.wc-block-components-text-input input:focus,
+.wc-block-components-address-form input:focus,
+.wc-block-components-totals-coupon__input:focus,
+.wc-block-components-order-notes__textarea:focus {
+    outline: none;
+    border-color: var(--celya-input-border-focus);
+    box-shadow: 0 0 0 3px var(--celya-input-ring);
+}
+
+/* Select des blocs WooCommerce */
+.wc-block-components-country-input .components-combobox-control__input,
+.wc-block-components-state-input .components-combobox-control__input,
+.wc-block-components-select select,
+.wc-block-components-select .components-custom-select-control__button {
+    @apply w-full px-4 py-3 bg-white text-celya-dark text-sm;
+    @apply border border-gray-200 rounded-xl;
+    @apply transition-all duration-200 ease-in-out;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+
+
+/* Validation blocs */
+.wc-block-components-validation-error p {
+    @apply text-xs text-red-500 mt-1 font-sans;
+}
+
+/* Champ de code promo (bouton adjacent) */
+.wc-block-components-totals-coupon__content {
+    @apply flex gap-2 items-center;
+}
+
+.wc-block-components-totals-coupon__button {
+    @apply flex-shrink-0;
+}

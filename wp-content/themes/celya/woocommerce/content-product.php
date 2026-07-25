@@ -57,20 +57,20 @@ if ( empty( $product ) || ! $product->is_visible() ) {
                         
                         // Mapper les tags aux couleurs
                         if ( $tag_name === 'Salé' ) {
-                            $tag_classe = 'bg-celya-blue_dark text-celya-dark';
+                            $tag_classe = 'bg-celya-blue_dark';
                         } 
                         elseif ( $tag_name === 'Sucré' ) {
-                            $tag_classe = 'bg-celya-orange_dark text-white';
+                            $tag_classe = 'bg-celya-orange_dark';
                         } 
                         elseif ( $tag_name === 'Spécialité' ) {
-                            $tag_classe = 'bg-celya-green_dark text-celya-dark';
+                            $tag_classe = 'bg-celya-green_dark';
                         } 
                         else {
                             // Couleur par défaut
-                            $tag_classe = 'bg-celya-orange_light text-celya-dark';
+                            $tag_classe = 'bg-celya-orange_light';
                         }
                         ?>
-                        <span class="<?php echo esc_attr( $tag_classe ); ?> text-xs px-3 py-1 rounded-full font-sans font-semibold">
+                        <span class="<?php echo esc_attr( $tag_classe ); ?> text-xs text-celya-dark px-3 py-1 rounded-full font-sans font-semibold">
                             <?php echo esc_html( $tag_name ); ?>
                         </span>
                     <?php endforeach;

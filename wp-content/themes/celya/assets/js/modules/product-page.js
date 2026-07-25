@@ -32,6 +32,39 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     /* =========================================
+            Images de variation (produits variables)
+    ========================================== */
+    if (typeof jQuery !== 'undefined' && mainImg) {
+        jQuery(function ($) {
+            var $form = $('form.variations_form');
+            if (!$form.length) return;
+
+            var originalSrc    = mainImg.src;
+            var originalSrcset = mainImg.getAttribute('srcset') || '';
+
+            $form.on('found_variation', function (_e, variation) {
+                if (variation.image && variation.image.full_src) {
+                    mainImg.style.opacity = '0';
+                    setTimeout(function () {
+                        mainImg.src = variation.image.full_src;
+                        mainImg.removeAttribute('srcset');
+                        mainImg.style.opacity = '1';
+                    }, 150);
+                }
+            });
+
+            $form.on('reset_data', function () {
+                mainImg.style.opacity = '0';
+                setTimeout(function () {
+                    mainImg.src = originalSrc;
+                    if (originalSrcset) mainImg.setAttribute('srcset', originalSrcset);
+                    mainImg.style.opacity = '1';
+                }, 150);
+            });
+        });
+    }
+
+    /* =========================================
                 Formulaire d'avis
     ========================================== */
     const triggers = document.querySelectorAll('a[href="#review_form_wrapper"]');

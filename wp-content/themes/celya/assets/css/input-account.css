@@ -1,0 +1,11 @@
+/* ==========================================================================
+   ENTRÉE ESPACE CLIENT → output-account.css
+   Chargé sur is_account_page() (compte, connexion, mot de passe perdu).
+   Importe d'abord _celya-buttons.css : les partiels ci-dessous font
+   @apply btn-celya / btn-celya-outline, ces classes doivent exister
+   dans la même compilation pour être résolues.
+   ========================================================================== */
+@import './_celya-buttons.css';
+@import './account/account.css';
+@import './account/account-login.css';
+@import './account/account-lost-password.css';

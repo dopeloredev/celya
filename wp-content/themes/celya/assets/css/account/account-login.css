@@ -1,0 +1,144 @@
+/**
+ * ==========================================================================
+ * CELYA — Page de connexion / inscription (my-account déconnecté)
+ * Habillage 100% CSS du template NATIF WooCommerce (form-login.php).
+ * ==========================================================================
+ */
+
+/* --------------------------------------------------------------------------
+   1. CONTENEUR — mobile : empilé / desktop : 2 colonnes égales en hauteur
+   -------------------------------------------------------------------------- */
+
+#customer_login {
+    @apply flex flex-col gap-6 mx-auto px-4 pt-12 pb-16 box-border items-stretch
+           lg:flex-row lg:max-w-[70rem];
+}
+
+#customer_login p {
+    @apply text-xs;
+}
+
+/* --------------------------------------------------------------------------
+   2. CARTES (colonnes natives .col-1 / .col-2)
+   On annule le float/width natif de WooCommerce ; le flex gère la mise en page.
+   -------------------------------------------------------------------------- */
+
+#customer_login .col-1,
+#customer_login .col-2 {
+    @apply float-none w-full max-w-none m-0 p-8 rounded-celya-s box-border lg:w-1/2;
+}
+
+/* Carte CONNEXION — fond blanc + ombre douce */
+#customer_login .col-1 {
+    @apply bg-white shadow-celya-sm;
+}
+
+/* Carte INSCRIPTION — fond orange clair Célya */
+#customer_login .col-2 {
+    @apply bg-celya-orange_light;
+}
+
+/* Titres des cartes */
+#customer_login h2 {
+    @apply font-serif text-2xl font-bold text-celya-primary mt-0 mb-6;
+}
+
+/* --------------------------------------------------------------------------
+   3. FORMULAIRES — reset de la bordure/padding natifs WooCommerce
+   (c'est ce qui dessinait le rectangle gris autour des champs)
+   -------------------------------------------------------------------------- */
+
+#customer_login form.login,
+#customer_login form.register {
+    @apply border-0 p-0 m-0 rounded-none;
+}
+
+/* --------------------------------------------------------------------------
+   4. CHAMPS (labels + inputs natifs .input-text)
+   -------------------------------------------------------------------------- */
+
+#customer_login .form-row {
+    @apply block m-0 mb-5 p-0;
+}
+
+#customer_login label {
+    @apply block text-sm font-semibold text-celya-dark mb-2;
+}
+
+#customer_login .required {
+    @apply text-red-500 no-underline;
+}
+
+#customer_login input.input-text {
+    @apply w-full px-4 py-3 bg-white text-celya-dark text-sm leading-normal
+           border border-gray-200 rounded-xl box-border transition-all duration-200;
+}
+
+#customer_login input.input-text:focus {
+    @apply outline-none border-celya-orange_dark ring ring-celya-orange_dark/35;
+}
+
+/* --------------------------------------------------------------------------
+   5. LIGNE « SE SOUVENIR + BOUTON » (connexion)
+   La form-row native contient la case à cocher, le nonce et le bouton submit.
+   :has() conservé en sélecteur brut (non exprimable en @apply).
+   -------------------------------------------------------------------------- */
+
+#customer_login .form-row:has(.woocommerce-form-login__rememberme) {
+    @apply flex flex-wrap items-center justify-start gap-4;
+}
+
+#customer_login .woocommerce-form-login__rememberme {
+    @apply flex items-center gap-2 m-0 text-sm font-normal text-gray-500 cursor-pointer;
+}
+
+#customer_login input[type="checkbox"] {
+    @apply w-4 h-4 m-0 cursor-pointer accent-celya-orange_dark;
+}
+
+/* --------------------------------------------------------------------------
+   6. BOUTONS — réutilisation des composants Celya (override du gris natif WC)
+   -------------------------------------------------------------------------- */
+
+/* Bouton CONNEXION — plein marron */
+#customer_login .woocommerce-form-login__submit {
+    @apply btn-celya whitespace-nowrap w-full;
+}
+
+/* Bouton INSCRIPTION — contour marron, pleine largeur */
+#customer_login .woocommerce-form-register__submit {
+    @apply btn-celya-outline w-full;
+}
+
+/* --------------------------------------------------------------------------
+   7. LIEN « MOT DE PASSE OUBLIÉ »
+   -------------------------------------------------------------------------- */
+
+#customer_login .woocommerce-LostPassword {
+    @apply mt-4 mb-0;
+}
+
+#customer_login .woocommerce-LostPassword a {
+    @apply text-celya-orange_dark text-sm underline underline-offset-2 transition-colors hover:text-celya-primary;
+}
+
+/* --------------------------------------------------------------------------
+   8. TEXTE POLITIQUE DE CONFIDENTIALITÉ
+   -------------------------------------------------------------------------- */
+
+#customer_login .woocommerce-privacy-policy-text {
+    @apply mb-12 text-gray-500 italic;
+}
+
+/* --------------------------------------------------------------------------
+   9. REPLI — inscription désactivée (pas de wrapper #customer_login)
+   On centre et on carte le formulaire de connexion seul.
+   -------------------------------------------------------------------------- */
+
+.woocommerce-account:not(.logged-in) .woocommerce > h2 {
+    @apply text-center font-serif text-celya-primary;
+}
+
+.woocommerce-account:not(.logged-in) form.woocommerce-form-login {
+    @apply max-w-md mx-auto my-8 p-8 bg-white border-0 rounded-celya-s;
+}

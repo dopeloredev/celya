@@ -24,6 +24,7 @@
     },
     "typography": {
       "customFontSize": true,
+      "lineHeight": true,
       "fontFamilies": [
         {
           "slug": "montserrat",
@@ -132,6 +133,19 @@
               "fontWeight": "700",
               "fontStyle": "normal",
               "src": ["file:./assets/fonts/arima/Arima-Bold.ttf"]
+            }
+          ]
+        },
+        {
+          "slug": "numberfivesmooth",
+          "name": "NumberFiveSmooth",
+          "fontFamily": "NumberFiveSmooth, mono",
+          "fontFace": [
+            {
+              "fontFamily": "NumberFiveSmooth",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/numberfivesmooth/NumberFiveSmooth.ttf"]
             }
           ]
         }

@@ -48,10 +48,8 @@
                     wp_nav_menu(array(
                         'theme_location' => 'footer-produits',
                         'container'      => false,
-                        'menu_class'     => 'space-y-2 text-sm',
+                        'menu_class'     => 'footer-nav space-y-2 text-sm',
                         'fallback_cb'    => false,
-                        'link_before'    => '<span class="text-celya-dark hover:text-celya-orange_dark transition-colors">',
-                        'link_after'     => '</span>',
                     ));
                     ?>
                 </div>
@@ -63,10 +61,8 @@
                     wp_nav_menu(array(
                         'theme_location' => 'footer-services',
                         'container'      => false,
-                        'menu_class'     => 'space-y-2 text-sm',
+                        'menu_class'     => 'footer-nav space-y-2 text-sm',
                         'fallback_cb'    => false,
-                        'link_before'    => '<span class="text-celya-dark hover:text-celya-orange_dark transition-colors">',
-                        'link_after'     => '</span>',
                     ));
                     ?>
                 </div>
@@ -78,10 +74,8 @@
                     wp_nav_menu(array(
                         'theme_location' => 'footer-apropos',
                         'container'      => false,
-                        'menu_class'     => 'space-y-2 text-sm',
+                        'menu_class'     => 'footer-nav space-y-2 text-sm',
                         'fallback_cb'    => false,
-                        'link_before'    => '<span class="text-celya-dark hover:text-celya-orange_dark transition-colors">',
-                        'link_after'     => '</span>',
                     ));
                     ?>
                 </div>
@@ -93,10 +87,8 @@
                     wp_nav_menu(array(
                         'theme_location' => 'footer-informations',
                         'container'      => false,
-                        'menu_class'     => 'space-y-2 text-sm',
+                        'menu_class'     => 'footer-nav space-y-2 text-sm',
                         'fallback_cb'    => false,
-                        'link_before'    => '<span class="text-celya-dark hover:text-celya-orange_dark transition-colors">',
-                        'link_after'     => '</span>',
                     ));
                     ?>
                 </div>
@@ -196,7 +188,8 @@
                     
                     <!-- Copyright -->
                     <p class="font-sans text-xs">
-                        Les biscuits de Célya © <?php echo date('Y'); ?> - Tous droits réservés.
+                        © <?php echo date('Y'); ?> Les biscuits de Célya. Tous droits réservés.
+                        Designé par MiraeCrea. Développé par Gpix.
                     </p>
 
                     <!-- Liens légaux -->

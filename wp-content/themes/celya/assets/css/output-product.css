@@ -1,0 +1,887 @@
+/* ==========================================================================
+   ENTRÉE PAGE PRODUIT → output-product.css
+   Chargé uniquement sur is_product().
+   Pas de directives @tailwind : les utilitaires sont déjà dans output.css.
+   Tailwind résout simplement les @apply en CSS pur.
+   ========================================================================== */
+
+/**
+ * ==========================================================================
+ * WOOCOMMERCE SINGLE PRODUCT STYLES V2 - Celya (Style Moderne)
+ * ==========================================================================
+ */
+
+/* ==========================================================================
+   THÈME COULEUR CONDITIONNEL (selon le tag produit)
+   --------------------------------------------------------------------------
+   Toute la fiche produit référence les variables --celya-accent-* (via le
+   token Tailwind `celya-accent-*`). Le filtre body_class (PHP) pose une classe
+   body.theme-<slug> selon product_tag, qui réassigne ces variables → la page
+   entière se recolore sans dupliquer le moindre template.
+   Ce fichier n'est chargé que sur is_product(), le périmètre reste donc
+   strictement la fiche produit.
+   ========================================================================== */
+
+:root {
+  /* Défaut (produit sans tag) = orange */
+  --celya-accent-dark:  #F2B28D;
+  --celya-accent-light: #FDECE2;
+}
+
+body.theme-sucre {
+  --celya-accent-dark:  #F2B28D;
+  /* celya-orange_dark  */
+  --celya-accent-light: #FDECE2;
+  /* celya-orange_light */
+}
+
+body.theme-sale {
+  --celya-accent-dark:  #BDD9F2;
+  /* celya-blue_dark  */
+  --celya-accent-light: #F2F7FC;
+  /* celya-blue_light */
+}
+
+body.theme-specialite {
+  --celya-accent-dark:  #ABE0A4;
+  /* celya-green_dark  */
+  --celya-accent-light: #E9F6E8;
+  /* celya-green_light */
+}
+
+/* ========== GALERIE D'IMAGES ========== */
+
+.woocommerce-product-gallery {
+  overflow:  hidden;
+  border-radius:  1rem;
+  --tw-bg-opacity:  1;
+  background-color:  rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-shadow:  0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored:  0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow:  var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.woocommerce-product-gallery__wrapper {
+  margin:  0px;
+}
+
+.woocommerce-product-gallery__image {
+  width:  100%;
+}
+
+.woocommerce-product-gallery__image img {
+  height:  auto;
+  width:  100%;
+  -o-object-fit:  cover;
+     object-fit:  cover;
+}
+
+/* Miniatures de la galerie */
+
+.flex-control-thumbs {
+  margin-top:  1rem;
+  display:  flex;
+  gap:  1rem;
+}
+
+.flex-control-thumbs li {
+  cursor:  pointer;
+  overflow:  hidden;
+  border-radius:  0.5rem;
+  transition-property:  all;
+  transition-timing-function:  cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration:  150ms;
+  border-width:  2px;
+  border-color:  transparent;
+  opacity:  0.7;
+  aspect-ratio: 1 / 1;
+}
+
+.flex-control-thumbs li:hover,
+.flex-control-thumbs li.flex-active {
+  border-color:  var(--celya-accent-dark);
+  opacity:  1;
+}
+
+.flex-control-thumbs li img {
+  height:  100%;
+  width:  100%;
+  -o-object-fit:  cover;
+     object-fit:  cover;
+}
+
+/* ========== DESCRIPTION ========== */
+
+.woocommerce-product-details__short-description {
+  margin-bottom:  2rem;
+  margin-top:  2rem;
+}
+
+/* ========== NOTES ET ÉTOILES ========== */
+
+.woocommerce-product-rating .star-rating {
+  --tw-text-opacity:  1;
+  color:  rgb(250 204 21 / var(--tw-text-opacity));
+}
+
+.star-rating {
+  overflow: hidden;
+  position: relative;
+  height: 1.2em;
+  line-height: 1.2;
+  font-size: 1em;
+  width: 5.4em;
+  font-family: star;
+}
+
+.star-rating::before {
+  content: "\53\53\53\53\53";
+  color: #d4d4d8;
+  float: left;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.star-rating span {
+  overflow: hidden;
+  float: left;
+  top: 0;
+  left: 0;
+  position: absolute;
+  padding-top: 1.5em;
+}
+
+.star-rating span::before {
+  color:  var(--celya-accent-dark);
+  content: "\53\53\53\53\53";
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+/* ========== SÉLECTEUR DE QUANTITÉ MODERNE ========== */
+
+.quantity {
+  display:  inline-flex;
+  align-items:  center;
+}
+
+.quantity input.qty {
+  height:  3.5rem;
+  width:  4rem;
+  border-width:  0px;
+  text-align:  center;
+  font-size:  1.125rem;
+  line-height:  1.75rem;
+  font-weight:  700;
+  --tw-text-opacity:  1;
+  color:  rgb(44 44 44 / var(--tw-text-opacity));
+  -moz-appearance: textfield;
+}
+
+.quantity input.qty::-webkit-outer-spin-button,
+.quantity input.qty::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity-minus,
+.quantity-plus {
+  display:  flex;
+  height:  3.5rem;
+  width:  3rem;
+  align-items:  center;
+  justify-content:  center;
+  cursor:  pointer;
+  --tw-text-opacity:  1;
+  color:  rgb(44 44 44 / var(--tw-text-opacity));
+  transition-property:  color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function:  cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration:  150ms;
+}
+
+.quantity-minus:hover,
+.quantity-plus:hover {
+  --tw-bg-opacity:  1;
+  background-color:  rgb(250 249 248 / var(--tw-bg-opacity));
+}
+
+/* ========== VARIATIONS MODERNES ========== */
+
+/* On cache le menu de sélection par défaut des variations */
+
+.woocommerce div.product form.cart .variations select {
+  display: none !important;
+}
+
+.variation-selector {
+  margin-bottom:  1.5rem;
+}
+
+.variation-selector label {
+  margin-bottom:  0.75rem;
+  display:  block;
+  font-family:  Arima, Georgia, Cambria, Times New Roman, Times, serif;
+  font-size:  1.125rem;
+  line-height:  1.75rem;
+  letter-spacing:  0.05em;
+  --tw-text-opacity:  1;
+  color:  rgb(89 51 42 / var(--tw-text-opacity));
+}
+
+.variation-buttons {
+  display:  grid;
+  grid-template-columns:  repeat(2, minmax(0, 1fr));
+  gap:  0.75rem;
+}
+
+@media (min-width: 640px) {
+  .variation-buttons {
+    grid-template-columns:  repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* État par défaut : bordure gris clair */
+
+.variation-option {
+  position:  relative;
+  --tw-bg-opacity:  1;
+  background-color:  rgb(255 255 255 / var(--tw-bg-opacity));
+  padding-left:  1rem;
+  padding-right:  1rem;
+  padding-top:  0.75rem;
+  padding-bottom:  0.75rem;
+  border-radius:  0.75rem;
+  border-width:  2px;
+  --tw-border-opacity:  1;
+  border-color:  rgb(75 85 99 / var(--tw-border-opacity));
+  font-size:  0.875rem;
+  line-height:  1.25rem;
+  font-weight:  600;
+  --tw-text-opacity:  1;
+  color:  rgb(44 44 44 / var(--tw-text-opacity));
+  cursor:  pointer;
+  --tw-shadow:  0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored:  0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow:  var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition-property:  all;
+  transition-timing-function:  cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration:  200ms;
+}
+
+/* Hover : bordure orange + fond orange clair */
+
+.variation-option:hover {
+  border-color:  var(--celya-accent-dark);
+  background-color:  var(--celya-accent-light);
+  --tw-shadow:  0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored:  0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow:  var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+/* Alternative avec classe personnalisée */
+
+.variation-option.selected {
+  border-color:  var(--celya-accent-dark);
+  background-color:  var(--celya-accent-light);
+}
+
+/* ========== DÉCLINAISONS (fausses variations pour produits simples) ========== */
+
+/* Les options sont des <a>/<span> : on force l'alignement centré comme les <button>. */
+
+.declinaison-selector .variation-option {
+  display:  block;
+  text-align:  center;
+  text-decoration-line:  none;
+}
+
+/* Saveur du produit courant : mise en évidence + non cliquable. */
+
+.declinaison-selector .declinaison-current {
+  cursor:  default;
+}
+
+/* Couleur propre à chaque déclinaison (selon SON tag), indépendante de l'accent
+   de la page : on ré-scope localement les variables d'accent sur le bouton.
+   Les états :hover / .selected de .variation-option lisent var(--celya-accent-*)
+   et reprennent donc la couleur du tag de la déclinaison survolée/sélectionnée. */
+
+.declinaison-selector .declinaison-theme-sucre {
+  --celya-accent-dark:  #F2B28D;
+  /* orange */
+  --celya-accent-light: #FDECE2;
+}
+
+.declinaison-selector .declinaison-theme-sale {
+  --celya-accent-dark:  #BDD9F2;
+  /* bleu */
+  --celya-accent-light: #F2F7FC;
+}
+
+.declinaison-selector .declinaison-theme-specialite {
+  --celya-accent-dark:  #ABE0A4;
+  /* vert */
+  --celya-accent-light: #E9F6E8;
+}
+
+/* Zone d'info variation */
+
+.single_variation {
+  border-radius:  0.75rem;
+  background-color:  var(--celya-accent-light);
+  padding:  1rem;
+}
+
+.single_variation .woocommerce-variation-description {
+  margin-bottom:  0.5rem;
+  font-size:  0.875rem;
+  line-height:  1.25rem;
+  --tw-text-opacity:  1;
+  color:  rgb(44 44 44 / var(--tw-text-opacity));
+}
+
+.single_variation .woocommerce-variation-price {
+  margin-bottom:  0.5rem;
+}
+
+.single_variation .woocommerce-variation-availability .stock {
+  font-size:  0.875rem;
+  line-height:  1.25rem;
+  font-weight:  600;
+}
+
+.single_variation .woocommerce-variation-availability .stock.in-stock {
+  --tw-text-opacity:  1;
+  color:  rgb(22 163 74 / var(--tw-text-opacity));
+}
+
+.single_variation .woocommerce-variation-availability .stock.out-of-stock {
+  --tw-text-opacity:  1;
+  color:  rgb(220 38 38 / var(--tw-text-opacity));
+}
+
+/* ========== TRUST BADGES MODERNES ========== */
+
+.trust-badge {
+  display:  flex;
+  align-items:  flex-start;
+  gap:  1rem;
+}
+
+.trust-badge-icon {
+  display:  flex;
+  height:  2.5rem;
+  width:  2.5rem;
+  flex-shrink:  0;
+  align-items:  center;
+  justify-content:  center;
+  border-radius:  9999px;
+  background-color:  var(--celya-accent-light);
+}
+
+.trust-badge-icon svg {
+  height:  1.25rem;
+  width:  1.25rem;
+  color:  var(--celya-accent-dark);
+}
+
+.trust-badge-content h4 {
+  margin-bottom:  0.25rem;
+  font-size:  0.875rem;
+  line-height:  1.25rem;
+  font-weight:  700;
+  --tw-text-opacity:  1;
+  color:  rgb(44 44 44 / var(--tw-text-opacity));
+}
+
+.trust-badge-content p {
+  font-size:  0.75rem;
+  line-height:  1rem;
+  --tw-text-opacity:  1;
+  color:  rgb(75 85 99 / var(--tw-text-opacity));
+}
+
+/* ========== PRODUCT TABS ========== */
+
+.woocommerce-tabs {
+  overflow:  visible;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+  margin:  0px;
+  display:  flex;
+  flex-wrap:  wrap;
+  padding:  0px;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs::before {
+  border-bottom-width:  1px;
+  --tw-border-opacity:  1;
+  border-color:  rgb(229 231 235 / var(--tw-border-opacity));
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+  margin:  0px;
+  display:  block;
+  border-width:  0px;
+  background-color:  transparent;
+  padding-left:  1.25rem;
+  padding-right:  1.25rem;
+  padding-top:  0.25rem;
+  padding-bottom:  0.25rem;
+  transition-property:  color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function:  cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration:  150ms;
+  text-transform:  uppercase;
+  letter-spacing:  0.05em;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li:hover {
+  color:  var(--celya-accent-dark);
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+  flex:  none;
+  position: unset;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+  font-size:  0.875rem;
+  line-height:  1.25rem;
+  font-weight:  400;
+  --tw-text-opacity:  1;
+  color:  rgb(44 44 44 / var(--tw-text-opacity));
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+  border-bottom-width:  2px;
+  border-color:  var(--celya-accent-dark);
+  background-color:  transparent;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+  font-weight:  600;
+  color:  var(--celya-accent-dark);
+}
+
+/* ========== AVIS CLIENTS ========== */
+
+#reviews .commentlist {
+  margin:  0px;
+  display:  grid;
+  list-style-type:  none;
+  grid-template-columns:  repeat(1, minmax(0, 1fr));
+  gap:  1.5rem;
+  padding:  0px;
+}
+
+@media (min-width: 768px) {
+  #reviews .commentlist {
+    grid-template-columns:  repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  #reviews .commentlist {
+    grid-template-columns:  repeat(3, minmax(0, 1fr));
+  }
+}
+
+#reviews .comment {
+  border-radius:  1rem;
+  border-width:  1px;
+  --tw-border-opacity:  1;
+  border-color:  rgb(250 249 248 / var(--tw-border-opacity));
+  --tw-bg-opacity:  1;
+  background-color:  rgb(255 255 255 / var(--tw-bg-opacity));
+  padding:  1.5rem;
+  --tw-shadow:  0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored:  0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow:  var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition-property:  all;
+  transition-timing-function:  cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration:  150ms;
+}
+
+#reviews .comment:hover {
+  border-color:  var(--celya-accent-light);
+  --tw-shadow:  0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored:  0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow:  var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+#reviews .comment_container {
+  display:  flex;
+  flex-direction:  column;
+  gap:  1rem;
+}
+
+#reviews .comment-text {
+  font-size:  0.875rem;
+  line-height:  1.25rem;
+  --tw-text-opacity:  1;
+  color:  rgb(44 44 44 / var(--tw-text-opacity));
+}
+
+#reviews .meta {
+  margin-bottom:  0.75rem;
+  display:  flex;
+  align-items:  center;
+  justify-content:  space-between;
+}
+
+#reviews .woocommerce-review__author {
+  font-weight:  700;
+  --tw-text-opacity:  1;
+  color:  rgb(89 51 42 / var(--tw-text-opacity));
+}
+
+#reviews .woocommerce-review__published-date {
+  font-size:  0.75rem;
+  line-height:  1rem;
+  --tw-text-opacity:  1;
+  color:  rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+#reviews .description {
+  font-size:  0.875rem;
+  line-height:  1.25rem;
+  line-height:  1.625;
+  --tw-text-opacity:  1;
+  color:  rgb(44 44 44 / var(--tw-text-opacity));
+}
+
+/* ========== PRODUITS ASSOCIÉS MODERNES ========== */
+
+.related.products,
+.upsells.products {
+  margin-top:  4rem;
+}
+
+.related.products h2,
+.upsells.products h2 {
+  margin-bottom:  2rem;
+  font-family:  Arima, Georgia, Cambria, Times New Roman, Times, serif;
+  font-size:  1.875rem;
+  line-height:  2.25rem;
+  font-weight:  700;
+  --tw-text-opacity:  1;
+  color:  rgb(89 51 42 / var(--tw-text-opacity));
+}
+
+.related.products ul.products,
+.upsells.products ul.products {
+  display:  grid;
+  grid-template-columns:  repeat(1, minmax(0, 1fr));
+  gap:  1.5rem;
+}
+
+@media (min-width: 768px) {
+  .related.products ul.products,
+.upsells.products ul.products {
+    grid-template-columns:  repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .related.products ul.products,
+.upsells.products ul.products {
+    grid-template-columns:  repeat(4, minmax(0, 1fr));
+  }
+}
+
+.related.products ul.products,
+.upsells.products ul.products {
+  margin:  0px;
+  list-style-type:  none;
+  padding:  0px;
+}
+
+/* Neutralise le clearfix natif WooCommerce (ul.products::before/::after) :
+   en contexte grille ces pseudo-éléments deviennent des cellules fantômes
+   qui décalaient la 1ʳᵉ carte. */
+
+.related.products ul.products::before,
+.related.products ul.products::after,
+.upsells.products ul.products::before,
+.upsells.products ul.products::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Réinitialise la largeur/flottement WooCommerce natif (width:30%, float:left)
+   qui écrasait chaque carte à ~30 % de sa cellule de grille.
+   → cartes strictement identiques aux pages catégorie (même template content-product.php). */
+
+.related.products ul.products li.product,
+.upsells.products ul.products li.product {
+  list-style-type:  none;
+  padding:  0px;
+  width: 100% !important;
+  margin: 0 !important;
+  float: none !important;
+}
+
+/* Image — remplit le carré (aspect-square géré par content-product.php) */
+
+.related.products ul.products li.product img,
+.upsells.products ul.products li.product img {
+  height:  100%;
+  width:  100%;
+  -o-object-fit:  cover;
+     object-fit:  cover;
+}
+
+/* Prix — marron celya-primary comme sur les cartes catégorie (la règle
+   .woocommerce ul.products li.product .price ne vit que dans output-category.css).
+   Spécificité 0,5,2 pour l'emporter sur les défauts WooCommerce/thème. */
+
+.related.products ul.products li.product .price,
+.upsells.products ul.products li.product .price {
+  font-weight:  700;
+  --tw-text-opacity:  1;
+  color:  rgb(89 51 42 / var(--tw-text-opacity));
+}
+
+.related.products ul.products li.product .price del,
+.upsells.products ul.products li.product .price del {
+  font-size:  0.875rem;
+  line-height:  1.25rem;
+  --tw-text-opacity:  1;
+  color:  rgb(156 163 175 / var(--tw-text-opacity));
+  opacity:  0.7;
+}
+
+.related.products ul.products li.product .price ins,
+.upsells.products ul.products li.product .price ins {
+  color:  var(--celya-accent-dark);
+  text-decoration-line:  none;
+}
+
+/* Bouton "Ajouter au panier" — pastille ronde marron + icône (comme en catégorie).
+   Toujours marron (couleur de base Célya), indépendamment du thème de la fiche.
+   Le CSS d'origine vivait uniquement dans output-category.css (non chargé ici). */
+
+.related.products .celya-add-to-cart-wrapper .button,
+.upsells.products .celya-add-to-cart-wrapper .button {
+  border-radius:  9999px;
+  --tw-bg-opacity:  1;
+  background-color:  rgb(89 51 42 / var(--tw-bg-opacity));
+  --tw-text-opacity:  1;
+  color:  rgb(255 255 255 / var(--tw-text-opacity));
+  padding:  0.75rem;
+  font-family:  Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size:  0.875rem;
+  line-height:  1.25rem;
+  font-weight:  600;
+  transition-property:  all;
+  transition-timing-function:  cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration:  300ms;
+}
+
+.related.products .celya-add-to-cart-wrapper .button:hover,
+.upsells.products .celya-add-to-cart-wrapper .button:hover {
+  opacity:  0.9;
+}
+
+.related.products .celya-add-to-cart-wrapper .button,
+.upsells.products .celya-add-to-cart-wrapper .button {
+  display:  inline-flex;
+  align-items:  center;
+  justify-content:  center;
+  min-width: auto !important;
+  width: 44px !important;
+  height: 44px !important;
+  font-size: 0;
+  line-height: 0;
+}
+
+.related.products .celya-add-to-cart-wrapper .button::before,
+.upsells.products .celya-add-to-cart-wrapper .button::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('../images/pictograms/blanc/add_to_cart.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.related.products .celya-add-to-cart-wrapper .button:hover::before,
+.upsells.products .celya-add-to-cart-wrapper .button:hover::before {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.related.products .celya-add-to-cart-wrapper .button::after,
+.upsells.products .celya-add-to-cart-wrapper .button::after {
+  content: none !important;
+}
+
+.related.products .celya-add-to-cart-wrapper .added_to_cart,
+.upsells.products .celya-add-to-cart-wrapper .added_to_cart {
+  display:  none;
+}
+
+/* ========== STOCK ========== */
+
+.stock {
+  margin-bottom:  1rem;
+  font-size:  0.875rem;
+  line-height:  1.25rem;
+  font-weight:  600;
+}
+
+.stock.in-stock {
+  --tw-text-opacity:  1;
+  color:  rgb(22 163 74 / var(--tw-text-opacity));
+}
+
+.stock.out-of-stock {
+  font-weight:  700;
+  --tw-text-opacity:  1;
+  color:  rgb(220 38 38 / var(--tw-text-opacity));
+}
+
+/* ========== MESSAGES ========== */
+
+.woocommerce-message {
+  margin-bottom:  1.5rem;
+  border-radius:  0.5rem;
+  border-left-width:  4px;
+  --tw-border-opacity:  1;
+  border-color:  rgb(34 197 94 / var(--tw-border-opacity));
+  --tw-bg-opacity:  1;
+  background-color:  rgb(240 253 244 / var(--tw-bg-opacity));
+  padding:  1rem;
+  display:  flex;
+  align-items:  center;
+  gap:  0.75rem;
+}
+
+.woocommerce-message::before {
+  content: "✓";
+  font-size:  1.5rem;
+  line-height:  2rem;
+  font-weight:  700;
+  --tw-text-opacity:  1;
+  color:  rgb(34 197 94 / var(--tw-text-opacity));
+}
+
+.woocommerce-message a.button {
+  border-radius:  0.5rem;
+  --tw-bg-opacity:  1;
+  background-color:  rgb(34 197 94 / var(--tw-bg-opacity));
+  padding-left:  1rem;
+  padding-right:  1rem;
+  padding-top:  0.5rem;
+  padding-bottom:  0.5rem;
+  --tw-text-opacity:  1;
+  color:  rgb(255 255 255 / var(--tw-text-opacity));
+  transition-property:  color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function:  cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration:  150ms;
+}
+
+.woocommerce-message a.button:hover {
+  --tw-bg-opacity:  1;
+  background-color:  rgb(22 163 74 / var(--tw-bg-opacity));
+}
+
+.woocommerce-info {
+  border-radius:  0.5rem;
+  border-left-width:  4px;
+  --tw-border-opacity:  1;
+  border-color:  rgb(59 130 246 / var(--tw-border-opacity));
+  --tw-bg-opacity:  1;
+  background-color:  rgb(239 246 255 / var(--tw-bg-opacity));
+  padding:  1rem;
+  --tw-text-opacity:  1;
+  color:  rgb(30 58 138 / var(--tw-text-opacity));
+}
+
+.woocommerce-error {
+  border-radius:  0.5rem;
+  border-left-width:  4px;
+  --tw-border-opacity:  1;
+  border-color:  rgb(239 68 68 / var(--tw-border-opacity));
+  --tw-bg-opacity:  1;
+  background-color:  rgb(254 242 242 / var(--tw-bg-opacity));
+  padding:  1rem;
+  --tw-text-opacity:  1;
+  color:  rgb(127 29 29 / var(--tw-text-opacity));
+}
+
+/* ========== PRIX ========== */
+
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+  font-family:  Montserrat, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-weight:  800;
+  --tw-text-opacity:  1;
+  color:  rgb(89 51 42 / var(--tw-text-opacity));
+}
+
+.woocommerce div.product p.price del,
+.woocommerce div.product span.price del {
+  font-size:  1.5rem;
+  line-height:  2rem;
+  --tw-text-opacity:  1;
+  color:  rgb(156 163 175 / var(--tw-text-opacity));
+  opacity:  0.7;
+}
+
+.woocommerce div.product p.price ins,
+.woocommerce div.product span.price ins {
+  color:  var(--celya-accent-dark);
+  text-decoration-line:  none;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 1023px) {
+  .woocommerce div.product .product-images,
+    .woocommerce div.product .product-summary {
+    margin-bottom:  2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .related.products ul.products,
+    .upsells.products ul.products {
+      grid-template-columns:  repeat(3, minmax(0, 1fr));
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .woocommerce-tabs .tabs {
+    flex-direction:  column;
+  }
+
+  .woocommerce-tabs .tabs li {
+    width:  100%;
+    border-bottom-width:  1px;
+    --tw-border-opacity:  1;
+    border-color:  rgb(229 231 235 / var(--tw-border-opacity));
+  }
+
+  .woocommerce-tabs .tabs li:last-child {
+    border-bottom-width:  0px;
+  }
+
+  #reviews .commentlist {
+    grid-template-columns:  repeat(1, minmax(0, 1fr));
+  }
+
+  .related.products ul.products,
+    .upsells.products ul.products {
+    grid-template-columns:  repeat(1, minmax(0, 1fr));
+  }
+
+  .variation-buttons {
+    grid-template-columns:  repeat(1, minmax(0, 1fr));
+  }
+}

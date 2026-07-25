@@ -1,0 +1,338 @@
+/**
+ * ==========================================================================
+ * PERSONNALISATION PRODUIT — Styles spécifiques
+ * Chargé uniquement sur les pages produit de la catégorie "personnalisation".
+ * ==========================================================================
+ */
+
+/* ========== CANVAS ========== */
+
+.perso-canvas-wrapper {
+    position: relative;
+    background: #FAF9F8;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(89, 51, 42, 0.1);
+}
+
+.perso-canvas-wrapper canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+/* ========== SPINNER (chargement polices) ========== */
+
+.perso-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.perso-spinner-ring {
+    width: 28px;
+    height: 28px;
+    border: 3px solid #F2D0A7;
+    border-top-color: #59332A;
+    border-radius: 50%;
+    animation: perso-spin 0.8s linear infinite;
+    flex-shrink: 0;
+}
+
+.perso-spinner-ring-sm {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #F2D0A7;
+    border-top-color: #59332A;
+    border-radius: 50%;
+    animation: perso-spin 0.8s linear infinite;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+@keyframes perso-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ========== BOUTONS DE POLICE ========== */
+
+.perso-font-btn {
+    transition: all 0.2s ease;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.perso-font-btn.active {
+    border-color: #C4703F;
+    background-color: #FDF3E8;
+    color: #59332A;
+}
+
+/* ========== SWATCHES DE COULEUR ========== */
+
+.perso-color-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #E5E3E0; /* contour gris light pour toutes les options */
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    outline: none;
+}
+
+.perso-color-swatch:hover {
+    transform: scale(1.15);
+    border-color: #C4703F;
+    box-shadow: 0 0 0 3px rgba(196, 112, 63, 0.15);
+}
+
+.perso-color-swatch.active {
+    border-color: #C4703F; /* contour orange celya pour la sélection */
+    box-shadow: 0 0 0 3px rgba(196, 112, 63, 0.3);
+    transform: scale(1.18);
+}
+
+/* ========== ZONE DE DÉPÔT IMAGE (DROPZONE) ========== */
+
+.perso-dropzone {
+    border: 2px dashed #E5E3E0;
+    border-radius: 1rem;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    cursor: pointer;
+    outline: none;
+}
+
+.perso-dropzone:hover,
+.perso-dropzone:focus {
+    border-color: #C4703F;
+    background-color: rgba(242, 208, 167, 0.15);
+}
+
+.perso-dropzone--active {
+    border-color: #C4703F;
+    background-color: rgba(242, 208, 167, 0.25);
+    transform: scale(1.01);
+}
+
+/* ========== QUANTITÉ STEPPER ========== */
+
+.perso-qty-stepper {
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #E5E3E0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: #fff;
+}
+
+.perso-qty-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2C2C2C;
+    width: 2.5rem;
+    height: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease;
+}
+
+.perso-qty-btn:hover {
+    background-color: #FAF9F8;
+}
+
+.perso-qty-stepper input {
+    width: 3.5rem;
+    height: 3rem;
+    text-align: center;
+    font-weight: 700;
+    color: #2C2C2C;
+    border: none;
+    outline: none;
+    -moz-appearance: textfield;
+    font-size: 1rem;
+}
+
+.perso-qty-stepper input::-webkit-outer-spin-button,
+.perso-qty-stepper input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* ========== SECTIONS FORMULAIRE (transitions show/hide) ========== */
+
+.perso-section {
+    transition: opacity 0.2s ease;
+}
+
+.perso-section.hidden {
+    display: none;
+}
+
+/* ========== BOUTON "AJOUTER AU PANIER" (état disabled) ========== */
+
+.perso-main-form #perso-add-to-cart-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.perso-main-form #perso-add-to-cart-btn:not(:disabled) {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* ========== COMPTEUR DE CARACTÈRES ========== */
+
+#perso-char-counter {
+    font-size: 0.7rem;
+    color: #9CA3AF;
+    transition: color 0.15s;
+}
+
+#perso-char-counter.near-limit {
+    color: #F59E0B;
+}
+
+#perso-char-counter.at-limit {
+    color: #EF4444;
+    font-weight: 600;
+}
+
+#perso-text-input.border-red-400 {
+    border-color: #F87171;
+    box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.15);
+}
+
+/* ========== APERÇU IMAGE ========== */
+
+#perso-image-preview {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    border-radius: 0.75rem;
+}
+
+/* ========== CHAMPS VERROUILLÉS (après validation prévisualisation) ========== */
+
+.perso-field-locked {
+    opacity: 0.45;
+    pointer-events: none;
+    user-select: none;
+    transition: opacity 0.25s ease;
+}
+
+/* ========== POPUP / MODAL CONSIGNES ========== */
+
+.perso-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.perso-modal.active {
+    display: flex;
+}
+
+.perso-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(44, 44, 44, 0.55);
+    backdrop-filter: blur(3px);
+}
+
+.perso-modal-box {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    border-radius: 1.5rem;
+    padding: 2rem 2.25rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(89, 51, 42, 0.2);
+    animation: perso-modal-in 0.3s ease;
+}
+
+@keyframes perso-modal-in {
+    from { opacity: 0; transform: translateY(12px) scale(0.97); }
+    to   { opacity: 1; transform: none; }
+}
+
+.perso-modal-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #59332A;
+    margin: 0 0 1.25rem;
+}
+
+.perso-modal-list {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.perso-modal-list li {
+    font-size: 0.875rem;
+    color: #2C2C2C;
+    line-height: 1.5;
+    padding-left: 0.25rem;
+}
+
+.perso-modal-custom {
+    font-size: 0.85rem;
+    color: #59332A;
+    background: #FDF3E8;
+    border-radius: 0.75rem;
+    padding: 0.875rem 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.perso-modal-close-btn {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    background: #C4703F;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.875rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    text-align: center;
+}
+
+.perso-modal-close-btn:hover {
+    background: #59332A;
+}
+
+/* ========== BANNIÈRE ADMIN COMMANDE PERSONNALISÉE ========== */
+
+.celya-perso-admin-detail {
+    margin-top: 8px;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 1023px) {
+    .perso-canvas-col {
+        order: 2;
+    }
+    .perso-form-col {
+        order: 1;
+    }
+}

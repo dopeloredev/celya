@@ -32,6 +32,14 @@ module.exports = {
           grey_dark: '#2C2C2C',
           grey_light: '#F6F6F6',
           white: '#ffffff',
+          // Accent conditionnel de la fiche produit — résolu à l'exécution via
+          // des variables CSS réassignées par la classe body.theme-* (voir le
+          // filtre body_class et le bloc :root dans woo-single-product.css).
+          // Par défaut = orange (produit sans tag / sucré).
+          accent: {
+            dark:  'var(--celya-accent-dark)',
+            light: 'var(--celya-accent-light)',
+          },
         },
       },
       
@@ -58,6 +66,10 @@ module.exports = {
             'Times New Roman',
             'Times',
             'serif'
+          ],
+          mono:[
+            'NumberFiveSmooth', 
+            'mono'
           ],
       },
       
@@ -158,7 +170,6 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),         // Styles pour formulaires
     require('@tailwindcss/typography'),    // Prose styling
     require('@tailwindcss/aspect-ratio'),  // Aspect ratios
   ],

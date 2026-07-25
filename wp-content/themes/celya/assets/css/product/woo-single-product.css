@@ -4,6 +4,34 @@
  * ==========================================================================
  */
 
+/* ==========================================================================
+   THÈME COULEUR CONDITIONNEL (selon le tag produit)
+   --------------------------------------------------------------------------
+   Toute la fiche produit référence les variables --celya-accent-* (via le
+   token Tailwind `celya-accent-*`). Le filtre body_class (PHP) pose une classe
+   body.theme-<slug> selon product_tag, qui réassigne ces variables → la page
+   entière se recolore sans dupliquer le moindre template.
+   Ce fichier n'est chargé que sur is_product(), le périmètre reste donc
+   strictement la fiche produit.
+   ========================================================================== */
+:root {
+    /* Défaut (produit sans tag) = orange */
+    --celya-accent-dark:  #F2B28D;
+    --celya-accent-light: #FDECE2;
+}
+body.theme-sucre {
+    --celya-accent-dark:  #F2B28D; /* celya-orange_dark  */
+    --celya-accent-light: #FDECE2; /* celya-orange_light */
+}
+body.theme-sale {
+    --celya-accent-dark:  #BDD9F2; /* celya-blue_dark  */
+    --celya-accent-light: #F2F7FC; /* celya-blue_light */
+}
+body.theme-specialite {
+    --celya-accent-dark:  #ABE0A4; /* celya-green_dark  */
+    --celya-accent-light: #E9F6E8; /* celya-green_light */
+}
+
 /* ========== GALERIE D'IMAGES ========== */
 
 .woocommerce-product-gallery {
@@ -28,13 +56,14 @@
 }
 
 .flex-control-thumbs li {
-    @apply aspect-square cursor-pointer rounded-lg overflow-hidden transition-all;
+    @apply cursor-pointer rounded-lg overflow-hidden transition-all;
     @apply border-2 border-transparent opacity-70;
+    aspect-ratio: 1 / 1;
 }
 
 .flex-control-thumbs li:hover,
 .flex-control-thumbs li.flex-active {
-    @apply border-celya-orange_dark opacity-100;
+    @apply border-celya-accent-dark opacity-100;
 }
 
 .flex-control-thumbs li img {
@@ -81,7 +110,7 @@
 }
 
 .star-rating span::before {
-    @apply text-celya-orange_dark;
+    @apply text-celya-accent-dark;
     content: "\53\53\53\53\53";
     top: 0;
     left: 0;
@@ -139,17 +168,45 @@
 
 /* Hover : bordure orange + fond orange clair */
 .variation-option:hover {
-    @apply border-celya-orange_dark bg-celya-orange_light shadow-md;
+    @apply border-celya-accent-dark bg-celya-accent-light shadow-md;
 }
 
 /* Alternative avec classe personnalisée */
 .variation-option.selected {
-    @apply bg-celya-orange_light border-celya-orange_dark;
+    @apply bg-celya-accent-light border-celya-accent-dark;
+}
+
+/* ========== DÉCLINAISONS (fausses variations pour produits simples) ========== */
+/* Les options sont des <a>/<span> : on force l'alignement centré comme les <button>. */
+.declinaison-selector .variation-option {
+    @apply block text-center no-underline;
+}
+
+/* Saveur du produit courant : mise en évidence + non cliquable. */
+.declinaison-selector .declinaison-current {
+    @apply cursor-default;
+}
+
+/* Couleur propre à chaque déclinaison (selon SON tag), indépendante de l'accent
+   de la page : on ré-scope localement les variables d'accent sur le bouton.
+   Les états :hover / .selected de .variation-option lisent var(--celya-accent-*)
+   et reprennent donc la couleur du tag de la déclinaison survolée/sélectionnée. */
+.declinaison-selector .declinaison-theme-sucre {
+    --celya-accent-dark:  #F2B28D; /* orange */
+    --celya-accent-light: #FDECE2;
+}
+.declinaison-selector .declinaison-theme-sale {
+    --celya-accent-dark:  #BDD9F2; /* bleu */
+    --celya-accent-light: #F2F7FC;
+}
+.declinaison-selector .declinaison-theme-specialite {
+    --celya-accent-dark:  #ABE0A4; /* vert */
+    --celya-accent-light: #E9F6E8;
 }
 
 /* Zone d'info variation */
 .single_variation {
-    @apply bg-celya-orange_light rounded-xl p-4;
+    @apply bg-celya-accent-light rounded-xl p-4;
 }
 
 .single_variation .woocommerce-variation-description {
@@ -179,11 +236,11 @@
 }
 
 .trust-badge-icon {
-    @apply w-10 h-10 rounded-full bg-celya-orange_light flex items-center justify-center flex-shrink-0;
+    @apply w-10 h-10 rounded-full bg-celya-accent-light flex items-center justify-center flex-shrink-0;
 }
 
 .trust-badge-icon svg {
-    @apply w-5 h-5 text-celya-orange_dark;
+    @apply w-5 h-5 text-celya-accent-dark;
 }
 
 .trust-badge-content h4 {
@@ -210,7 +267,7 @@
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
     @apply bg-transparent block m-0 border-0 px-5 py-1 transition-colors;
-    @apply hover:text-celya-orange_dark uppercase tracking-wider;
+    @apply hover:text-celya-accent-dark uppercase tracking-wider;
     @apply flex-none;
     position: unset;
 }
@@ -220,11 +277,11 @@
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
-    @apply bg-transparent border-b-2 border-celya-orange_dark;
+    @apply bg-transparent border-b-2 border-celya-accent-dark;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
-    @apply text-celya-orange_dark font-semibold;
+    @apply text-celya-accent-dark font-semibold;
 }
 
 
@@ -236,7 +293,7 @@
 
 #reviews .comment {
     @apply bg-white rounded-2xl shadow-sm border border-celya-light p-6 transition-all;
-    @apply hover:shadow-md hover:border-celya-orange_light;
+    @apply hover:shadow-md hover:border-celya-accent-light;
 }
 
 #reviews .comment_container {
@@ -278,27 +335,91 @@
 .related.products ul.products,
 .upsells.products ul.products {
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+    @apply list-none m-0 p-0;
 }
 
-/* Produits associés - styles sans @apply group */
+/* Neutralise le clearfix natif WooCommerce (ul.products::before/::after) :
+   en contexte grille ces pseudo-éléments deviennent des cellules fantômes
+   qui décalaient la 1ʳᵉ carte. */
+.related.products ul.products::before,
+.related.products ul.products::after,
+.upsells.products ul.products::before,
+.upsells.products ul.products::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Réinitialise la largeur/flottement WooCommerce natif (width:30%, float:left)
+   qui écrasait chaque carte à ~30 % de sa cellule de grille.
+   → cartes strictement identiques aux pages catégorie (même template content-product.php). */
 .related.products ul.products li.product,
 .upsells.products ul.products li.product {
-    cursor: pointer;
+    @apply list-none p-0;
+    width: 100% !important;
+    margin: 0 !important;
+    float: none !important;
 }
 
-.related.products ul.products li.product .aspect-square,
-.upsells.products ul.products li.product .aspect-square {
-    @apply rounded-2xl overflow-hidden bg-white border border-celya-light mb-4;
-}
-
+/* Image — remplit le carré (aspect-square géré par content-product.php) */
 .related.products ul.products li.product img,
 .upsells.products ul.products li.product img {
-    @apply w-full h-full object-cover transition-transform duration-500;
+    @apply w-full h-full object-cover;
 }
 
-.related.products ul.products li.product:hover img,
-.upsells.products ul.products li.product:hover img {
-    transform: scale(1.05);
+/* Prix — marron celya-primary comme sur les cartes catégorie (la règle
+   .woocommerce ul.products li.product .price ne vit que dans output-category.css).
+   Spécificité 0,5,2 pour l'emporter sur les défauts WooCommerce/thème. */
+.related.products ul.products li.product .price,
+.upsells.products ul.products li.product .price {
+    @apply text-celya-primary font-bold;
+}
+.related.products ul.products li.product .price del,
+.upsells.products ul.products li.product .price del {
+    @apply text-gray-400 text-sm opacity-70;
+}
+.related.products ul.products li.product .price ins,
+.upsells.products ul.products li.product .price ins {
+    @apply text-celya-accent-dark no-underline;
+}
+
+/* Bouton "Ajouter au panier" — pastille ronde marron + icône (comme en catégorie).
+   Toujours marron (couleur de base Célya), indépendamment du thème de la fiche.
+   Le CSS d'origine vivait uniquement dans output-category.css (non chargé ici). */
+.related.products .celya-add-to-cart-wrapper .button,
+.upsells.products .celya-add-to-cart-wrapper .button {
+    @apply bg-celya-primary text-white rounded-full;
+    @apply p-3 text-sm font-sans font-semibold;
+    @apply hover:opacity-90 transition-all duration-300;
+    @apply inline-flex items-center justify-center;
+    min-width: auto !important;
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 0;
+    line-height: 0;
+}
+.related.products .celya-add-to-cart-wrapper .button::before,
+.upsells.products .celya-add-to-cart-wrapper .button::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../images/pictograms/blanc/add_to_cart.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.related.products .celya-add-to-cart-wrapper .button:hover::before,
+.upsells.products .celya-add-to-cart-wrapper .button:hover::before {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+.related.products .celya-add-to-cart-wrapper .button::after,
+.upsells.products .celya-add-to-cart-wrapper .button::after {
+    content: none !important;
+}
+.related.products .celya-add-to-cart-wrapper .added_to_cart,
+.upsells.products .celya-add-to-cart-wrapper .added_to_cart {
+    @apply hidden;
 }
 
 /* ========== STOCK ========== */
@@ -356,7 +477,7 @@
 
 .woocommerce div.product p.price ins,
 .woocommerce div.product span.price ins {
-    @apply text-celya-orange_dark no-underline;
+    @apply text-celya-accent-dark no-underline;
 }
 
 /* ========== RESPONSIVE ========== */

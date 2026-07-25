@@ -46,6 +46,14 @@ function celya_register_blocks() {
         true
     );
 
+    wp_register_script(
+        'celya-steps-cards-view',
+        get_template_directory_uri() . '/blocks/steps-cards/view.js',
+        [],
+        filemtime( get_template_directory() . '/blocks/steps-cards/view.js' ),
+        true
+    );
+
     wp_register_style(
         'celya-steps-cards-style',
         get_template_directory_uri() . '/blocks/steps-cards/style.css',
@@ -135,5 +143,30 @@ function celya_register_blocks() {
     );
 
     register_block_type( get_template_directory() . '/blocks/realisations' );
+
+    wp_register_script(
+        'celya-devis-form-editor',
+        get_template_directory_uri() . '/blocks/devis-form/editor.js',
+        [ 'wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-i18n', 'wp-server-side-render' ],
+        filemtime( get_template_directory() . '/blocks/devis-form/editor.js' ),
+        true
+    );
+
+    wp_register_script(
+        'celya-devis-form-view',
+        get_template_directory_uri() . '/blocks/devis-form/view.js',
+        [],
+        filemtime( get_template_directory() . '/blocks/devis-form/view.js' ),
+        true
+    );
+
+    wp_register_style(
+        'celya-devis-form-style',
+        get_template_directory_uri() . '/blocks/devis-form/style.css',
+        [],
+        filemtime( get_template_directory() . '/blocks/devis-form/style.css' )
+    );
+
+    register_block_type( get_template_directory() . '/blocks/devis-form' );
 }
 add_action( 'init', 'celya_register_blocks' );

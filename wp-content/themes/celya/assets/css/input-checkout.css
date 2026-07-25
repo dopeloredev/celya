@@ -1,0 +1,5 @@
+/* ==========================================================================
+   ENTRÉE PAGE CHECKOUT → output-checkout.css
+   Chargé uniquement sur is_checkout().
+   ========================================================================== */
+@import './woo-checkout.css';

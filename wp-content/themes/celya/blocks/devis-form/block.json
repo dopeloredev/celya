@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "celya/devis-form",
+  "version": "1.0.0",
+  "title": "Celya — Formulaire de devis",
+  "category": "celya",
+  "description": "Formulaire public de demande de devis personnalisé (sécurisé, enregistré dans les Demandes de devis).",
+  "icon": "feedback",
+  "keywords": ["devis", "formulaire", "contact", "celya", "quote"],
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"],
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "attributes": {
+    "title": { "type": "string", "default": "Demander votre devis personnalisé" }
+  },
+  "editorScript": "celya-devis-form-editor",
+  "style": "celya-devis-form-style",
+  "render": "file:./render.php"
+}

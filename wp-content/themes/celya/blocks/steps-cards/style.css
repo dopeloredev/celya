@@ -120,3 +120,26 @@
         display: none;
     }
 }
+
+/* ── Animations d'apparition (activées par JS via --will-animate) ── */
+
+.celya-steps-cards--will-animate .celya-steps-card {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.celya-steps-cards--will-animate .celya-steps-card--animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Connecteur : part de width 0, s'étend de gauche à droite */
+.celya-steps-cards--will-animate.celya-steps-cards--has-connector .celya-steps-card:not(:first-child)::before {
+    width: 0;
+    transition: width 0.25s ease;
+}
+
+.celya-steps-cards--will-animate.celya-steps-cards--has-connector .celya-steps-card:not(:first-child).celya-steps-card--connector-visible::before {
+    width: 2rem;
+}

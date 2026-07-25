@@ -4,8 +4,14 @@
   "description": "Installer npm sur macos # Download and install nvm: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash",
   "main": "postcss.config.js",
   "scripts": {
-    "dev": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --watch",
-    "build": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --minify"
+    "build": "npm run build:global && npm run build:product && npm run build:category && npm run build:cart && npm run build:checkout && npm run build:account",
+    "build:global": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --minify",
+    "build:product": "tailwindcss -i ./assets/css/input-product.css -o ./assets/css/output-product.css --minify",
+    "build:category": "tailwindcss -i ./assets/css/input-category.css -o ./assets/css/output-category.css --minify",
+    "build:cart": "tailwindcss -i ./assets/css/input-cart.css -o ./assets/css/output-cart.css --minify",
+    "build:checkout": "tailwindcss -i ./assets/css/input-checkout.css -o ./assets/css/output-checkout.css --minify",
+    "build:account": "tailwindcss -i ./assets/css/input-account.css -o ./assets/css/output-account.css --minify",
+    "dev": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --watch & tailwindcss -i ./assets/css/input-product.css -o ./assets/css/output-product.css --watch & tailwindcss -i ./assets/css/input-category.css -o ./assets/css/output-category.css --watch & tailwindcss -i ./assets/css/input-cart.css -o ./assets/css/output-cart.css --watch & tailwindcss -i ./assets/css/input-checkout.css -o ./assets/css/output-checkout.css --watch & tailwindcss -i ./assets/css/input-account.css -o ./assets/css/output-account.css --watch & wait"
   },
   "keywords": [],
   "author": "",

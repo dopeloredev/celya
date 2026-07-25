@@ -1,0 +1,38 @@
+/**
+ * ==========================================================================
+ * WOOCOMMERCE CUSTOM STYLES FOR MESSAGES - Celya
+ * ==========================================================================
+ */
+
+.woocommerce {
+    /* Messages WooCommerce */
+    .woocommerce-message, .woocommerce-info, .woocommerce-error {
+        @apply border-l-4 p-4 mb-4 rounded font-sans;
+        border-top: 0px;
+    }
+    
+    .woocommerce-message {
+        @apply bg-green-50 border-green-500 text-green-800;
+    }
+    
+    .woocommerce-info {
+        @apply bg-blue-50 border-blue-500 text-blue-800;
+    }
+    
+    .woocommerce-error {
+        @apply bg-red-50 border-red-500 text-red-800;
+    }
+}
+
+.woocommerce-error li, .woocommerce-info li, .woocommerce-message li {
+    @apply pl-6 !important;
+    list-style: none outside !important;
+    margin-left: 0 !important;
+}
+
+.woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before {
+    display: inline-block;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+}

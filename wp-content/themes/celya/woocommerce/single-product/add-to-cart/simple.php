@@ -28,7 +28,7 @@ if ( $product->is_in_stock() ) : ?>
         $price_formatted = number_format( $price, 2, ',', '' );
     ?>
     <!-- Bloc prix — même style que .single_variation des produits variables -->
-    <div class="bg-celya-orange_light rounded-xl p-4 mb-6">
+    <div class="bg-celya-accent-light rounded-xl p-4 mb-6">
         <div class="flex items-baseline gap-3 mb-1">
             <span class="text-2xl font-extrabold text-celya-primary">
                 <?php echo esc_html( $price_formatted ); ?>&nbsp;€
@@ -37,7 +37,7 @@ if ( $product->is_in_stock() ) : ?>
             <?php if ( $weight_kg > 0 ) :
                 $weight_g = round( $weight_kg * 1000 );
             ?>
-                <div class="text-sm text-celya-orange_dark font-bold">
+                <div class="text-sm text-celya-accent-dark font-bold">
                     / Sachet de <?php echo esc_html( $weight_g ); ?>g
                 </div>
             <?php endif; ?>
@@ -53,6 +53,13 @@ if ( $product->is_in_stock() ) : ?>
         <?php endif; ?>
     </div>
     <?php endif; ?>
+
+    <?php
+    // Sélecteur de saveurs (déclinaisons) — simule les variations natives.
+    if ( function_exists( 'celya_render_declinaisons' ) ) {
+        celya_render_declinaisons( $product );
+    }
+    ?>
 
     <form class="cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data'>
 

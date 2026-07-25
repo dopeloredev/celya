@@ -1,0 +1,5 @@
+/* ==========================================================================
+   ENTRÉE PAGE CATÉGORIE / BOUTIQUE → output-category.css
+   Chargé sur is_shop() || is_product_category() || is_product_taxonomy().
+   ========================================================================== */
+@import './category/woo-category.css';

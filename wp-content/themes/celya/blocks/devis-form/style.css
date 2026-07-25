@@ -1,0 +1,242 @@
+/**
+ * Bloc Celya — Formulaire de devis
+ */
+.celya-devis {
+    --celya-devis-primary: #59332a;
+    --celya-devis-orange: #f2b28d;
+    --celya-devis-orange-light: #fdece2;
+    --celya-devis-border: #e5e7eb;
+    --celya-devis-bg: #faf9f8;
+    --celya-devis-text: #2c2c2c;
+    --celya-devis-muted: #9a8c84;
+}
+
+.celya-devis__card {
+    background: #fff;
+    border-radius: 28px;
+    padding: clamp(1.5rem, 4vw, 3.5rem);
+    max-width: 960px;
+    margin-inline: auto;
+    box-shadow: 0 20px 60px rgba(89, 51, 42, 0.06);
+}
+
+.celya-devis__title {
+    text-align: center;
+    color: var(--celya-devis-primary);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    margin: 0 0 2rem;
+}
+
+/* Notices ---------------------------------------------------------------- */
+.celya-devis__notice {
+    border-radius: 14px;
+    padding: 0.9rem 1.2rem;
+    margin: 0 0 1.5rem;
+    font-weight: 600;
+}
+.celya-devis__notice--success {
+    background: #e9f6e8;
+    color: #2f6e2a;
+}
+.celya-devis__notice--error {
+    background: #fdecec;
+    color: #a3322a;
+}
+
+/* Grille des champs ------------------------------------------------------ */
+.celya-devis__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 2rem;
+}
+
+.celya-devis__field {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.celya-devis__field--full {
+    margin-top: 1.5rem;
+}
+
+.celya-devis__field label,
+.celya-devis__projet legend {
+    font-weight: 700;
+    color: var(--celya-devis-primary);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.celya-devis input[type="text"],
+.celya-devis input[type="email"],
+.celya-devis input[type="tel"],
+.celya-devis select,
+.celya-devis textarea {
+    width: 100%;
+    border: 1px solid var(--celya-devis-border);
+    border-radius: 14px;
+    padding: 0.85rem 1.1rem;
+    font-size: 1rem;
+    color: var(--celya-devis-text);
+    background: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.celya-devis input::placeholder,
+.celya-devis textarea::placeholder {
+    color: var(--celya-devis-muted);
+}
+
+.celya-devis input:focus,
+.celya-devis select:focus,
+.celya-devis textarea:focus {
+    outline: none;
+    border-color: var(--celya-devis-orange);
+    box-shadow: 0 0 0 3px var(--celya-devis-orange-light);
+}
+
+.celya-devis textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Type de projet (cartes radio) ----------------------------------------- */
+.celya-devis__projet {
+    border: 0;
+    padding: 0;
+    margin: 1.75rem 0 0;
+}
+
+.celya-devis__cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 0.75rem;
+}
+
+.celya-devis__card-option {
+    cursor: pointer;
+}
+.celya-devis__card-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.celya-devis__card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 120px;
+    border: 1px solid var(--celya-devis-border);
+    border-radius: 16px;
+    padding: 1rem;
+    color: var(--celya-devis-orange);
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.celya-devis__card-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.celya-devis__card-label {
+    font-weight: 700;
+}
+
+.celya-devis__card-option:hover .celya-devis__card-inner {
+    border-color: var(--celya-devis-orange);
+}
+
+.celya-devis__card-option input:checked + .celya-devis__card-inner {
+    background: var(--celya-devis-orange);
+    border-color: var(--celya-devis-orange);
+    color: #fff;
+}
+
+/* Deux versions d'icône : couleur par défaut, blanche à la sélection. */
+.celya-devis__card-icon--active {
+    display: none;
+}
+.celya-devis__card-option input:checked + .celya-devis__card-inner .celya-devis__card-icon--default {
+    display: none;
+}
+.celya-devis__card-option input:checked + .celya-devis__card-inner .celya-devis__card-icon--active {
+    display: block;
+}
+
+.celya-devis__card-option input:focus-visible + .celya-devis__card-inner {
+    box-shadow: 0 0 0 3px var(--celya-devis-orange-light);
+}
+
+/* Astérisque « champ obligatoire » + mention -------------------------- */
+.celya-devis__req {
+    color: #d63638;
+    font-weight: 700;
+}
+
+.celya-devis__legend {
+    margin: 1.25rem 0 0;
+    font-size: 0.85rem;
+    color: var(--celya-devis-muted);
+}
+
+/* Bouton ----------------------------------------------------------------- */
+/* Sélecteur renforcé (.celya-devis …) pour passer devant les styles button
+   globaux du thème (_celya-buttons.css). */
+.celya-devis .celya-devis__submit {
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+    border: 0;
+    border-radius: 999px;
+    background-color: var(--celya-devis-orange);
+    background-image: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.05s ease;
+}
+.celya-devis .celya-devis__submit:hover {
+    background-color: var(--celya-devis-orange);
+    opacity: 0.92;
+}
+.celya-devis .celya-devis__submit:active {
+    transform: translateY(1px);
+}
+.celya-devis .celya-devis__submit:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* Messages d'erreur de champ -------------------------------------------- */
+.celya-devis__error {
+    color: #a3322a;
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+}
+
+/* Honeypot --------------------------------------------------------------- */
+.celya-devis__hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Responsive ------------------------------------------------------------- */
+@media (max-width: 782px) {
+    .celya-devis__grid {
+        grid-template-columns: 1fr;
+    }
+    .celya-devis__cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

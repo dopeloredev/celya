@@ -61,7 +61,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 										?>
 										<button 
 											type="button" 
-											class="variation-option relative px-4 py-3 bg-white border-2 border-celya-light rounded-xl text-sm font-semibold text-celya-dark hover:border-celya-orange_dark hover:bg-celya-orange_light transition-all duration-200 shadow-sm hover:shadow-md" 
+											class="variation-option relative px-4 py-3 bg-white border-2 border-celya-light rounded-xl text-sm font-semibold text-celya-dark hover:border-celya-accent-dark hover:bg-celya-accent-light transition-all duration-200 shadow-sm hover:shadow-md" 
 											data-value="<?php echo esc_attr( $term->slug ); ?>"
 											aria-label="<?php echo esc_attr( sprintf( __( 'Sélectionner %s', 'celya' ), $option_label ) ); ?>">
 											<span class="relative z-10"><?php echo esc_html( $option_label ); ?></span>
@@ -75,7 +75,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 									?>
 									<button 
 										type="button" 
-										class="variation-option relative px-4 py-3 bg-white border-2 border-celya-light rounded-xl text-sm font-semibold text-celya-dark hover:border-celya-orange_dark hover:bg-celya-orange_light transition-all duration-200 shadow-sm hover:shadow-md" 
+										class="variation-option relative px-4 py-3 bg-white border-2 border-celya-light rounded-xl text-sm font-semibold text-celya-dark hover:border-celya-accent-dark hover:bg-celya-accent-light transition-all duration-200 shadow-sm hover:shadow-md" 
 										data-value="<?php echo esc_attr( $option ); ?>"
 										aria-label="<?php echo esc_attr( sprintf( __( 'Sélectionner %s', 'celya' ), $option_label ) ); ?>">
 										<span class="relative z-10"><?php echo esc_html( $option_label ); ?></span>
@@ -106,7 +106,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 								'options'   => $options,
 								'attribute' => $attribute_name,
 								'product'   => $product,
-								'class'     => 'w-full px-4 py-3 bg-white border-2 border-celya-light rounded-xl focus:outline-none focus:ring-2 focus:ring-celya-orange_dark focus:border-celya-orange_dark',
+								'class'     => 'w-full px-4 py-3 bg-white border-2 border-celya-light rounded-xl focus:outline-none focus:ring-2 focus:ring-celya-accent-dark focus:border-celya-accent-dark',
 							)
 						);
 						?>
@@ -161,10 +161,10 @@ jQuery(document).ready(function($) {
         
         // Désélectionner tous les boutons de ce groupe
         $container.find('.variation-option')
-            .removeClass('border-celya-orange_dark bg-celya-orange_light selected');
+            .removeClass('border-celya-accent-dark bg-celya-accent-light selected');
         
         // Sélectionner le bouton cliqué
-        $button.addClass('border-celya-orange_dark bg-celya-orange_light selected');
+        $button.addClass('border-celya-accent-dark bg-celya-accent-light selected');
         
         // Mettre à jour le select caché
         $select.val(value).trigger('change');
@@ -185,11 +185,11 @@ jQuery(document).ready(function($) {
             if (selectedValue && selectedValue !== '') {
                 // Désactiver tous les boutons
                 $buttons.find('.variation-option')
-                    .removeClass('border-celya-orange_dark bg-celya-orange_light selected');
+                    .removeClass('border-celya-accent-dark bg-celya-accent-light selected');
                 
                 // Activer le bouton correspondant à la valeur sélectionnée
                 var $activeButton = $buttons.find('.variation-option[data-value="' + selectedValue + '"]');
-                $activeButton.addClass('border-celya-orange_dark bg-celya-orange_light selected');
+                $activeButton.addClass('border-celya-accent-dark bg-celya-accent-light selected');
             }
         });
     }
@@ -208,62 +208,13 @@ jQuery(document).ready(function($) {
 	$form.on('reset_data', function() {
         // Réinitialiser les boutons visuellement
         $('.variation-option')
-            .removeClass('border-celya-orange_dark bg-celya-orange_light selected');
+            .removeClass('border-celya-accent-dark bg-celya-accent-light selected');
     });
 	
 	// Quand le select change (même programmatiquement)
 	$('select[name^="attribute_"]').on('change', function() {
 		syncButtonsWithSelect();
 	});
-	
-	// ========== INITIALISATION AU CHARGEMENT ==========
-	
-	// Attendre que WooCommerce ait initialisé le formulaire
-	setTimeout(function() {
-		// Vérifier s'il y a déjà des valeurs pré-sélectionnées (par WooCommerce ou par défaut)
-		var hasPreselection = false;
-		
-		$form.find('select[name^="attribute_"]').each(function() {
-			var $select = $(this);
-			var currentValue = $select.val();
-			
-			if (currentValue && currentValue !== '') {
-				hasPreselection = true;
-			}
-		});
-		
-		if (hasPreselection) {
-			// Si des valeurs sont déjà sélectionnées, synchroniser les boutons
-			syncButtonsWithSelect();
-			$form.trigger('check_variations');
-		} else {
-			// Sinon, sélectionner automatiquement la première variation
-			$form.find('select[name^="attribute_"]').each(function() {
-				var $select = $(this);
-				
-				// Si aucune valeur n'est sélectionnée
-				if ($select.val() === '' || $select.val() === null) {
-					// Sélectionner la première option disponible
-					var $firstOption = $select.find('option').not('[value=""]').first();
-					
-					if ($firstOption.length) {
-						var firstValue = $firstOption.val();
-						
-						// Mettre à jour le select
-						$select.val(firstValue).trigger('change');
-						
-						// Activer visuellement le bouton correspondant
-						var $button = $('.variation-option[data-value="' + firstValue + '"]');
-						$button.removeClass('border-celya-light')
-							   .addClass('border-celya-orange_dark bg-celya-orange_light');
-					}
-				}
-			});
-			
-			// Déclencher la recherche de variation
-			$form.trigger('check_variations');
-		}
-	}, 300);
 	
 });
 </script>

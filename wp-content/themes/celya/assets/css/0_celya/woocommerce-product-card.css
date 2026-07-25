@@ -20,7 +20,6 @@
 }
 .wc-block-product-template .wc-block-components-product-image img {
     @apply w-full object-cover;
-    height: 16rem;
     transition: transform 500ms;
     max-width: none !important;
 }
@@ -37,47 +36,60 @@
 
 /* ── Titre ── */
 .wc-block-product-template .wp-block-post-title {
-    @apply font-serif font-bold text-celya-primary text-xl pt-6 pb-0;
-    text-align: left !important;
+    @apply font-serif font-bold text-celya-primary text-xl pt-6 pb-0 text-left;
 }
 .wc-block-product-template .wp-block-post-title a {
     @apply text-celya-primary transition-colors duration-200;
     text-decoration: none;
 }
-.wc-block-product-template .wp-block-post-title a:hover {
-    @apply text-celya-orange_dark;
-}
 
 /* ── Prix ── */
 .wc-block-product-template .wc-block-components-product-price {
-    @apply pt-2 pb-0;
-    text-align: left !important;
+    @apply text-left pt-1 pb-0;
 }
 .wc-block-product-template .wc-block-components-product-price .woocommerce-Price-amount {
-    @apply text-2xl font-bold text-celya-orange_dark ;
+    @apply text-lg text-celya-primary;
 }
 
 /* ── Bouton Ajouter au panier ── */
+.wp-block-button.wc-block-components-product-button {
+    align-items: start
+}
 .wc-block-product-template .wc-block-components-product-button {
-    @apply pb-6 pt-4;
-    text-align: left !important;
+    @apply pb-4 pt-2;
 }
 .wc-block-product-template .wc-block-components-product-button__button {
     @apply bg-celya-primary text-white px-6 py-2 rounded-full font-semibold inline-block text-sm;
     @apply transition-colors duration-300;
     text-decoration: none !important;
 }
-.wc-block-product-template .wc-block-components-product-button__button:hover {
-    @apply bg-celya-orange_dark;
+.wp-block-button.wc-block-components-product-button .wp-block-button__link {
+    @apply w-full;
 }
 
-/* Texte du bouton — WooCommerce génère un <span> vide */
+/* Texte du bouton — WooCommerce génère un <span> vide.
+   Le span devient un flex pour aligner icône (::before) + texte (::after). */
+.wc-block-product-template .wc-block-components-product-button__button span {
+    @apply flex items-center justify-center gap-2;
+}
+
 .wc-block-product-template .wc-block-components-product-button__button span:empty::after {
-    content: "Ajouter";
+    content: "Ajouter au panier";
 }
 .wc-block-product-template .wc-block-product.product-type-variable
 .wc-block-components-product-button__button span:empty::after {
     content: "Voir les options";
+}
+
+/* Icône à gauche du texte (SVG blanc en background) */
+.wc-block-product-template .wc-block-components-product-button__button span:empty::before {
+    content: "";
+    @apply inline-block w-6 h-6 bg-contain bg-center bg-no-repeat shrink-0 mr-1;
+    background-image: url('../images/pictograms/SVG/Blanc/Ajouter au panier- Blanc.svg');
+}
+.wc-block-product-template .wc-block-product.product-type-variable
+.wc-block-components-product-button__button span:empty::before {
+    background-image: url('../images/pictograms/SVG/Blanc/Personnalisation- Blanc.svg');
 }
 
 /* ── Produit épuisé ── */

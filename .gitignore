@@ -25,6 +25,7 @@ wp-cli.local.yml
 /wp-content/plugins/*
 # Pour versionner un plugin spécifique, ajoutez :
 !/wp-content/plugins/celya-blocks/
+!/wp-content/plugins/celya-personnalisation/
 
 # Thèmes WordPress par défaut
 /wp-content/themes/twenty*/

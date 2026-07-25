@@ -44,9 +44,9 @@
 /* Bouton Ajouter au panier dans la boucle */
 .woocommerce ul.products li.product .button,
 .celya-add-to-cart-wrapper .button {
-    @apply bg-celya-orange_dark text-white rounded-full;
+    @apply bg-celya-primary text-white rounded-full;
     @apply p-3 text-sm font-sans font-semibold;
-    @apply hover:bg-celya-primary transition-colors duration-300;
+    @apply hover:opacity-90 transition-all duration-300;
     @apply inline-flex items-center justify-center;
     min-width: auto !important;
     width: 44px !important;

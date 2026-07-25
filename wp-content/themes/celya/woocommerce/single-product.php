@@ -22,8 +22,8 @@ do_action( 'woocommerce_before_main_content' );
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
     
     <?php while ( have_posts() ) : ?>
-        <?php the_post();  // Charge les données du produit actuel ?> 
-        <?php wc_get_template_part( 'content', 'single-product' ); // Charge content-single-product.php ?>
+        <?php the_post(); // Charge les données du produit actuel ?>
+        <?php wc_get_template_part( 'content', 'single-product' ); ?>
     <?php endwhile; ?>
 
 </div>

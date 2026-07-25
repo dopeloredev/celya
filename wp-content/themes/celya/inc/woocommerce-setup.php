@@ -13,35 +13,46 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Charger le CSS WooCommerce personnalisé
+ * Charger les CSS WooCommerce page par page.
+ *
+ * Chaque feuille output-*.css est compilée depuis sa propre entrée
+ * input-*.css (voir package.json) et n'est chargée que sur la page
+ * concernée. Le CSS global (utilitaires Tailwind + composants partagés)
+ * reste dans output.css, enqueué partout sous le handle « celya-tailwind ».
  */
 function celya_enqueue_woocommerce_styles() {
-    if ( class_exists( 'WooCommerce' ) ) {
-        $css_file = get_template_directory() . '/assets/css/woocommerce-category.css';
-        
-        // Vérifier que le fichier existe avant de le charger
-        if ( file_exists( $css_file ) ) {
-            wp_enqueue_style(
-                'celya-woocommerce-custom',
-                get_template_directory_uri() . '/assets/css/woocommerce-category.css',
-                array( 'celya-tailwind' ),
-                filemtime( $css_file )
-            );
+    if ( ! class_exists( 'WooCommerce' ) ) {
+        return;
+    }
+
+    // Carte : condition d'affichage => fichier output dédié.
+    $page_styles = array(
+        'celya-wc-product'  => array( is_product(),                                   'output-product.css'  ),
+        'celya-wc-category' => array( is_shop() || is_product_taxonomy(),             'output-category.css' ),
+        'celya-wc-cart'     => array( is_cart(),                                       'output-cart.css'     ),
+        'celya-wc-checkout' => array( is_checkout(),                                   'output-checkout.css' ),
+        'celya-wc-account'  => array( is_account_page(),                               'output-account.css'  ),
+    );
+
+    foreach ( $page_styles as $handle => $config ) {
+        list( $condition, $filename ) = $config;
+
+        if ( ! $condition ) {
+            continue;
         }
-        
-        // CSS fiche produit (seulement sur les pages produit)
-        if ( is_product() ) {
-            $single_css_file = get_template_directory() . '/assets/css/woocommerce-single-product.css';
-            
-            if ( file_exists( $single_css_file ) ) {
-                wp_enqueue_style(
-                    'celya-woocommerce-single',
-                    get_template_directory_uri() . '/assets/css/woocommerce-single-product.css',
-                    array( 'celya-woocommerce-custom' ),
-                    filemtime( $single_css_file )
-                );
-            }
+
+        $path = get_template_directory() . '/assets/css/' . $filename;
+
+        if ( ! file_exists( $path ) ) {
+            continue;
         }
+
+        wp_enqueue_style(
+            $handle,
+            get_template_directory_uri() . '/assets/css/' . $filename,
+            array( 'celya-tailwind' ), // dépend du global → cascade correcte
+            filemtime( $path )
+        );
     }
 }
 add_action( 'wp_enqueue_scripts', 'celya_enqueue_woocommerce_styles', 20 );
@@ -223,3 +234,12 @@ function celya_free_shipping_notice() {
     }
 }
 add_action( 'woocommerce_before_cart', 'celya_free_shipping_notice' );
+
+
+// Masque l'onglet "Downloads" (téléchargements) dans la navigation de l'espace client.
+// La surcharge de template woocommerce/myaccount/downloads.php a été retirée en conséquence.
+function celya_remove_downloads_account_menu( $items ) {
+    unset( $items['downloads'] );
+    return $items;
+}
+add_filter( 'woocommerce_account_menu_items', 'celya_remove_downloads_account_menu' );

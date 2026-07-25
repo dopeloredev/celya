@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 
         <!-- Contenu principal -->
         <main class="lg:col-span-3">
-            <div class="bg-white rounded-2xl shadow-celya-sm p-6 md:p-8 min-h-96">
+            <div class="celya-account-content bg-white rounded-2xl shadow-celya-sm p-6 md:p-8 min-h-96">
                 <?php do_action( 'woocommerce_account_content' ); ?>
             </div>
         </main>

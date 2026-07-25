@@ -1,13 +1,17 @@
-/* Import des fonts locales depuis fonts.css */
-@import './fonts.css';
-@import './gutenberg.css';
-@import './navigation.css';
-@import './woocommerce-category.css';
-@import './woocommerce-single-product.css';
-@import './woocommerce-product-card.css';
-@import './woocommerce-myaccount.css';
-@import './woocommerce-cart.css';
-@import './forms.css';
+/* ==========================================================================
+   GLOBAL — compilé vers output.css, chargé sur TOUTES les pages.
+   Les partiels page-spécifiques (category, single-product, cart, checkout,
+   myaccount, login, lost-password) ne sont PLUS importés ici : ils ont
+   chacun leur entrée input-*.css → output-*.css chargée conditionnellement.
+   ========================================================================== */
+@import './0_celya/fonts.css';
+@import './0_celya/gutenberg.css';
+@import './0_celya/navigation.css';
+@import './0_celya/forms.css';
+@import './0_celya/woocommerce-product-card.css';
+@import './0_celya/woocommerce-message.css';
+/* Boutons Célya — source unique partagée avec les builds page-spécifiques */
+@import './_celya-buttons.css';
 
 /* Directives Tailwind */
 @tailwind base;
@@ -20,8 +24,23 @@
   html { margin: 0 !important}
   body {
     @apply font-sans text-celya-dark antialiased;
+    /* Sticky footer : body = colonne flex pleine hauteur d'écran */
+    @apply flex flex-col min-h-screen;
+  }
+
+  /* Le footer absorbe l'espace restant et reste collé en bas,
+     même sur les pages au contenu court (desktop & mobile).
+     Technique agnostique du wrapper de contenu (#site-content, .section-container…). */
+  body > footer {
+    @apply mt-auto;
   }
   
+  /* Titre logo "Célya" */
+  .logo-title-celya {
+    @apply font-mono text-3xl;
+    line-height: 0
+  }
+
   /* Titres avec Arima (serif) */
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif text-celya-primary;
@@ -54,42 +73,9 @@
   
     /* ===================
      BOUTONS
+     → Voir _celya-buttons.css (source partagée, importée en haut de ce fichier)
      =================== */
-  
-  .btn-celya {
-    @apply bg-celya-primary text-white rounded-full px-6 py-3 
-           font-sans font-semibold uppercase tracking-wider text-sm
-           transition-all duration-300 ease-in-out
-           hover:-translate-y-0.5 
-           hover:shadow-celya-hover
-           focus:outline-none focus:ring-2 focus:ring-offset-2;
-  }
-  
-  .btn-celya-secondary {
-    @apply bg-celya-secondary text-celya-dark rounded-full px-6 py-3 
-           font-sans font-semibold uppercase tracking-wider text-sm
-           transition-all duration-300 ease-in-out
-           hover:text-white
-           focus:outline-none focus:ring-2 focus:ring-offset-2;
-  }
-  
-  .btn-celya-outline {
-    @apply border-2 border-celya-primary text-celya-primary bg-transparent 
-           rounded-full px-6 py-3 
-           font-sans font-semibold uppercase tracking-wider text-sm
-           transition-all duration-300 ease-in-out
-           hover:bg-celya-primary hover:text-white
-           focus:outline-none focus:ring-2 focus:ring-offset-2;
-  }
 
-  .btn-celya-orange-dark {
-    @apply bg-celya-orange_dark text-white rounded-full px-6 py-3 
-           font-sans font-semibold uppercase tracking-wider text-sm
-           transition-all duration-300 ease-in-out
-           hover:-translate-y-0.5 hover:shadow-celya-hover
-           focus:outline-none focus:ring-2 focus:ring-offset-2;
-  }
-  
   /* ===================
      CARDS PRODUITS
      =================== */
@@ -204,25 +190,6 @@
    WOOCOMMERCE STYLES
    ========================================================================== */
 .woocommerce {
-  /* Messages WooCommerce */
-  .woocommerce-message,
-  .woocommerce-info,
-  .woocommerce-error {
-    @apply border-l-4 p-4 mb-4 rounded font-sans;
-  }
-  
-  .woocommerce-message {
-    @apply bg-green-50 border-green-500 text-green-800;
-  }
-  
-  .woocommerce-info {
-    @apply bg-blue-50 border-blue-500 text-blue-800;
-  }
-  
-  .woocommerce-error {
-    @apply bg-red-50 border-red-500 text-red-800;
-  }
-  
   /* Prix produits */
   .price {
     @apply font-sans font-bold text-celya-primary;
@@ -234,7 +201,7 @@
   }
   /* ========== BOUTON AJOUTER AU PANIER MODERNE ========== */
   .single_add_to_cart_button {
-      @apply bg-celya-orange_dark;
+      @apply bg-celya-accent-dark;
       @apply text-white font-bold py-2 px-4 rounded-celya-s;
       @apply transition-all duration-300 shadow-lg hover:shadow-xl;
       @apply transform hover:-translate-y-0.5;

@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
 				var weightG = Math.round(weightKg * 1000); // Convertir en grammes
 				#>
 			
-				<div class="text-sm text-celya-orange_dark font-bold mt-2">
+				<div class="text-sm text-celya-accent-dark font-bold mt-2">
 					/ Sachet de {{{ weightG }}}g
 				</div>
 			<# } #>

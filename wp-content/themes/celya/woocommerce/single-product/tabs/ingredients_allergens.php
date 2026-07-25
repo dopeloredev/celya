@@ -42,7 +42,7 @@ $has_content = ! empty( $ingredients ) || ! empty( $allergenes );
         <?php endif; ?>
 
         <?php if ( ! empty( $allergenes ) ) : ?>
-        <div class="celya-spec-block p-5 bg-celya-orange_light rounded-celya-s">
+        <div class="celya-spec-block p-5 bg-celya-accent-light rounded-celya-s">
             <h3 class="text-celya-primary font-serif font-bold text-lg mb-2">
                 ⚠️ <?php esc_html_e( 'Allergènes', 'celya' ); ?>
             </h3>

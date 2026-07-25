@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php -l /Applications/XAMPP/xamppfiles/htdocs/freelance/celya/wp-content/plugins/celya-personnalisation/celya-personnalisation.php)",
+      "Bash(php -l /Applications/XAMPP/xamppfiles/htdocs/freelance/celya/wp-content/plugins/celya-personnalisation/includes/class-product-meta.php)",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/php -l /Applications/XAMPP/xamppfiles/htdocs/freelance/celya/wp-content/plugins/celya-personnalisation/celya-personnalisation.php)",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/php -l /Applications/XAMPP/xamppfiles/htdocs/freelance/celya/wp-content/plugins/celya-personnalisation/includes/class-product-meta.php)",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/php -l /Applications/XAMPP/xamppfiles/htdocs/freelance/celya/wp-content/plugins/celya-personnalisation/includes/class-editor.php)",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/php -l /Applications/XAMPP/xamppfiles/htdocs/freelance/celya/wp-content/plugins/celya-personnalisation/templates/editor.php)",
+      "Bash(npx tailwindcss *)",
+      "Bash(cd /Applications/XAMPP/xamppfiles/htdocs/freelance/celya/wp-content/themes/celya *)"
+    ]
+  }
+}

@@ -18,6 +18,29 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 /**
+ * Thème couleur conditionnel de la fiche produit.
+ *
+ * Pose une classe body.theme-<slug> selon le tag du produit. Cette classe
+ * réassigne les variables --celya-accent-* (définies dans woo-single-product.css),
+ * ce qui recolore toute la fiche produit sans dupliquer de template.
+ * Un produit sans tag connu conserve l'accent orange par défaut (:root).
+ */
+function celya_single_product_theme_body_class( $classes ) {
+    if ( ! is_product() ) {
+        return $classes;
+    }
+
+    // Source de vérité partagée avec la coloration des déclinaisons.
+    $theme = celya_get_product_theme_slug( get_queried_object_id() );
+    if ( $theme ) {
+        $classes[] = 'theme-' . $theme;
+    }
+
+    return $classes;
+}
+add_filter( 'body_class', 'celya_single_product_theme_body_class' );
+
+/**
  * Modifier le texte du bouton Ajouter au panier sur la fiche produit
  */
 function celya_single_add_to_cart_text() {
@@ -44,10 +67,15 @@ function celya_related_products_heading() {
 add_filter( 'woocommerce_product_related_products_heading', 'celya_related_products_heading' );
 
 /**
- * Activer la galerie lightbox pour les images produit
+ * Galerie : on désactive le badge solde natif (géré dans product-image.php)
+ * et les scripts de galerie non utilisés (slider, lightbox, zoom).
  */
-add_theme_support( 'wc-product-gallery-lightbox' );
-add_theme_support( 'wc-product-gallery-slider' );
+add_action( 'init', function () {
+    remove_theme_support( 'wc-product-gallery-zoom' );
+    remove_theme_support( 'wc-product-gallery-lightbox' );
+    remove_theme_support( 'wc-product-gallery-slider' );
+} );
+remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
 
 /**
  * Désactiver le schéma markup par défaut (optionnel)

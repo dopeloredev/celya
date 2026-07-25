@@ -79,12 +79,12 @@ if ( ! empty( $product_tabs ) ) : ?>
             
             // Désactiver tous les onglets
             $('.wc-tabs li').removeClass('active');
-            $('.wc-tabs li a').removeClass('text-celya-orange_dark').addClass('text-celya-dark');
+            $('.wc-tabs li a').removeClass('text-celya-accent-dark').addClass('text-celya-dark');
             $('.wc-tab').hide().removeClass('active');
             
             // Activer l'onglet cliqué
             $(this).closest('li').addClass('active');
-            $(this).removeClass('text-celya-dark').addClass('text-celya-orange_dark');
+            $(this).removeClass('text-celya-dark').addClass('text-celya-accent-dark');
             $(target).show().addClass('active');
         });
     });

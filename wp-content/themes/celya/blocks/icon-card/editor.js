@@ -77,18 +77,20 @@
 
     registerBlockType('celya/icon-card', {
         edit: function (props) {
-            var attrs        = props.attributes;
-            var setAttr      = props.setAttributes;
-            var mediaId      = attrs.mediaId;
-            var mediaUrl     = attrs.mediaUrl;
-            var mediaAlt     = attrs.mediaAlt;
-            var bgSlug       = attrs.backgroundColor;
-            var borderRadius = attrs.borderRadius;
-            var size         = attrs.size;
+            var attrs          = props.attributes;
+            var setAttr        = props.setAttributes;
+            var mediaId        = attrs.mediaId;
+            var mediaUrl       = attrs.mediaUrl;
+            var mediaAlt       = attrs.mediaAlt;
+            var bgSlug         = attrs.backgroundColor;
+            var borderRadius   = attrs.borderRadius;
+            var size           = attrs.size;
+            var iconAlignment  = attrs.iconAlignment || 'left';
 
-            var bgColor = 'var(--wp--preset--color--' + bgSlug + ', ' + colorBySlug(bgSlug) + ')';
-            var radius  = BORDER_RADIUS_CSS[borderRadius] || '0px';
-            var imgSize = Math.round(size * 0.6);
+            var bgColor    = 'var(--wp--preset--color--' + bgSlug + ', ' + colorBySlug(bgSlug) + ')';
+            var radius     = BORDER_RADIUS_CSS[borderRadius] || '0px';
+            var imgSize    = Math.round(size * 0.6);
+            var justifyMap = { left: 'flex-start', center: 'center', right: 'flex-end' };
 
             var squareStyle = {
                 width:           size + 'px',
@@ -181,6 +183,16 @@
                         min:      32,
                         max:      240,
                         step:     4,
+                    }),
+                    el(SelectControl, {
+                        label:    'Alignement de l\'icône',
+                        value:    iconAlignment,
+                        options:  [
+                            { label: 'Gauche',  value: 'left'   },
+                            { label: 'Centre',  value: 'center' },
+                            { label: 'Droite',  value: 'right'  },
+                        ],
+                        onChange: function (v) { setAttr({ iconAlignment: v }); },
                     })
                 )
             );
@@ -188,7 +200,7 @@
             /* ── Canvas preview ── */
             var preview = el('div', {
                 className: 'celya-icon-card-editor-preview',
-                style:     { display: 'inline-flex' },
+                style:     { display: 'flex', justifyContent: justifyMap[iconAlignment] || 'flex-start' },
             },
                 el('div', { style: squareStyle },
                     mediaUrl

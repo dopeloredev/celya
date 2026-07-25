@@ -1,0 +1,7 @@
+/* ==========================================================================
+   ENTRÉE PAGE PRODUIT → output-product.css
+   Chargé uniquement sur is_product().
+   Pas de directives @tailwind : les utilitaires sont déjà dans output.css.
+   Tailwind résout simplement les @apply en CSS pur.
+   ========================================================================== */
+@import './product/woo-single-product.css';

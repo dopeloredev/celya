@@ -18,8 +18,19 @@ npm run dev
 npm run build
 ```
 
-**CSS pipeline:** `assets/css/input.css` → `assets/css/output.css`  
-`input.css` uses `@import` to pull in 6 partial CSS files (fonts, navigation, WooCommerce category, single product, product card, Gutenberg editor styles). Only `output.css` is enqueued by WordPress.
+**CSS pipeline — multi-entry, loaded per page:**
+
+- **Global:** `assets/css/input.css` → `output.css`. Carries the Tailwind layers (`@tailwind base/components/utilities`) plus the partials shared across the whole site (fonts, gutenberg, navigation, forms, product-card, message, and `_celya-buttons.css`). Enqueued on every page in `functions.php` under the handle `celya-tailwind`.
+- **Page-specific:** five separate entries compiled to their own output, each enqueued only on the relevant page by `inc/woocommerce-setup.php` (`celya_enqueue_woocommerce_styles`), with a dependency on `celya-tailwind`:
+  - `input-product.css` → `output-product.css` — `is_product()`
+  - `input-category.css` → `output-category.css` — `is_shop() || is_product_taxonomy()`
+  - `input-cart.css` → `output-cart.css` — `is_cart()`
+  - `input-checkout.css` → `output-checkout.css` — `is_checkout()`
+  - `input-account.css` → `output-account.css` — `is_account_page()`
+
+Page-specific entries contain **no** `@tailwind` directives — the utility classes they reference are already emitted in the global `output.css` (Tailwind scans `content` globally). They only carry the resolved `@apply` component CSS, so there is no utility duplication. Custom component classes used via `@apply` (e.g. `btn-celya`) live in the shared `_celya-buttons.css`, imported by both the global entry and any page entry that needs them (currently `input-account.css`).
+
+`npm run build` compiles all six entries; `npm run dev` runs all six watchers in parallel.
 
 **JS:** No bundler — vanilla JS files are enqueued directly by `functions.php`.
 

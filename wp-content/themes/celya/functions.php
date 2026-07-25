@@ -18,8 +18,14 @@ require_once get_template_directory() . '/inc/woocommerce-custom-fields.php';
 require_once get_template_directory() . '/inc/woocommerce-setup-single-product-tabs.php';
 require_once get_template_directory() . '/inc/woocommerce-setup-breadcrumb.php';
 require_once get_template_directory() . '/inc/woocommerce-setup-single-product.php';
+require_once get_template_directory() . '/inc/woocommerce-declinaisons.php';
 require_once get_template_directory() . '/inc/celya-block-registration.php';
+require_once get_template_directory() . '/inc/devis/devis-cpt.php';
+require_once get_template_directory() . '/inc/devis/devis-admin.php';
+require_once get_template_directory() . '/inc/devis/devis-form-handler.php';
+require_once get_template_directory() . '/inc/devis/devis-smtp.php';
 require_once get_template_directory() . '/inc/realisations.php';
+require_once get_template_directory() . '/inc/variation-gallery.php';
 /**
  * 1. SETUP DU THÈME
  */
@@ -46,8 +52,11 @@ function celya_theme_setup() {
     
     // Menus
     register_nav_menus( array(
-        'primary' => __( 'Menu Principal', 'celya-tailwind' ),
-        'footer'  => __( 'Menu Footer', 'celya-tailwind' ),
+        'primary'          => __( 'Menu Principal', 'celya-tailwind' ),
+        'footer-produits'  => __( 'Footer - Produits', 'celya-tailwind' ),
+        'footer-services'  => __( 'Footer - Services', 'celya-tailwind' ),
+        'footer-apropos'  => __( 'Footer - A propos', 'celya-tailwind' ),
+        'footer-informations'  => __( 'Footer - Informations', 'celya-tailwind' )
     ));
 
     // Support du theme.json / editor styles
@@ -215,7 +224,17 @@ function celya_enqueue_assets() {
             true // footer
         );
     }
-        
+
+    if ( function_exists( 'is_checkout' ) && is_checkout() ) { // Déplacement du bouton de commande (bloc Checkout)
+        wp_enqueue_script(
+            'celya-checkout-place-order',
+            get_template_directory_uri() . '/assets/js/modules/checkout-place-order.js',
+            array(),
+            filemtime( get_template_directory() . '/assets/js/modules/checkout-place-order.js' ),
+            true // footer
+        );
+    }
+
     // Localiser le script pour AJAX
     wp_localize_script( 'celya-app', 'celyaData', array(
         'ajaxUrl' => admin_url( 'admin-ajax.php' ),

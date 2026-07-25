@@ -1,0 +1,221 @@
+/**
+ * ==========================================================================
+ * WOOCOMMERCE MY ACCOUNT STYLES - Celya
+ * ==========================================================================
+ */
+
+/* ========== LAYOUT ========== */
+
+.celya-myaccount {
+    @apply py-12 md:py-16;
+}
+
+/* ========== NAVIGATION SIDEBAR ========== */
+
+.celya-account-nav .celya-nav-item {
+    text-decoration: none;
+}
+
+/* Active state injecté via PHP avec border-l — on renforce ici */
+.celya-account-nav li.is-active .celya-nav-item {
+    @apply bg-celya-orange_light text-celya-primary font-semibold;
+    border-left: 3px solid theme('colors.celya.orange_dark');
+}
+
+/* ========== STATUTS DE COMMANDE ========== */
+
+.celya-order-status {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+}
+
+.celya-status-pending {
+    @apply bg-yellow-100 text-yellow-800;
+}
+
+.celya-status-processing {
+    @apply bg-blue-100 text-blue-800;
+}
+
+.celya-status-on-hold {
+    @apply bg-orange-100 text-orange-800;
+}
+
+.celya-status-completed {
+    @apply bg-green-100 text-green-800;
+}
+
+.celya-status-cancelled {
+    @apply bg-gray-100 text-gray-600;
+}
+
+.celya-status-refunded {
+    @apply bg-purple-100 text-purple-800;
+}
+
+.celya-status-failed {
+    @apply bg-red-100 text-red-700;
+}
+
+/* ========== DÉTAIL D'UNE COMMANDE ========== */
+
+/* Méta d'article (variations, personnalisation…) générée par wc_display_item_meta */
+.celya-item-meta .wc-item-meta {
+    @apply list-none m-0 p-0 space-y-0.5;
+}
+
+.celya-item-meta .wc-item-meta li {
+    @apply flex flex-wrap gap-x-1.5;
+}
+
+.celya-item-meta .wc-item-meta strong,
+.celya-item-meta .wc-item-meta .wc-item-meta-label {
+    @apply font-semibold text-gray-600;
+}
+
+.celya-item-meta .wc-item-meta p {
+    @apply m-0;
+}
+
+/* Adresse formatée WooCommerce : le rendu inclut des <br> natifs */
+.celya-address {
+    word-break: break-word;
+}
+
+/* ========== FORMULAIRES MY ACCOUNT (templates natifs WooCommerce) ========== */
+/* Inputs / labels / selects : stylés globalement dans forms.css.
+   Ici on reproduit le rendu Celya sur le markup NATIF de WooCommerce
+   (form-edit-account / form-edit-address ne sont plus surchargés en PHP).
+   Scopé sur .celya-account-content pour ne pas toucher login / lost-password. */
+
+/* Espacement vertical entre les lignes de formulaire */
+.celya-account-content .woocommerce-EditAccountForm .form-row,
+.celya-account-content .woocommerce-address-fields .form-row {
+    @apply mb-5;
+}
+
+/* Prénom / Nom côte à côte (natif : .form-row-first / .form-row-last) */
+@screen sm {
+    .celya-account-content .form-row-first,
+    .celya-account-content .form-row-last {
+        float: left;
+        clear: none;
+        width: calc(50% - 0.625rem); /* gouttière ~1.25rem, comme l'ancien gap-5 */
+    }
+
+    .celya-account-content .form-row-last {
+        float: right;
+    }
+}
+
+/* Les champs pleine largeur passent sous les colonnes flottées */
+.celya-account-content .form-row-wide {
+    clear: both;
+}
+
+/* Le <div class="clear"> natif restaure le flux après les colonnes */
+.celya-account-content .clear {
+    clear: both;
+}
+
+/* Texte d'aide sous "Nom affiché" (natif : <span><em>…</em></span>) */
+.celya-account-content #account_display_name_description {
+    @apply block text-xs text-gray-400 mt-1;
+}
+
+.celya-account-content #account_display_name_description em {
+    font-style: normal;
+}
+
+/* Bloc "Password change" → carte bordée (natif : <fieldset><legend>) */
+.celya-account-content .woocommerce-EditAccountForm fieldset {
+    @apply border border-celya-light rounded-xl p-6 mt-2 mb-0;
+}
+
+.celya-account-content .woocommerce-EditAccountForm legend {
+    @apply font-serif font-semibold text-celya-primary text-base mb-4 p-0;
+    float: none;
+    width: auto;
+}
+
+/* Les 3 champs mot de passe : empilés pleine largeur dans la carte */
+.celya-account-content .woocommerce-EditAccountForm fieldset .form-row {
+    @apply w-full mb-5;
+    float: none;
+}
+
+.celya-account-content .woocommerce-EditAccountForm fieldset .form-row:last-child {
+    @apply mb-0;
+}
+
+/* Zone du bouton d'envoi : séparateur haut (natif : dernier <p> du formulaire) */
+.celya-account-content .woocommerce-EditAccountForm > p:last-of-type,
+.celya-account-content .woocommerce-address-fields > p {
+    @apply mt-6 pt-6 border-t border-celya-light mb-0;
+}
+
+/* ========== WOOCOMMERCE OVERRIDES ========== */
+
+/* Titre du formulaire d'adresse natif (<form> > <h2>Billing address</h2>) */
+.celya-account-content form > h2 {
+    @apply font-serif font-bold text-celya-primary text-2xl mb-6;
+}
+
+/* Tableau commandes - override WC */
+.woocommerce-orders-table {
+    @apply w-full;
+}
+
+/* Messages espace client */
+.celya-account-content .woocommerce-Message {
+    @apply bg-green-50 border-l-4 border-green-500 p-4 rounded-xl mb-6 flex items-center gap-3 text-sm text-green-800;
+}
+
+.celya-account-content .woocommerce-message {
+    @apply bg-green-50 border-l-4 border-green-500 p-4 rounded-xl mb-6 text-sm text-green-800;
+}
+
+.celya-account-content .woocommerce-error {
+    @apply bg-red-50 border-l-4 border-red-500 p-4 rounded-xl mb-6 text-sm text-red-800 list-none;
+}
+
+.celya-account-content .woocommerce-info {
+    @apply bg-blue-50 border-l-4 border-blue-500 p-4 rounded-xl mb-6 text-sm text-blue-800;
+}
+
+/* Boutons dans les contenus WC */
+.celya-account-content .button,
+.celya-account-content .woocommerce-Button {
+    @apply btn-celya inline-flex items-center;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 1023px) {
+    .celya-account-nav {
+        @apply mb-2;
+    }
+
+    /* Navigation horizontale scrollable sur mobile */
+    .celya-account-nav ul {
+        @apply flex flex-row overflow-x-auto gap-1 p-2;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .celya-account-nav ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    .celya-account-nav ul li {
+        @apply flex-shrink-0;
+    }
+
+    .celya-account-nav .celya-nav-item {
+        @apply py-2 px-3 whitespace-nowrap text-xs;
+    }
+
+    /* Cache le bloc utilisateur sur mobile (remplacé par un plus compact) */
+    .celya-account-nav .p-6.border-b {
+        @apply hidden;
+    }
+}

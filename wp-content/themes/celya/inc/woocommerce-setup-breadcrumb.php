@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function celya_custom_breadcrumb() {
     if ( function_exists( 'woocommerce_breadcrumb' ) ) {
-        echo '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">';
+        echo '<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">';
         woocommerce_breadcrumb( array(
             'delimiter'   => '&nbsp;/&nbsp;',
             'wrap_before' => '<nav class="woocommerce-breadcrumb text-sm text-celya-dark mb-0" aria-label="Breadcrumb">',

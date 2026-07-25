@@ -15,22 +15,24 @@
         <div class="flex justify-between items-center h-20">
             
             <!-- Logo -->
-            <div class="flex-shrink-0">
+            <div class="flex-shrink-0 flex items-center gap-4">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center">
 
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo_celya_header_desktop.svg" 
-                             alt="<?php bloginfo('name'); ?>" 
-                             class="h-16 w-auto" style="height: 4rem;">
-
-                    <?php //if (has_custom_logo()) : ?>
-                        <?php //the_custom_logo(); ?>
-                    <?php //else : ?>
-                        <!--
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo_marron_fond_blanc.svg" 
-                             alt="<?php bloginfo('name'); ?>" 
-                             class="h-12 w-auto">
-                    -->
-                    <?php //endif; ?>
+                    <?php
+                    $custom_logo_id  = get_theme_mod( 'custom_logo' );
+                    $logo_url        = $custom_logo_id ? wp_get_attachment_image_url( $custom_logo_id, 'full' ) : false;
+                    $fallback_url    = get_template_directory_uri() . '/assets/images/logo/logo_celya_header_desktop.svg';
+                    ?>
+                    <img src="<?php echo esc_url( $logo_url ?: $fallback_url ); ?>"
+                         alt="<?php bloginfo( 'name' ); ?>"
+                         class="h-16 w-auto" style="height: 4rem;">
+                
+                
+                    <div class="text-celya-primary pl-1">
+                        <span class="font-serif font-semibold text-xs">Les biscuits de</span>
+                        <br>
+                        <span class="logo-title-celya">Célya</span>
+                    </div>
                 </a>
             </div>
 
@@ -54,9 +56,9 @@
                 <a href="<?php echo esc_url(wc_get_page_permalink('myaccount')); ?>" 
                    class="flex items-center gap-2 text-celya-dark hover:text-celya-orange_dark transition-colors group"
                    title="Mon compte">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pictograms/marron/mon_compte.svg" 
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pictograms/SVG/Marron/Utilisateur - marron.svg" 
                          alt="Mon compte" 
-                         class="w-14 h-14 transition-transform group-hover:scale-110">
+                         class="w-6 h-6 transition-transform group-hover:scale-110">
                 </a>
 
                 <!-- Icône Panier avec compteur -->
@@ -64,16 +66,16 @@
                     <a href="<?php echo esc_url(wc_get_cart_url()); ?>" 
                        class="relative flex items-center gap-2 text-celya-dark hover:text-celya-orange_dark transition-colors group"
                        title="Mon panier">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pictograms/marron/panier.svg" 
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pictograms/SVG/Marron/Panier - marron.svg" 
                              alt="Panier" 
-                             class="w-14 h-14 transition-transform group-hover:scale-110">
+                             class="w-7 h-7 transition-transform group-hover:scale-110">
                         
                         <!-- Compteur panier -->
                         <?php 
                         $cart_count = WC()->cart->get_cart_contents_count();
                         if ($cart_count > 0) : 
                         ?>
-                            <span class="absolute -top-1 -right-1 bg-celya-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-md">
+                            <span class="absolute -top-4 -right-3 bg-celya-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-md">
                                 <?php echo $cart_count; ?>
                             </span>
                         <?php endif; ?>

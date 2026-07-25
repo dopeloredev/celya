@@ -22,7 +22,7 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wr
 do_action( 'woocommerce_before_main_content' );
 ?>
 
-<div class="section-container pt-6 pb-1">
+<div class="section-container w-full pt-6 pb-1">
     <!-- Titre + Description -->
     <header class="woocommerce-products-header mb-8">
         <h1 class="woocommerce-products-header__title page-title font-serif text-3xl md:text-4xl font-bold text-celya-primary mb-4">
@@ -119,17 +119,6 @@ do_action( 'woocommerce_before_main_content' );
                     <?php endforeach; ?>
                     </ul>
                 <?php endif; ?>
-            </div>
-            
-            <!-- Section Produits à personnaliser -->
-            <div class="bg-celya-orange_light rounded-celya-m p-6">
-                <h3 class="font-serif text-lg font-bold text-celya-primary mb-3">Produits à personnaliser</h3>
-                <p class="text-sm text-celya-dark mb-4">
-                    Personnalisez biscuits et autres produits pour vos événements (mariage, anniversaire, baptême, baby shower...)
-                </p>
-                <a href="<?php echo home_url('/personnalisation'); ?>" class="btn-celya-orange-dark text-sm w-full text-center block">
-                    En savoir plus
-                </a>
             </div>
         </aside>
         

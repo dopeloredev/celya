@@ -1,0 +1,194 @@
+/**
+ * ==========================================================================
+ * CELYA — Cart (WooCommerce Blocks)
+ * Surcharge graphique du bloc panier natif WooCommerce (wc-block-cart).
+ * ==========================================================================
+ */
+
+ /* ==========================================================================
+   GLOBAL PANIER
+   ========================================================================== */
+
+/* Titres produits et récap panier */
+table.wc-block-cart-items .wc-block-cart-items__header th,
+.wc-block-cart .wc-block-cart__totals-title {
+    @apply text-xl font-serif font-bold text-celya-primary m-0 pt-4 pb-2;
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   TABLEAU DES ARTICLES — rendu lignes produits arrondies
+   ========================================================================== */
+
+/* ---- GLOBAL - Arrondi + fond de tout le tableau ---- */  
+.wc-block-cart-items__header th {
+    @apply border-0;
+}
+.wc-block-cart__main .wc-block-cart-items {
+    @apply rounded-3xl; 
+}
+table.wc-block-cart-items .wc-block-cart-items__header .wc-block-cart-items__header-image {
+    @apply pl-5;
+}
+table.wc-block-cart-items, table.wc-block-cart-items td {
+    @apply !bg-white;
+}
+table.wc-block-cart-items td {
+    @apply !bg-none;
+}
+
+@media (min-width: 700px) {
+    .wc-block-cart__main .wc-block-cart-items td,
+    .wc-block-components-totals-wrapper {
+        @apply border-t border-gray-100;
+    }
+    .wc-block-cart__main .wc-block-cart-items {
+        @apply border-b-0;
+    }
+    /* Espacement - TABLEAU DES ARTICLES */
+    .wc-block-cart__main .wc-block-cart-items th {
+        padding: 18px 16px 12px 0;
+        white-space: nowrap;
+    }
+}
+
+/* ---- Image produit ---- */
+.wc-block-cart-item__image a {
+    @apply block w-full h-full rounded-xl overflow-hidden bg-celya-light;
+}
+.wc-block-cart-item__image img {
+    @apply w-full h-full object-cover;
+}
+
+/* ---- Titre produit ---- */
+table.wc-block-cart-items .wc-block-cart-items__row .wc-block-components-product-name {
+    @apply text-lg font-serif font-semibold text-celya-primary;
+}
+
+/* ---- Short description produit ---- */
+.wc-block-components-product-metadata__description p {
+    display: none;
+}
+
+/* ---- Prix unitaire ---- */
+.wc-block-cart-item__prices .wc-block-components-product-price__value {
+    @apply text-sm font-medium text-celya-orange_dark;
+}
+
+/* ---- Variation produit ---- */
+.wc-block-components-product-details__name {
+    @apply font-medium text-celya-dark;
+}
+
+/* ---- Selecteur quantité ---- */
+.wc-block-cart-item__quantity {
+    @apply mt-3;
+}
+
+.wc-block-components-quantity-selector {
+    @apply inline-flex items-center bg-celya-light border border-gray-200 rounded-full;
+    height: 2.5rem;
+    padding: 0 0.3rem;
+}
+
+.wc-block-components-quantity-selector__input {
+    @apply text-center text-sm font-semibold text-celya-dark bg-transparent border-none;
+    width: 2.5rem !important;
+    box-shadow: none !important;
+    -moz-appearance: textfield;
+}
+
+.wc-block-components-quantity-selector__input:focus {
+    @apply outline-none;
+    box-shadow: none !important;
+}
+
+.wc-block-components-quantity-selector__input::-webkit-outer-spin-button,
+.wc-block-components-quantity-selector__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.wc-block-components-quantity-selector__button {
+    @apply flex items-center justify-center rounded-full text-base font-semibold text-gray-400;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.wc-block-components-quantity-selector__button:disabled {
+    @apply text-gray-200 cursor-not-allowed;
+}
+
+.wc-block-components-quantity-selector__button:disabled:hover {
+    @apply bg-transparent;
+}
+
+/* ---- Total ligne produit ---- */
+.wc-block-cart-item__total .wc-block-components-product-price__value {
+    @apply font-sans font-bold text-sm text-celya-primary;
+    text-align: left;
+}
+
+
+/* ==========================================================================
+   RÉCAPITULATIF — bloc totaux (sidebar)
+   ========================================================================== */
+.wc-block-components-sidebar {
+    @apply p-0;
+}
+.wc-block-cart .wp-block-woocommerce-cart-order-summary-block {
+    @apply bg-white p-4 rounded-3xl;
+}
+
+/* Titre */
+.wc-block-cart h2.wc-block-cart__totals-title {
+    @apply pt-0;
+}
+
+.wp-block-woocommerce-cart-order-summary-block .wc-block-components-panel, 
+.wc-block-cart .wp-block-woocommerce-cart-order-summary-block .wc-block-components-totals-coupon, 
+.wc-block-cart .wp-block-woocommerce-cart-order-summary-block .wc-block-components-totals-item {
+    @apply text-sm pl-5 pr-5;
+}
+
+/* Sous-total */
+.wc-block-cart .wp-block-woocommerce-cart-order-summary-block .wc-block-components-totals-item {
+     @apply font-sans font-semibold text-sm text-celya-primary;
+}
+
+/* Coupon */
+.wc-block-components-totals-coupon .wc-block-components-panel__button {
+    @apply flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-celya-primary;
+    @apply py-3;
+}
+.wc-block-components-totals-coupon__button,
+.wc-block-components-totals-coupon .wc-block-components-button {
+    @apply bg-celya-orange_dark text-xs font-semibold uppercase tracking-wide rounded-full px-6;
+}
+
+/* Taxes recap */
+.wc-block-components-totals-footer-item .wc-block-components-totals-footer-item-tax {
+    @apply text-xs text-celya-orange_dark;
+}
+
+/* Mention calcul shiping si utilisateur non connecté ou sans adresse de livraison */
+.wc-block-components-totals-footer-item .wc-block-components-totals-footer-item-shipping {
+    @apply text-sm font-normal;
+    @apply pt-4;
+    @apply flex items-center gap-1.5;
+}
+
+/* Picto "info" : rond couleur primaire, "i" en transparent */
+.wc-block-components-totals-footer-item .wc-block-components-totals-footer-item-shipping::before {
+    content: "";
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%2359332a' fill-rule='evenodd' d='M8 0a8 8 0 100 16A8 8 0 008 0Zm0 3a1.15 1.15 0 110 2.3A1.15 1.15 0 018 3ZM6.9 6.8h2.2v6.4H6.9z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}

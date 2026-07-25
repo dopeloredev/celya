@@ -1,8 +1,12 @@
 /* ── celya/icon-card — styles frontend + éditeur ── */
 
 .celya-icon-card {
-    display: inline-flex;
+    display: flex;
 }
+
+.celya-icon-card.is-align-left   { justify-content: flex-start; }
+.celya-icon-card.is-align-center { justify-content: center; }
+.celya-icon-card.is-align-right  { justify-content: flex-end; }
 
 .celya-icon-card__bg {
     display:         flex;

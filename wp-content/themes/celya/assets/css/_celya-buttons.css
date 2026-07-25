@@ -1,0 +1,41 @@
+/* ==========================================================================
+   BOUTONS CÉLYA — source unique partagée
+   Règles simples (hors @layer) pour être réutilisables via @apply
+   dans les builds page-spécifiques (ex: input-account.css) sans avoir
+   à réinjecter les directives @tailwind.
+   Importé par input.css (global) ET par les entrées qui en ont besoin.
+   ========================================================================== */
+
+.btn-celya {
+  @apply bg-celya-primary text-white rounded-full px-6 py-3
+         font-sans font-semibold uppercase tracking-wider text-sm
+         transition-all duration-300 ease-in-out
+         hover:-translate-y-0.5
+         hover:shadow-celya-hover
+         focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-celya-secondary {
+  @apply bg-celya-secondary text-celya-dark rounded-full px-6 py-3
+         font-sans font-semibold uppercase tracking-wider text-sm
+         transition-all duration-300 ease-in-out
+         hover:text-white
+         focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-celya-outline {
+  @apply border border-solid border-celya-primary text-celya-primary bg-transparent
+         rounded-full px-6 py-3
+         font-sans font-semibold uppercase tracking-wider text-sm
+         transition-all duration-300 ease-in-out
+         hover:bg-celya-primary hover:text-white
+         focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-celya-orange-dark {
+  @apply bg-celya-orange_dark text-white rounded-full px-6 py-3
+         font-sans font-semibold uppercase tracking-wider text-sm
+         transition-all duration-300 ease-in-out
+         hover:-translate-y-0.5 hover:shadow-celya-hover
+         focus:outline-none focus:ring-2 focus:ring-offset-2;
+}

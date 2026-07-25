@@ -5,11 +5,14 @@
  * Variables disponibles : $attributes, $content, $block
  */
 
-$media_url   = $attributes['mediaUrl']        ?? '';
-$media_alt   = $attributes['mediaAlt']        ?? '';
-$bg_slug     = $attributes['backgroundColor'] ?? 'celya-primary';
-$radius_key  = $attributes['borderRadius']    ?? 'none';
-$size        = max( 32, intval( $attributes['size'] ?? 80 ) );
+$media_url      = $attributes['mediaUrl']        ?? '';
+$media_alt      = $attributes['mediaAlt']        ?? '';
+$bg_slug        = $attributes['backgroundColor'] ?? 'celya-primary';
+$radius_key     = $attributes['borderRadius']    ?? 'none';
+$size           = max( 32, intval( $attributes['size'] ?? 80 ) );
+$icon_alignment = in_array( $attributes['iconAlignment'] ?? 'left', [ 'left', 'center', 'right' ], true )
+    ? $attributes['iconAlignment']
+    : 'left';
 
 $radius_map = [
     'none'   => '0px',
@@ -27,7 +30,7 @@ $bg_inline = sprintf(
     esc_attr( $radius )
 );
 
-$wrapper_attrs = get_block_wrapper_attributes( [ 'class' => 'celya-icon-card' ] );
+$wrapper_attrs = get_block_wrapper_attributes( [ 'class' => 'celya-icon-card is-align-' . $icon_alignment ] );
 ?>
 <div <?php echo $wrapper_attrs; ?>>
     <div
